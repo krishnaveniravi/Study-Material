@@ -31,5 +31,122 @@ a = "55"  # String
 b = int(s)             
 print(a)
 print(type(a))
+-------------------------------------------------------------
+#int() to float,string,bool:
+
+integer_number=10
+print(type(integer_number)) #<class 'int'>
+
+print(float(integer_number)) #10.0
+print(type(float(integer_number))) #<class 'float'>
+
+print(str(integer_number))   #10
+print(type(str(integer_number))) #<class 'str'>
+
+print(bool(integer_number))  #True
+print(type(bool(integer_number)))  #<class 'bool'>
+---------------------------------------------------------
+#float() to int,string,bool:
+
+float_number=20.243
+print(type(float_number)) #<class 'float'>
+
+print(int(float_number)) #20
+print(type(int(float_number))) #<class 'int'>
+
+print(str(float_number))   #20.243
+print(type(str(float_number))) #<class 'str'>
+
+print(bool(float_number))  #True   , for non zero object it willbe True 
+print(type(bool(float_number)))  #<class 'bool'>
+--------------------------------------------------------
+#str() to int,float,bool:
+
+name='mathan'
+print(type(name)) #<class 'str'>
+
+print(int(name))   #ValueError: invalid literal for int() with base 10: 'mathan'
+print(type(int(name))) 
+
+print(float(name))   #ValueError: could not convert string to float: 'mathan
+print(type(float(name)))
+
+print(bool(name))  #True   , for non zero object it willbe True 
+print(type(bool(name)))  #<class 'bool'>
+---------------------------------------------------------
+age='25'
+print(type(age))  #<class 'str'>
+
+print(int(age)) #25
+print(type(int(age))) #<class 'int'>
+
+print(float(age))   #25.0
+print(type(float(age))) #<class 'float'>
+
+print(bool(age))  #True   , for string object bool o/p is True
+print(type(bool(age)))  #<class 'bool'>
+
+print(bool(''))  #False --->an empty string gives False
+--------------------------------------------------------
+#bool() to int,float,string:
+
+#  Boolean -->True or False T,F should be in capital letter
+
+Student_Present=True
+print(type(int(Student_Present))) #<class 'int'>
+
+print(float(Student_Present)) #0.0
+print(type(float(Student_Present))) #<class 'float'>
+
+print(str(Student_Present)) #False
+print(type(str(Student_Present))) #<class 'str'>
+
+-------------------------------------------------
+
+pe(Student_Present)) #<class 'bool'>
+
+print(int(Student_Present)) #1
+print(type(int(Student_Present))) #<class 'int'>
+
+print(float(Student_Present)) #1.0
+print(type(float(Student_Present))) #<class 'float'>
+
+print(str(Student_Present)) #True
+print(type(str(Student_Present))) #<class 'str'>
+----------
+Student_Present=False
+print(type(Student_Present)) #<class 'bool'>
+
+print(int(Student_Present)) #0
+print(type(int(Student_Present))) #<class 'int'>
+
+print(float(Student_Present)) #0.0
+print(type(float(Student_Present))) #<class 'float'>
+
+print(str(Student_Present)) #False
+print(type(str(Student_Present))) #<class 'str'>
+
+-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
