@@ -1,0 +1,85 @@
+import keyword
+keyword.kwlist
+'''['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break',
+'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for',
+'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not',
+'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'] '''
+
+#if, else 
+
+number1=10
+number2=20
+if number1>number2:
+    print('number1 is greater')
+else:
+    print('number2 is greater')
+
+#number2 is greater
+
+    
+#elif,and
+number1=20
+number2=40
+number3=10
+if number1>number2 and number1>number3:
+    print('number1 is greater')
+elif number2>number3:
+    print('number2 is greater')
+else:
+    print('number3 is greater')
+#number2 is greater
+
+    
+#in,not
+print('k' in 'hello') #False
+print('k' not in 'hello') #True
+print('s' in 'python') #False
+print('o' not in 'python') #False
+
+
+#is--> o/p will be True/False
+number1=10
+number2=20
+print(number1 is number2) #false
+
+number1=10
+number2=20
+print(number1 is not number2)#True
+
+
+
+#global
+
+x='Hello world'
+
+def myfun():
+    global x
+    x='Hi world'
+
+myfun()
+print(x) #Hi world
+
+#return
+
+def add_numbers(x,y):
+    sum=x+y
+    return sum
+
+print(add_numbers(4,5)) #9
+print(add_numbers(6,7)) #13
+    
+#import, from ,as
+import math
+print(math.sqrt(100)) #10
+print(math.pow(10,3))#1000.0
+print(math.factorial(5))#120
+
+from math import pow  #no need to mention math.pow
+print(pow(10,3)) #1000.0
+print(pow(2,3))  #8.0
+
+from math import factorial as fact # importing modules and giving them aliases
+print(fact(5)) #120
+print(fact(3)) #6
+print(fact(10)) #3628800
+
