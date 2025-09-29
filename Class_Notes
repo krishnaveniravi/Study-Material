@@ -1,0 +1,125 @@
+#variable,value
+#print(),type() --->built in function
+#data structure
+    #passenger={'name':'ram','age':26,'station':'chennai'}
+#datatypes:
+#Integer -->15
+#float--> decimal numbers 15.8
+#string-->generic data type-->double quote/single quote '15', 'hi'
+#complex--->5+4j, real and imaginary part
+
+#keywords:
+    #reserved words, can't use as variable, function definition.
+    #if,for,while etc. using this we can framing the program
+#built in function -->it's a funtion if we give the i/p and its give the o/p
+
+#Variable declaration:
+    #Give good names to the variable(project related words)
+    #don't use keywords or any function name
+    #can use a-z,A-Z,0-9(not start with number)
+    #shouldn't have any space(_ are allowed)
+    #camelcase --> myVariableName='Jhon'
+    #variable case sensitive
+#Operator:
+    #Arithmatic operator
+    #+ can also use as concatenate 2 types of same
+#name error-->variable used but not defined
+#Type error---> concatenate (int + str) -->error,unsupported operand type(s) for +: 'int' and 'str'
+#syntax error--->variable not defined as per rules
+#ValueError: invalid literal for int() with base 10: 'python' ...> input()
+
+#dir() ==>provides list of atributes of object
+#divmod()==>take(dividend,divisor) o/p (quotient,remainder)
+#keys()==> Python dictionaries that returns a view object containing all the keys
+#print()==>next line
+#id()==>returns unique id for the specified object
+#len()==>#Identify length of the string or data strucuture
+#input()==>it consider the value as string
+
+
+#print(a.real)==>returs real part of a
+#print(a.imag)==>returs imaginary part of a
+#escape character==>'I\'m fine' ==I'm fine
+#end='', sep='' ==>Modifies the Print Statement's Termination
+#format ==>is a method in string to replace {} with variables
+
+
+
+29/09/2025:
+#comments:
+'''
+readable
+debugging
+'''
+#single line comment '', ""
+#multiline comment ---> ''' quotes, """ quotes start and ends
+#escape sequence \
+'''
+n='i'm fine'
+SyntaxError: unterminated string literal (detected at line 1)
+'''
+#operators:
+"""
+ARITHMATIC OPERATORS:
+
++, addition of numbers
+-,  subtraction
+*,  multiplication
+/,  division
+//, floor division -->divide the numbers and returns the small number
+-5 -4 -3 -2 -1 0 1 2 3 4 5
+print(3//4)==>0.75-->0
+print(-3//4)==>-0.75-->-1
+**,  square root or power
+
+"""
+'''
+a=10
+b=3
+= -->assignment operator
+
+Comparison operators:
+>
+<
+==
+!=
+logical operators:
+or
+and
+
+Membership operator:
+#in
+
+print('i' in 'python') # False
+
+Ternary operators:
+provides a concise way to write an if-else statement on a single line.
+
+a=5
+b=10 if a<10 else 20 #it depends on two variables
+'''
+
+"""
+Function:
+function definition--->user definition function:
+    #writing a blog for a repeated process 
+function call:
+    #print(my_fun())-->calling
+function parameter or arguments:
+    #print(my_fun(a,b))-->a,b parameter or argument
+return
+"""
+#Print() end,sep
+'''
+print('hello')
+print('world'
+hello
+world
+    #print() default end='\n'
+print(1,2,3,4)
+1 2 3 4
+    #print() sep=' ' in default it is a space
+
+'''
+
+
