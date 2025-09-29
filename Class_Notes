@@ -109,16 +109,23 @@ function parameter or arguments:
     #print(my_fun(a,b))-->a,b parameter or argument
 return
 """
-#Print() end,sep
+#Print() end,sep :
 '''
 print('hello')
-print('world'
+print('world')
 hello
 world
     #print() default end='\n'
 print(1,2,3,4)
 1 2 3 4
     #print() sep=' ' in default it is a space
+program:
+a=5
+b=10
+c=20
+print(a,end=' ')
+print(b,end=' ')
+print(c)
 
 '''
 
