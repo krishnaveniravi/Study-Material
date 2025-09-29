@@ -93,18 +93,6 @@ print(bool(''))  #False --->an empty string gives False
 #  Boolean -->True or False T,F should be in capital letter
 
 Student_Present=True
-print(type(int(Student_Present))) #<class 'int'>
-
-print(float(Student_Present)) #0.0
-print(type(float(Student_Present))) #<class 'float'>
-
-print(str(Student_Present)) #False
-print(type(str(Student_Present))) #<class 'str'>
-
--------------------------------------------------
-
-pe(Student_Present)) #<class 'bool'>
-
 print(int(Student_Present)) #1
 print(type(int(Student_Present))) #<class 'int'>
 
@@ -113,7 +101,9 @@ print(type(float(Student_Present))) #<class 'float'>
 
 print(str(Student_Present)) #True
 print(type(str(Student_Present))) #<class 'str'>
-----------
+
+-------------------------------------------------
+
 Student_Present=False
 print(type(Student_Present)) #<class 'bool'>
 
