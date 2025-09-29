@@ -120,12 +120,22 @@ print(1,2,3,4)
 1 2 3 4
     #print() sep=' ' in default it is a space
 program:
+1)using end='':
 a=5
 b=10
 c=20
-print(a,end=' ')
-print(b,end=' ')
-print(c)
+d=25
+print(a,end='\t')
+print(b,end='***')
+print(c,end='\n')
+print(d)
+2)using sep='':
+print(1,2,3,4,5)
+print(1,2,3,4,5,sep='@@')
+print(1,2,3,4,5,sep='\n')
+print(1,2,3,4,5,sep='\t')
+print(1,2,3,4,5,sep='+')
+
 
 '''
 
