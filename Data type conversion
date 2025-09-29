@@ -1,1 +1,35 @@
+Data Type Conversion:
+  Data type conversion in Python involves changing a value from one data type to another.
+Also called as 'type casting'.
+
+Implicit Type Conversion:
+  automatically converts one data type into another during expression evaluation. 
+  This usually happens when a smaller data type like int is combined with a larger one like float in an operation.
+x = 10          # Integer
+y = 10.6        # Float
+z = x + y     
+
+print("x:", type(x))
+print("y:", type(y))
+print("z =", z)
+print("z :", type(z))
+
+Output
+x: <class 'int'>
+y: <class 'float'>
+z = 20.6
+z : <class 'float'>
+
+Explicit Type Conversion:
+  manually convert the data type of a value using Python’s built-in functions.
+
+  int() converts a value to an integer
+  float() converts a value to a floating point number
+  str() converts a value to a string
+  bool() converts a value to a Boolean (True/False)
+a = "55"  # String
+b = int(s)             
+print(a)
+print(type(a))
+
 
