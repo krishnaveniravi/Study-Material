@@ -31,11 +31,18 @@ print(len(Name)) #6
 n=500
 print(len(n)) #type error :int has no len()
 
-
+input():
 #input()==>it consider the value as string
+    The input() function in Python is a built-in function used to obtain user input from the console.
+    It pauses the program execution and waits for the user to type something and press Enter.
+    It is always a string
+    It receive a user input from keyboard as a string and returns a entered text as a string.
 name=input('Enter your name:') #mathan
-print(len(name)) #6
 print(type(name)) #<class 'str'>
+print(len(name)) #6
+    If we want to other datatypes use type casting
+mark=int(input('Enter your mark:')) #70
+print(type(mark)) #<class 'int'>
 
 #round()-->Rounds number to ndigits=none decimal places.
 float_number=123.45678
