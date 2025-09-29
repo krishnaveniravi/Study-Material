@@ -129,10 +129,19 @@ print(a,end='\t')
 print(b,end='***')
 print(c,end='\n')
 print(d)
------
+-------------------------------
 5       10***20
 25
------
+--------------------------------------
+print("hello") #print("hello", end="\n")
+print("world")
+print("welcome to ", end="\t")
+print("python")
+-----------------------------------
+hello
+world
+welcome to      python
+--------------------
 2)using sep='':
 print(1,2,3,4,5) # 1 2 3 4 5
 print(1,2,3,4,5,sep='@@') #1@@2@@3@@4@@5
@@ -144,8 +153,7 @@ print(1,2,3,4,5,sep='\n')
 5
 print(1,2,3,4,5,sep='\t') #1       2       3       4       5
 print(1,2,3,4,5,sep='+')  #1+2+3+4+5
-
-
+print('hello','world',sep='$$') #hello$$world
 '''
 
 
