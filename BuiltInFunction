@@ -1,0 +1,57 @@
+#dir() ==>provides list of atributes of object
+mark_list=[50,70,65]
+print(dir(mark_list))
+'''['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__',
+'__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__',
+'__getitem__', '__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__',
+'__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__',
+'__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__',
+'__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__','__subclasshook__',
+'append', 'clear', 'copy','count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']'''
+
+#divmod()==>take(dividend,divisor) o/p (quotient,remainder)
+print(divmod(10,3)) #(3, 1)
+
+
+#keys()==> Python dictionaries that returns a view object containing all the keys
+
+
+#print()==>Prints objects to the text stream file
+
+#id()==>returns unique id for the specified object
+a=5
+b=8
+print(id(a)) #140733966218280
+print(id(b)) #140733966218376
+
+#len()==>#Identify length of the string or data strucuture
+Name='Mathan'
+print(len(Name)) #6
+
+n=500
+print(len(n)) #type error :int has no len()
+
+
+#input()==>it consider the value as string
+name=input('Enter your name:') #mathan
+print(len(name)) #6
+print(type(name)) #<class 'str'>
+
+#round()-->Rounds number to ndigits=none decimal places.
+float_number=123.45678
+print(round(float_number)) #123
+
+#range()--->Returns a sequence of numbers
+for i in range(0,3):
+    print(i)
+#0
+#1
+#2
+
+#bin(),oct(),hex
+binary_number=bin(20)
+print(binary_number) #0b10100
+octal_number=oct(9) 
+print(octal_number) #0o11
+hexadecimal_number=hex(16)
+print(hexadecimal_number) #0x10
