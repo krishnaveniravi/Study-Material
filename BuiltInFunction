@@ -30,7 +30,7 @@ print(len(Name)) #6
 
 n=500
 print(len(n)) #type error :int has no len()
-
+------------------------------------------------------------------------------------------------------------------
 input():
 #input()==>it consider the value as string
     The input() function in Python is a built-in function used to obtain user input from the console.
@@ -43,7 +43,23 @@ print(len(name)) #6
     If we want to other datatypes use type casting
 mark=int(input('Enter your mark:')) #70
 print(type(mark)) #<class 'int'>
-
+------------------------
+name=int(input('Enter your name:')) 
+print(type(name)) 
+Enter your name:mathan
+Traceback (most recent call last):
+  File "D:\python\test op\out.py", line 1, in <module>
+    name=int(input('Enter your name:')) #70
+ValueError: invalid literal for int() with base 10: 'mathan'
+-------------------------
+name=float(input('Enter your name:')) 
+print(type(name)) 
+Enter your name:mathan
+Traceback (most recent call last):
+  File "D:\python\test op\out.py", line 1, in <module>
+    name=float(input('Enter your name:'))
+ValueError: could not convert string to float: 'mathan'
+-----------------------------------------------------------------
 #round()-->Rounds number to ndigits=none decimal places.
 float_number=123.45678
 print(round(float_number)) #123
