@@ -1,0 +1,68 @@
+STRING:
+String is a sequence of characters, used to represent text.
+Can be written in " " or ' ' 
+name='mathan'
+print(name)  #mathan
+name="mathan"
+print(name)  #mathan
+
+concatenate:
+using + and , 
+name='mathan'
+city='chennai'
+print(name+city) #mathanchennai  ----> both side should be same datatype
+print(name,city) #mathan chennai
+
+STRING SLICING AND INDEXXING:
+
+index---->order 
+===>[]
+
+slicing--->extracting the sub.string from a string
+'H e l l o _ w o r l d !'---->string
+ 0 1 2 3 4 5 6 7 8 9 10 11--->index number
+
+forward---->positive--->starts from zero/0
+backward---->negative--->starts from -1
+
+Msg='H  e  l  l  o  _  w  o  r  l  d  !'---->string
+     0  1  2  3  4  5  6  7  8  9 10  11--->index number
+    -12-11-10-9 -8- 7 -6 -5 -4 -3 -2 -1---->negative indexing
+msg='hello world'
+print(msg) #hello world
+
+print(msg[0]) #h
+print(msg[1]) #e
+print(msg[2]) #l
+print(msg[3]) #l
+print(msg[4]) #o
+
+print(msg[-5]) #w
+print(msg[-4]) #o
+print(msg[-3]) #r
+print(msg[-2]) #l
+print(msg[-1]) #d
+print(msg[-13])  #IndexError: string index out of range
+
+msg='hello world'
+print(msg[0:5])  #hello
+print(msg[:5])  #hello   --->default it takes from 0 to 4
+print(msg[7:])  #orld   --->to last char
+print(msg[::])  #hello world
+print(msg[:])  #hello world
+print(msg[-1:-6])  #no output empty
+print(msg[5:0])    #no uotput empty
+print(msg[6::3])  #wl [6 start :default end: 3 interval or step]
+print(msg[6:11:3]) #wl
+print(msg[10:0:-3]) #dooe 
+print(msg[::-1]) #dlrow olleh
+
+
+
+
+
+
+
+
+
+
