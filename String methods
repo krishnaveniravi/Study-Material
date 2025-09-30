@@ -1,0 +1,148 @@
+STRING METHODS:  use only on string
+  Python has a set of built-in methods that you can use on strings.
+
+method--->specific function 
+  that can be used for specific datatype 
+Function ==> common functionality 
+
+len()--->length of the string
+  sent='hello world welcome'
+
+upper()     ---> Converts a string into upper case
+  print(sent.upper()) #HELLO WORLD WELCOME
+
+lower()     ---> Converts a string into lower case
+  print(sent.lower()) #hello world welcome
+
+msg='He is FINE'
+swapcase()   ---> converts upper to lower ,lower to upper
+  print(msg.swapcase()) # hE IS fine
+
+title()      --->Converts the first character of each word to upper case
+  print(sent.title()) #Hello World Welcome
+
+capitalize() --->Converts the first character to upper case
+  print(sent.capitalize()) #Hello world welcome
+
+name='jhon'
+index()      ---> Searches the string for a specified value and returns the position of where it was found
+  print(name.index('j')) # 0
+  print(name.index('k')) # ValueError: substring not found
+rindex()     --->Searches the string for a specified value and returns the last position of where it was found
+
+find()       --->Searches the string for a specified value and returns the position of where it was found
+  print(name.index('n')) # 3
+  print(name.index('k')) # -1 ,for not available substring find() returns position as -1 
+rfind()      --->Searches the string for a specified value and returns the position of where it was found
+
+student='rajaraja'
+count()      --->Returns the number of times a specified value occurs in a string
+  print(student.count('ra')) # 2
+  print(student.count('kl')) # 0
+  
+replace()    --->Returns a string where a specified value is replaced with a specified value
+  print(student.replace('ja','ma')) #ramarama
+
+strip()      --->Returns a trimmed version of the string
+  a = "     python     "
+  print(a.strip()) #white space default   #python
+  print(a.lstrip()) #left side strip      #python
+  print(a.rstrip()) #right side strip     #    python
+
+  a = "*** **python***** ****"
+  print(a.strip("*")) #white space default   # **python***** 
+  print(a.lstrip("*"))        # **python***** ****
+  print(a.rstrip("*"))       #*** **python*****
+
+Check w3 school website for below:
+isalnum()	--->Returns True if all characters in the string are alphanumeric
+isalpha()	--->Returns True if all characters in the string are in the alphabet
+isascii()	--->Returns True if all characters in the string are ascii characters
+isdecimal()	--->Returns True if all characters in the string are decimals (0-9)
+isdigit()	--->Returns True if all characters in the string are digits
+isidentifier()	--->Returns True if the string is an identifier
+islower()	--->Returns True if all characters in the string are lower case
+isnumeric()	--->Returns True if all characters in the string are numeric
+isprintable()	--->Returns True if all characters in the string are printable
+isspace()	--->Returns True if all characters in the string are whitespaces
+istitle()	--->Returns True if the string follows the rules of a title
+isupper()	--->Returns True if all characters in the string are upper case
+
+a = "10"
+b = "abc1020"
+
+print(a.isnumeric())  #True
+print(b.isalpha())    #False
+print(a.isalnum())    #True  doubt
+print(b.isalnum())    #True
+
+c='   '
+print(c.isspace()) #True
+
+d='Sky is Blue'
+print(d.istitle()) #False
+
+E='HELLO'
+print(E.isupper()) #True
+print(E.islower()) #False
+
+f='2star'
+g='Moon123'
+h='hi hello'
+print(f.isidentifier()) #False
+print(g.isidentifier()) #True
+print(h.isidentifier()) #False
+print(g.isascii()) # True
+
+txt = "1234"
+print(txt.isdecimal()) #True
+txt = "1234.45"
+print(txt.isdecimal()) #False
+
+txt = "50800"
+print(txt.isdigit())  #True
+
+split()	    --->Splits the string at the specified separator, and returns a list
+#input: string
+#output: [List]
+txt = 'hello welcome'
+print(txt.split())# ['hello', 'welcome']
+
+text='Hi, everyone, welcome'
+print(text.split(','))  #['Hi', 'everyone', 'welcome']
+
+join()      --->Join all items in a tuple into a string, using a hash character as separator:
+myTuple = ("John", "Peter", "Vicky")
+x = "#".join(myTuple)
+print(x) #John#Peter#Vicky
+
+sort()
+
+#startswith/ endswith
+a = "python"
+
+print(a.startswith("pp")) #False
+print(a.startswith("py")) #True
+
+print(a.endswith("on")) #True
+
+maketrans()	Returns a translation table to be used in translations
+partition()	Returns a tuple where the string is parted into three parts
+
+format()	Formats specified values in a string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
