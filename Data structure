@@ -1,0 +1,151 @@
+Data Structure:
+  Multiple values in single variable
+
+LIST:
+  Used to store collections of data.
+  Lists are created using square brackets. []
+
+list1=['apple','banana','cherry']
+print(list1) #['apple', 'banana', 'cherry']
+
+List Items:
+  Items are ordered, changeable, and allow duplicate values.
+  List items are indexed, the first item has index [0], the second item has index [1] etc.
+
+Changeable:
+  we can change, add, and remove items in a list after it has been created.
+Lists allow duplicate values:
+list = ["apple", "banana", "cherry", "apple", "cherry"]
+          0          1        2         3         4      ----------->indexing
+print(list) 
+print(id(list[0])) #22466415095616
+print(id(list[3])) #22466415095616
+print(id(list[1])) #22466415097440
+print(id(list[2])) #22466415088224
+print(id(list[4])) #22466415088224
+
+List Length:
+list = ["apple", "banana", "cherry"]
+print(len(list)) #3
+
+List Items - Data Types:
+  List items can be of any data type
+
+list1 = ["apple", "banana", "cherry"] #string
+list2 = [1, 5, 7, 9, 3] #int
+list3 = [True, False, False] #bool
+list4 = [1.5, 5.3, 7.8, 9.9, 3.4] #float
+
+List can different data types:
+  list1 = ["abc", 34, True, 40, "male"]
+  print(type(list1))  #<class 'list'>
+
+The list() Constructor:
+  Use this constructor we can create new list
+list1=('apple','banana','cherry') #['apple', 'banana', 'cherry']
+print(list1.list()) 
+
+
+LIST METHODS:
+Concatenation:
+list1=[0,1,2]
+list2=[3,4,5]
+print(list1+list2)  #[0, 1, 2, 3, 4, 5]
+
+list=[1,2,3]
+print(list*3) #[1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+mutable / list assignment possible:
+list1=[1,2,3,4,5]
+list1[2]=6
+print(list1) #[1, 2, 6, 4, 5]
+
+append()--->Adds an element at the end of the list
+list=[1,2,3,4,5]
+print(list.append(30))  #None
+list=[1,2,3,4,5]
+list.append(30)
+print(list) #[1, 2, 3, 4, 5, 30]
+
+clear()--->	Removes all the elements from the list
+list=[1,2,3,4,5]
+list.clear()
+print(list) #[]
+
+copy()--->	Returns a copy of the list  (real eg:Google doc,excel,ppt,etc)
+list=[1,2,3,4,5]
+x=list.copy()
+print(x) #[1, 2, 3, 4, 5]
+print(list) #[1, 2, 3, 4, 5]
+list[1]=7
+print(list)
+print(x)
+print(id(list)) #23106848164864
+print(id(x)) #23106848164672
+
+count()-->	Returns the number of elements with the specified value
+List=[2,3,4,5,3,3,4,5,6]
+print(List.count(3)) #3
+print(List.count(6)) #1
+
+extend()-->	Add the elements of a list (or any iterable), to the end of the current list
+Add the elements of cars to the fruits list:
+fruits=['banana','apple','cherry']
+cars=['BMW','AUDI','TATA']
+fruits.extend(cars)
+print(fruits) #['banana', 'apple', 'cherry', 'BMW', 'AUDI', 'TATA']
+
+index()-->	Returns the index of the first element with the specified value
+fruits=['banana','apple','cherry']
+print(fruits.index('2')) #1
+
+fruits=['banana','apple','cherry']
+print(fruits.index('kiwi')) #ValueError: 'kiwi' is not in list
+
+insert()--->	Adds an element at the specified position
+fruits=['banana','apple','cherry']
+fruits.insert(1,100)
+print(fruits) #['banana', 100, 'apple', 'cherry']
+
+pop()--->	Removes the element at the specified position
+fruits=['banana','apple','cherry','kiwi']
+fruits.pop(2)
+print(fruits) #['banana', 'apple', 'kiwi']
+
+fruits.pop()
+print(fruits) #['banana', 'apple']
+
+remove()--->	Removes the first item with the specified value
+cars=['BMW','AUDI','TATA']
+cars.remove('AUDI')
+print(cars)  #['BMW', 'TATA']
+
+reverse()--->	Reverses the order of the list
+cars=['BMW','AUDI','TATA']
+cars.reverse()
+print(cars)  #['TATA', 'AUDI', 'BMW']
+
+sort()--->	method sorts the list ascending by default.
+cars=['BMW','AUDI','TATA']
+cars.sort()
+print(cars) #['AUDI', 'BMW', 'TATA']
+
+Sort the list descending:
+cars = ['Ford', 'BMW', 'Volvo']
+cars.sort(reverse=True)
+print(cars) #['Volvo', 'Ford', 'BMW']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
