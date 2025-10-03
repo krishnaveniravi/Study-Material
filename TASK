@@ -192,7 +192,7 @@ Google_chrome_browser
 print(a[-10:10:3]) #empty
 print(a[-5:-1:1]) #owse
 print(a[-8:-2:10]) #_
-print(a[5::3]) #ehmbw
+print(a[5::3]) #ehmbwr
 print(a[:5:2]) #Gol
 print(a[10:14:2]) #oe
 print(a[-10:-3:3]) #mbw
@@ -210,13 +210,13 @@ print(a[::-3]) #rwbmheo
 
 Google_chrome_browser
 print(a[6::3]) #_rers
-print(a[6::-3]) #_g
+print(a[6::-3]) #_gG
 print(a[:8:3]) #Gg_
-print(a[:8:-3]) #heo
+print(a[:8:-3]) #rwbm
 print(a[2::5]) #ocew
-print(a[10::-5]) #oe
+print(a[10::-5]) #oeG
 print(a[:6:1]) #Google
-print(a[:7:-2]) #ceg
+print(a[:7:-2]) #rsobeoh
 
 
 
