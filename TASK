@@ -19,5 +19,98 @@ string=input('Enter any string to strip:')
 print(string.strip('*'))
 print(string.rstrip('*'))
 print(string.lstrip('*'))
+-----------
+Task3: (name<space>float)
+
+collect three strings from user  name<space>float
+
+string1: "ravi 10.30"  
+string2: "meghala 12.19"
+string3: "Gokul 20.20"
+
+split + indexing
+
+10.30 + 12.19 + 20.20 ===> output ===> round (42.69000) 5 decimal places should be (format)
+string1=input('Enter string1(name<space>float):')
+string2=input('Enter string2(name<space>float):')
+string3=input('Enter string3(name<space>float):')
+str1=string1.split()
+str2=string2.split()
+str3=string3.split()
+output=float(str1[1])+float(str2[1])+float(str3[1])
+print(round(output))
+-------
+Task4:
+
+#collect two strings from user
+
+string1: python
+String2: java
+
+output ===> jythonpava64hv
+
+string1=input('Enter string1:')  #python
+string2=input('Enter string2:')   #java
+str1=string2[0]+string1[1:]
+str2=string1[0]+string2[1:]
+length1=len(string1)
+length2=len(string2)
+middle_letter1=int(len(string1)/2)
+middle_letter2=int(len(string2)/2)
+print(str1+str2+str(length1)+str(length2)+string1[middle_letter1]+string2[middle_letter2])
+-----------
+Task5:
+Collect two strings from user
+
+string1: wikipedia
+string2: typescript
+
+output: p  +  c   ===> ascii value of p + ascii value of c  ====>  198
+(ord , chr)
+string1=input('Enter string1:')  
+string2=input('Enter string2:') 
+#middle char of string1
+middle_character1=int(len(string1)/2)
+str1_middle=string1[middle_character1]
+#middle char of string2
+middle_character2=int(len(string2)/2)
+str2_middle=string2[middle_character2]
+#to find ascii value
+ascii_str1=ord(str1_middle)
+ascii_str2=ord(str2_middle)
+output=ascii_str1+ascii_str2
+print(f'ascii value of {ascii_str1} + ascii value of {ascii_str2} is:',output)
+-----------
+Task6:
+collect one string from user:
+string: computer
+output: c6r
+string: mathematics
+output: m9s
+
+string=input('Enter any string:') #computer
+output=string[0]+str(len(string[1:-1]))+string[-1]
+print(output)
+--------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
