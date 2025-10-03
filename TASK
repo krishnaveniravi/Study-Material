@@ -7,3 +7,17 @@ string=input('Enter any string:')
 length=len(string)
 middle_character=int(length/2)
 print('Middle character of the string:',string[middle_character])
+----------
+Task2:
+string1: ***python***
+string2: **python********
+string3: ********java*******
+
+output: python  (strip,rstrip,lstrip method *)
+
+string=input('Enter any string to strip:')
+print(string.strip('*'))
+print(string.rstrip('*'))
+print(string.lstrip('*'))
+
+
