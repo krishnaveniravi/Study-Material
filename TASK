@@ -1,4 +1,4 @@
-3/10/25
+ty3/10/25
 Task1:
 Get one string from user
 identify the middle character of the string
@@ -187,35 +187,36 @@ print(a[-5:-3:20]) #0
 -21   -20  -19  -18  -17  -16  -15  -14  -13  -12  -11  -10  -9   -8   -7   -6   -5   -4   -3   -2   -1 
 "G     o    o    g    l    e    _    c    h    r    o    m    e    _    b    r    o    w    s    e    r"
  0     1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20  
+Google_chrome_browser
 
-print(a[-10:10:3]) #
-print(a[-5:-1:1])
-print(a[-8:-2:10])
-print(a[5::3])
-print(a[:5:2])
-print(a[10:14:2])
-print(a[-10:-3:3])
-print(a[5:12:5])
-print(a[3:-3:3])
-print(a[-5:-3:20])
-
-
-print(a[::1])
-print(a[::2])
-print(a[::3])
-print(a[::-1])
-print(a[::-2])
-print(a[::-3])
+print(a[-10:10:3]) #empty
+print(a[-5:-1:1]) #owse
+print(a[-8:-2:10]) #_
+print(a[5::3]) #ehmbw
+print(a[:5:2]) #Gol
+print(a[10:14:2]) #oe
+print(a[-10:-3:3]) #mbw
+print(a[5:12:5]) #eo
+print(a[3:-3:3]) #g_rer
+print(a[-5:-3:20]) #o
 
 
-print(a[6::3])
-print(a[6::-3])
-print(a[:8:3])
-print(a[:8:-3])
-print(a[2::5])
-print(a[10::-5])
-print(a[:6:1])
-print(a[:7:-2])
+print(a[::1]) #Google_chrome_browser
+print(a[::2]) #Gol_hoebosr
+print(a[::3]) #Gg_rers
+print(a[::-1]) #resworb_emorhc_elgooG
+print(a[::-2]) #rsobeoh_loG
+print(a[::-3]) #rwbmheo
+
+Google_chrome_browser
+print(a[6::3]) #_rers
+print(a[6::-3]) #_g
+print(a[:8:3]) #Gg_
+print(a[:8:-3]) #heo
+print(a[2::5]) #ocew
+print(a[10::-5]) #oe
+print(a[:6:1]) #Google
+print(a[:7:-2]) #ceg
 
 
 
