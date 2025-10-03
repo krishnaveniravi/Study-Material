@@ -1,0 +1,9 @@
+3/10/25
+Task1:
+Get one string from user
+identify the middle character of the string
+
+string=input('Enter any string:')
+length=len(string)
+middle_character=int(length/2)
+print('Middle character of the string:',string[middle_character])
