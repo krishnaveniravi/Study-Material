@@ -147,7 +147,7 @@ print(val[12:5]) #empty
 
 print(val[3:10:1]) #ormatio
 print(val[3:10:2]) #omto
-print(val[3:10:3]) #oai
+print(val[3:10:3]) #oao
 print(val[5:-5:1]) #mation_Techn
 print(val[5:-5:2])#mto_eh
 print(val[5:-5:5]) #mnh
@@ -159,7 +159,7 @@ print(val[12:5:3]) #empty
 "computer science"
 
 
-print(a[-10:10:3]) #e
+print(a[-10:10:3]) #es
 print(a[-5:-1:1]) #ienc
 print(a[-8:-2:10]) #space
 print(a[5::3]) #t ic
@@ -173,7 +173,7 @@ print(a[-5:-3:20]) #i
 "Information_technology"
 
 
-print(a[-10:10:3]) #n
+print(a[-10:10:3]) #empty
 print(a[-5:-1:1]) #olog
 print(a[-8:-2:10]) #c
 print(a[5::3]) #mi_cog
