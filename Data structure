@@ -1,16 +1,17 @@
 Data Structure:
-  Multiple values in single variable
+  can assign multiple values in single variable
 
+  
 LIST:
   Used to store collections of data.
-  Lists are created using square brackets. []
+  Lists are created using square brackets []
 
 list1=['apple','banana','cherry']
 print(list1) #['apple', 'banana', 'cherry']
 
 List Items:
   Items are ordered, changeable, and allow duplicate values.
-  List items are indexed, the first item has index [0], the second item has index [1] etc.
+  List items are indexed/ordered, the first item has index [0], the second item has index [1] etc.
 
 Changeable:
   we can change, add, and remove items in a list after it has been created.
@@ -36,7 +37,7 @@ list2 = [1, 5, 7, 9, 3] #int
 list3 = [True, False, False] #bool
 list4 = [1.5, 5.3, 7.8, 9.9, 3.4] #float
 
-List can different data types:
+List items can different data types:
   list1 = ["abc", 34, True, 40, "male"]
   print(type(list1))  #<class 'list'>
 
