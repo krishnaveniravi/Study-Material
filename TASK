@@ -290,6 +290,23 @@ input='abcbd'
 output=dbcba
 --->The given input is not palindrome
 
+=======================================
+task from pavitha
+task1:
+#Alternative case:
+
+string=input('Enter any string:') #hello
+length=len(string)
+index=0
+for i in string:
+    string_index=string.index(i,index,length)
+    if string_index%2==0:
+        print(i.upper(),end='')
+    else:
+        print(i.lower(),end='')
+    index+=1
+--------------------------------------
+task2:
 
 
 
