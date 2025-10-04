@@ -250,10 +250,40 @@ print('The given number is',output,number)
 
 To find odd/even number:
 Get the integer input from user.
-Using ternary operator to check entered number is odd/even .
-output--->The entered number is odd/even number
+Using ternary operator to check entered number is odd/even.
+
+input=32
+output--->The entered number is even number
 
 Task2:
+To print alphapet only
+name=input('enter your email id:')
+for i in name:
+    if i>='a' and i<='z':
+        print(i)
+Get the alphanumeric input from user
+Using for,if else  
+print the alphabets alone
+input='jhon5678'
+output:
+j
+h
+o
+n
+(or) output---> j h o n
+
+Task3:
+Get the input from user to check palindrome or not
+input= 121   #int or string
+output=121
+--->The given input is palindrome
+
+input='abcbd'
+output=dbcba
+--->The given input is not palindrome
+
+
+
 
 
 
