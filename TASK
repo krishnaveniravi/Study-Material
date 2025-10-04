@@ -221,6 +221,8 @@ print(a[2::5]) #ocew
 print(a[10::-5]) #oeG
 print(a[:6:1]) #Google
 print(a[:7:-2]) #rsobeoh
+--------------------------------------------
+4/10/25
 
 String: "welcome to programming world"
  -28  -27  -26  -25  -24  -23  -22  -21  -20  -19  -18  -17  -16  -15  -14  -13  -12  -11  -10  -9   -8   -7   -6    -5    -4   -3   -2   -1 
@@ -241,7 +243,8 @@ print(string[-4:]) #orld
 [::-2] #drwgimropo mce
 [::3] #wceorrmgod
 ------------
-Task==3 programe challenge:
+4/10/25
+Task==>3 programe challenge:
 
 Task1:
 n1=int(input('enter n1'))
@@ -254,11 +257,11 @@ Using ternary operator to check entered number is odd/even.
 
 input=32
 output--->The entered number is even number
-
+----------------------------------------
 Task2:
 To print alphapet only
-name=input('enter your email id:')
-for i in name:
+get=input('enter any alphanumeric:')
+for i in get:
     if i>='a' and i<='z':
         print(i)
 Get the alphanumeric input from user
@@ -271,7 +274,7 @@ h
 o
 n
 (or) output---> j h o n
-
+-----------------------------------------------
 Task3:
 word='abcd'
 word2=word[::-1]
@@ -297,16 +300,58 @@ task1:
 
 string=input('Enter any string:') #hello
 length=len(string)
-index=0
+indexx=0
 for i in string:
-    string_index=string.index(i,index,length)
+    string_index=string.index(i,indexx,length)
     if string_index%2==0:
         print(i.upper(),end='')
     else:
         print(i.lower(),end='')
-    index+=1
+    indexx+=1
 --------------------------------------
 task2:
+#Count number of vowels in a string
+ Input:   Hello World
+Expected Output:   Number of vowels: 3
+
+string=input('Enter any string:') #Hello world
+count=0
+for i in string:
+    if i in ('a','e','i','o','u'):
+        #print(i)
+        count+=1
+print('Number of vowels:',count)
+-------------------------------------------
+task3:
+3. Write a Python program to print the first and last index where a given character appears in a string.
+Input:
+Enter the string: communication
+Enter the character to search: c
+Expected Output:
+First occurrence at index: 0
+Last occurrence at index: 7
+
+string=input('Enter the string:')  #communication
+search_char=input('Enter the character to search:')  #c
+length=len(string)
+indexx=0
+count=0
+for i in string:
+    if i==search_char:
+        string_index=string.index(i,indexx,length)
+        if count==0:
+            print('First occurrence at index:',string_index)
+        indexx+=1
+        count+=1
+        if count==:
+            print('last occurrence at index:',string_index)
+else:
+    print(count)
+
+
+ 
+
+
 
 
 
