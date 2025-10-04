@@ -273,6 +273,14 @@ n
 (or) output---> j h o n
 
 Task3:
+word='abcd'
+word2=word[::-1]
+print(word2) 
+if word2==word1:
+ print('The given input is palindrome;)
+else:
+ print('The given input is not palindrome')
+
 Get the input from user to check palindrome or not
 input= 121   #int or string
 output=121
