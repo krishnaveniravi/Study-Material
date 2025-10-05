@@ -7,7 +7,7 @@ list items--->int,float,string,bool
 list1=[1,1.2,'s',True]
 
 string='python'
-print(string.list())=['p','y','t','h','o','n']
+print(list(string))=['p','y','t','h','o','n']
 
 list=[1, 2, 3, 4]
       0  1  2   3
