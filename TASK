@@ -384,24 +384,55 @@ li3=[5, 6, 7, 8, 8, 9, 1, 5, 6, 7, 8, 1]
 print(li3.count(8)) #3
 
 #find the mean of the list
+length=len(li3)
+sum_list=sum(li3)
+mean=sum_list/length
+print('mean of the list=',mean) #mean of the list= 5.916666666666667
 
 #find sum (List) + min + Max 
+print(sum(li3))  #71
+print(min(li3)) #1
+print(max(li3)) #9
+
 #Find median of the list
+
+
 #remove duplicates from list and give output in the format of tuple
+li3=[5, 6, 7, 8, 8, 9, 1, 5, 6, 7, 8, 1]
+li4=set(li3)
+print(li4) #{1, 5, 6, 7, 8, 9}
+print(tuple(li4)) #(1, 5, 6, 7, 8, 9)
 
 Study: https://www.w3schools.com/python/python_ref_list.asp
--------------
+-------------------------------------------------
 Tuple
 
 #Create two tuples (1,4,5,6,7,8) (5,6,7,8,9)
+tu1=(1,4,5,6,7,8)
+print(tu1)
+tu2=(5,6,7,8,9)
+print(tu2)
 #Find the common elements between two tuples
-#Concatenate both tuples and remove duplicates from tuple
-#Find the index value of 9 (after concatenation)
-#multiply above elements 3 times
 
+#Concatenate both tuples and remove duplicates from tuple
+tu3=tu1+tu2
+print(tu3) #(1, 4, 5, 6, 7, 8, 5, 6, 7, 8, 9)
+tu3=(1, 4, 5, 6, 7, 8, 5, 6, 7, 8, 9)
+tu4=set(tu2)
+print(tuple(tu4)) #(1, 4, 5, 6, 7, 8, 9)
+
+#Find the index value of 9 (after concatenation)
+tu3=(1, 4, 5, 6, 7, 8, 5, 6, 7, 8, 9)
+print(tu3.index(9)) #10
+
+#multiply above elements 3 times
+tu3=(1, 4, 5, 6, 7, 8, 5, 6, 7, 8, 9)
+print(tu3*3)
+-----------------------------------------------
  Sets
 
 #Create two empty sets
+
 #update set1 with 7,8,9,1,2,3,4,5,0
 #update set2 with 4,5,6,0
 #check whether set2 is subset of set1 or no ?
@@ -409,7 +440,7 @@ Tuple
 #remove 8 from set 1 and set 2 ==> find the inferences
 #discard 0 from set1 and set2 
 #find collection of both sets ===> set1 and set2
-
+--------------------------------------------------------
 Dictionary:
 
 #create a dictionary
