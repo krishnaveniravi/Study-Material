@@ -135,6 +135,123 @@ Sort the list descending:
 cars = ['Ford', 'BMW', 'Volvo']
 cars.sort(reverse=True)
 print(cars) #['Volvo', 'Ford', 'BMW']
+========================================================
+Tuple:
+used to store multiple items in a single variable.
+A tuple is a collection which is ordered and unchangeable.
+
+Tuples are written with round brackets.---->()
+tuple1=('a','b','c')
+print(tuple1)
+print(type(tuple1))
+
+Tuple items:
+Tuple items can be a any data type:
+  String, int and boolean data types.
+  tu1=(1,2,3,4)---->int
+  tu2=('s','e','r')--->string
+  tu3=(2.3,4.5,6.3)--->float
+  tu4=(True,False)--->bool
+  A tuple can contain different data types.
+  tu1=(2,'g',4.5,True)
+
+  Ordered/index
+  immutable/changeable
+  Duplicates allowed--->Since tuples are indexed, they can have items with the same value:
+
+Indexing/ordering:
+  tuple1=('a','b','c')
+  print(tuple1[0]) #a
+  print(tuple1[0:2]) #('a', 'b')
+
+immutable/changeable:
+  tuple1=('a','b','c')
+  tuple1[0]='s'
+  print(tuple1)
+  #TypeError: 'tuple' object does not support item assignment
+
+Duplicates allowed:
+  ->Since tuples are indexed, they can have items with the same value.
+tuple1=('a','b','c','a','a','d','b')
+print(tuple1) #('a', 'b', 'c', 'a', 'a', 'd', 'b')
+
+len()
+  To determine how many items a tuple has, use the len() function:
+tuple1=('a','b','c','a','a','d','b')
+print(len(tuple1)) #7
+
+Create Tuple With One Item.
+  One item tuple, remember the comma.
+  tu1=('tata')
+  print(type(tu1)) # <class 'str'>
+  
+  tu2=('tata',)
+  print(type(tu2)) #<class 'tuple'>
+
+  tup3 = (10)
+  print(tup3)
+  print(type(tup3)) #<class 'int'>
+
+The tuple() Constructor:
+Empty tuple creation:
+  tup1 = tuple()
+  print(tup1)
+  print(type(tup1))
+  
+  tup2 = ()
+  print(tup2)
+  print(type(tup2))
+
+Change Tuple Values:
+  we can't directly change the tuple values.
+  But we can convert tuple into list and change the value then convert into tuple again.
+x = ("tata", "bmw", "audi")
+y = list(x)
+y[1] = 'innova'
+x = tuple(y)
+print(x) #('tata', 'innova', 'audi')
+
+Add Items:
+  1.append() same convertion will be made 
+  x = ("tata", "bmw", "audi")
+  y = list(x)
+  x.append(10)
+  x = tuple(y)
+  print(x) #('tata', 'bmw', 'audi', 10)
+2. Add tuple to a tuple:
+tu1=(10,20,30)
+tu2=(2,3)
+print(tu1+tu2)   #(10, 20, 30, 2, 3)
+3.multiply tuple:
+  tu1=(10,20,30)
+  print(tu1*2)  #(10, 20, 30, 10, 20, 30)
+
+Unpacking a Tuple:
+  When we create a tuple, we normally assign values to it. This is called "packing" a tuple:
+  fruits=('banana','kiwi','orange')
+  But, in Python, we are also allowed to extract the values back into variables. This is called "unpacking":
+  (red,green,yello)=fruits
+  print(red) #banana
+  print(green) #kiwi
+  print(yello) #orange
+  ====>The number of variables must match the number of values in the tuple,
+
+Tuple Methods:
+1) count()	Returns the number of times a specified value occurs in a tuple:
+  tu1=(10,20,30)
+  print(tu1.count(20)) #1
+2) index()	Searches the tuple for a specified value and returns the position of where it was found
+    tu1=(10,20,30)
+    print(tu1.index(20)) #1
+
+ tu1=(10,20,30)
+ print(tu1.pop()) 
+=====>AttributeError: 'tuple' object has no attribute 'pop'
+
+
+
+
+
 
 
 
