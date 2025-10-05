@@ -412,7 +412,14 @@ tu1=(1,4,5,6,7,8)
 print(tu1)
 tu2=(5,6,7,8,9)
 print(tu2)
+
 #Find the common elements between two tuples
+tu1=(1,4,5,6,7,8)
+tu2=(5,6,7,8,9)
+set1=set(tu1)
+set2=set(tu2)
+set3=set1.intersection(set2)
+print('common elements:',tuple(set3)) #(8, 5, 6, 7)
 
 #Concatenate both tuples and remove duplicates from tuple
 tu3=tu1+tu2
@@ -432,14 +439,54 @@ print(tu3*3)
  Sets
 
 #Create two empty sets
+set1 = {}
+print(set1) #{} 
+print(type(set1)) #<class 'dict'>
+set1= set()
+print(type(set1)) #<class 'set'>
+
+set2 = {}
+print(set2) #{} 
+print(type(set2)) #<class 'dict'>
+set2= set()
+print(type(set2)) #<class 'set'>
 
 #update set1 with 7,8,9,1,2,3,4,5,0
+elements=7,8,9,1,2,3,4,5,0
+set1.update(elements)
+print(set1) #{0, 1, 2, 3, 4, 5, 7, 8, 9}
+
 #update set2 with 4,5,6,0
+elements2=4,5,6,0
+set2.update(elements2)
+print(set2) #{0, 4, 5, 6}
+
 #check whether set2 is subset of set1 or no ?
+set1={0, 1, 2, 3, 4, 5, 7, 8, 9}
+set2={0, 4, 5, 6}
+print(set2.issubset(set1)) #False
+
 #check whether both have common elements are no ?
+common element=set1.intersection(set2)
+print(common element) #{0, 4, 5}
+
 #remove 8 from set 1 and set 2 ==> find the inferences
+set1.remove(8)
+print(set1) #{0, 1, 2, 3, 4, 5, 7, 9}
+set2.remove(8)
+print(set2) #KeyError: 8
+
 #discard 0 from set1 and set2 
+set1.discard(0)
+print(set1) #{1, 2, 3, 4, 5, 7, 9}
+set2.discard(0)
+print(set2) #{4, 5, 6}
+
 #find collection of both sets ===> set1 and set2
+set1={0, 1, 2, 3, 4, 5, 7, 8, 9}
+set2={0, 4, 5, 6}
+print(set1|set2) #{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
 --------------------------------------------------------
 Dictionary:
 
