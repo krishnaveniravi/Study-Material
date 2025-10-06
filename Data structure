@@ -261,6 +261,124 @@ advantages: important interview questions::::
 List[]--->dynamic memory
 access is not fast
 -------------------------------------
+Dictionary:
+used to store data values in key:value pairs.
+dictionary created by using {key:value} /{} with key:value 
+
+Dictionary items:
+Not ordered/indexed---->but we can access the elements using key()
+Duplicates are not allowed
+mutable/changeable
+empty dictionary:
+dict1 = {}
+print(dict1) #{}
+print(type(dict1)) #<class 'dict'>
+
+dict1 = dict()
+print(dict1) #{}
+print(type(dict1)) #<class 'dict'>
+
+#keys: int , float, str
+#values: anything
+
+
+duplicates are not allowed:
+Dictionaries cannot have two items with the same key:
+dic1={'name':'ravi','age':25,'gender':'male','age':26}
+print(dic1)  #{'name': 'ravi', 'age': 26, 'gender': 'male'}
+===>Duplicate values will overwrite existing values:
+print(len(dic1))  #3
+
+The dict() Constructor:
+dic2=dict(name='ravi',age=25,satation='chennai',student=True)
+print(dic2)  #{'name': 'ravi', 'age': 25, 'satation': 'chennai', 'student': True}
+
+
+access items:
+dic1={'name':'ravi','age':25,'gender':'male'}
+print(dic1)  #{'name': 'ravi', 'age': 25, 'gender': 'male'}
+
+print the 'age' value of the dictionary.  using keys
+print(dic1['age']) #25
+print(dic1.get('age')) #25  ------>get()
+print(dic1.keys())  #dict_keys(['name', 'age', 'gender'])
+print(dic1.values()) #dict_values(['ravi', 25, 'male'])
+print(dic1.items()) #dict_items([('name', 'ravi'), ('age', 25), ('gender', 'male')])
+==>return each item in a dictionary, as tuples in a list.
+
+we can add elements to dictionary
+dic1['student']=True
+print(dic1)
+#{'name': 'ravi', 'age': 25, 'gender': 'male', 'student': True}
+
+Change Values:
+using key name we can change the values.
+dic1={'name':'ravi','age':25,'gender':'male'}
+dic1['name']='kumar'  #{'name': 'kumar', 'age': 25, 'gender': 'male'}
+
+update()-->update with pair
+The update() method will update the dictionary with the items from the given argument.
+The argument must be a dictionary, or an iterable object with key:value pairs.
+
+dic1.update({'age':26})
+print(dic1)
+#{'name': 'kumar', 'age': 26, 'gender': 'male'}
+
+removal of item:
+#pop() method removes the item with the specified key name:
+dic1.pop('gender')
+print(dic1)  #{'name': 'kumar', 'age': 26}
+
+#popitem()--->last inserted item....in version 3.7 random removal of item
+dic1.popitem()
+print(dic1)  #{'name': 'kumar', 'age': 26}
+
+#The del keyword removes the item with the specified key name:
+del dic1['name']
+print(dic1)  #{'age': 26, 'gender': 'male'}
+
+del dic1
+print(dic1) ==>completely delete the dictionary
+
+clear()-->empties the dictionary
+dic1.clear()
+print(dic1)  #{}
+
+copy()
+dic2=dic1.copy()
+print(dic2) #{'name': 'kumar', 'age': 26, 'gender': 'male'}
+
+dict()
+dic2=dict(dic1)
+print(dic2) #{'name': 'kumar', 'age': 26, 'gender': 'male'}
+
+Nested dictionaries:
+grocery
+fruits={'red':'banana','yellow':'orange','green':'apple'}
+Veg={'onion':2,'carrot':5,'beans':8}
+snacks={'chips':'potato','color':'yellow','qty':2}
+grocery={'fruits':fruits,'Veg':Veg,'snacks':snacks}
+print(grocery)
+
+grocery={'fruits': {'red': 'banana', 'yellow': 'orange', 'green': 'apple'}, 'Veg': {'onion': 2, 'carrot': 5, 'beans': 8}, 'snacks': {'chips': 'potato', 'color': 'yellow', 'qty': 2}}
+
+access the nested dictionary:
+
+print the color of snacks:
+print(grocery['snacks']['color'])  #yellow
+
+
+fromkey()
+Create a dictionary with 3 keys, all with the value 0:
+x = ('key1', 'key2', 'key3')
+y = 0
+thisdict = dict.fromkeys(x, y)
+print(thisdict) #{'key1': 0, 'key2': 0, 'key3': 0}
+
+insert:setdefault()
+car = {"brand": "Ford","model": "Mustang","year": 1964}
+x = car.setdefault("color", "White")
+print(x) #White
 
 
 
