@@ -365,7 +365,7 @@ duplicates allowed
 set:
 not ordered
 duplicates not allowed
-not changeable ,but we can add and remove items
+ not changeable ,but we can add and remove items
 --update()
 
 Complete data structures methods in detail
@@ -483,6 +483,7 @@ print(set2.issubset(set1)) #False
 
 #check whether both have common elements are no ?
 common element=set1.intersection(set2)
+print(not(set1.isdisjoint(set2)))
 print(common element) #{0, 4, 5}
 
 #remove 8 from set 1 and set 2 ==> find the inferences
