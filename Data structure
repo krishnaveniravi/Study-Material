@@ -305,6 +305,7 @@ print(dic1.keys())  #dict_keys(['name', 'age', 'gender'])
 print(dic1.values()) #dict_values(['ravi', 25, 'male'])
 print(dic1.items()) #dict_items([('name', 'ravi'), ('age', 25), ('gender', 'male')])
 ==>return each item in a dictionary, as tuples in a list.
+----------------------------------------------
 
 we can add elements to dictionary
 dic1['student']=True
@@ -323,7 +324,7 @@ The argument must be a dictionary, or an iterable object with key:value pairs.
 dic1.update({'age':26})
 print(dic1)
 #{'name': 'kumar', 'age': 26, 'gender': 'male'}
-
+----------------------
 removal of item:
 #pop() method removes the item with the specified key name:
 dic1.pop('gender')
@@ -379,7 +380,26 @@ insert:setdefault()
 car = {"brand": "Ford","model": "Mustang","year": 1964}
 x = car.setdefault("color", "White")
 print(x) #White
+-----------------------------------
+sum/min/max/len:
 
+a={'name': 'kumar', 'age': 26, 'gender': 'male'}
+print(len(a)) #3
+print(sum(a)) #TypeError: unsupported operand type(s) for +: 'int' and 'str'
+print(min(a)) #age ---->it will takes keys 
+print(max(a)) #name
+
+a={1: 'kumar', 2: 26, 3: 'male'}
+print(len(a)) #3
+print(sum(a)) #6
+print(min(a)) #1
+print(max(a)) #3
+
+a={1: 'kumar', 2: 26, 'gender': 'male'}
+print(len(a)) #3
+print(sum(a)) #TypeError: unsupported operand type(s) for +: 'int' and 'str'
+print(min(a)) #TypeError: '<' not supported between instances of 'str' and 'int'
+print(max(a)) #TypeError: '>' not supported between instances of 'str' and 'int'
 
 
 
