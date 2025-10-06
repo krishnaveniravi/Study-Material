@@ -261,6 +261,7 @@ advantages: important interview questions::::
 List[]--->dynamic memory
 access is not fast
 -------------------------------------
+6/10/25
 Dictionary:
 used to store data values in key:value pairs.
 dictionary created by using {key:value} /{} with key:value 
