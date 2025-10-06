@@ -248,6 +248,26 @@ Tuple Methods:
  print(tu1.pop()) 
 =====>AttributeError: 'tuple' object has no attribute 'pop'
 
+advantages: important interview questions::::
+  tuple()--->static memory so we can't change the item
+  used in function definition
+  secure store and not changeable
+  fast access
+  create with out any brasis eg.tu1=1,2,3,4===>it will consider tuple
+  we can create tuple with one element with comma,
+  tu1=(10,)
+  withput comma it will consider as integer
+
+List[]--->dynamic memory
+access is not fast
+-------------------------------------
+
+
+
+
+
+
+
 
 
 
