@@ -1,2 +1,114 @@
 Python if...else
-print(
+
+python conditions and if statement:
+
+python supports usual logical conditions from mathematics:
+    Equals: a == b
+    Not Equals: a != b
+    Less than: a < b
+    Less than or equal to: a <= b
+    Greater than: a > b
+    Greater than or equal to: a >= b
+
+if statement written using ===>if keyword
+a=23
+b=45
+if a<b:
+  print('a is smaller than b') #a is smaller than b
+
+If statement, without indentation (will raise an error):
+a=23
+b=45
+if a<b:
+print('a is smaller than b') #IndentationError: expected an indented block after 'if' statement on line 3
+-=======================
+elif:
+If the previous conditions were not true, then elif condition 
+a=4
+b=5
+if a==b:
+  print('a and b are equal')
+elif a<b:
+  print('a is less than b') #a is less than b
+========================
+else:
+else keyword catches when previous conditions which isn;t true
+a=10
+b=30
+if a>b:
+  print('a is greater than b')
+elif a==b:
+  print('a and b are equal')
+else:
+  print('b is greater than a')  #b is greater than a
+=========================
+else without the elif:
+a=4
+b=5
+if a>b:
+  print('a is greater than b')
+else:
+  print('b is greater than a') #b is greater than a
+==========================
+Short Hand If:
+
+only one statement to execute,
+a=4
+b=3
+if a>b:print('a is greater than b') #a is greater than b
+
+Short Hand If ... Else: Ternary Operators, or Conditional Expressions::::
+only one statement to execute,
+a=4
+b=10
+print(a)if a>b else print(b)  #10Ternary Operators, or Conditional Expressions
+===============================================
+To combine conditional statements:logical operators used:
+and,or,not
+
+and: if both conditions are true returns true
+Test if a is greater than b, AND if c is greater than a:
+a=8
+b=4
+c=5
+if a>b and c>b:
+  print('both conditions are True') #both conditions are True
+
+or:if both conditions are true returns true
+any one of the condition is true ==>true
+Atleast any one of the condition is true
+a=8
+b=4
+c=5
+if a>b or b>c:
+  print('Atleast anyone of the condition is true') #Atleast anyone of the condition is true
+
+not:
+it used to reverse the result of the conditional statement
+a=4
+b=8
+if not a>b:
+  print('a is not greater than b') #a is not greater than b
+===============================
+Nested If:
+if statements inside if statements, this is called nested if statements.
+x = 41
+if x > 10:
+  print("Above ten,")
+  if x > 20:
+    print("and also above 20!")
+  else:
+    print("but not above 20.")
+
+pass:
+we can use pass keyword to avoid error
+a=4
+b=5
+if a>b:
+  pass
+
+
+
+
+
+
