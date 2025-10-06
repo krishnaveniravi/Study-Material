@@ -352,6 +352,21 @@ else:
 
 =========== 5/10/2025 =================
 identify 5 difference between list/tuple/set/dictionary
+list:
+ordered/indexed
+mutable/changeable
+duplicates allowed
+
+tuple:
+ordered
+immutable
+duplicates allowed
+
+set:
+not ordered
+duplicates not allowed
+not changeable ,but we can add and remove items
+--update()
 
 Complete data structures methods in detail
 
