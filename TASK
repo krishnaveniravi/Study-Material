@@ -368,6 +368,13 @@ duplicates not allowed
  not changeable ,but we can add and remove items
 --update()
 
+dictionaries:
+not indexed
+items can access with keys
+changeable
+duplicates not allowed
+if same keys entered,last one overwrite the first
+
 Complete data structures methods in detail
 
 ============= Important ============
