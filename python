@@ -1,5 +1,16 @@
 Python if...else
 
+indentation:
+    =>Format
+    =>Scope
+    strat to end
+a=4
+b=5
+if a==b:==> indentation start
+  print('a and b are equal')==>indentation end
+elif a<b:
+  print('a is less than b') #a is less than b
+
 python conditions and if statement:
 
 python supports usual logical conditions from mathematics:
