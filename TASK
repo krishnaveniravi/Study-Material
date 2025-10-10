@@ -927,8 +927,7 @@ Simple Triangle Right-Angle Check (Pythagorean)
 # 20. Right-angled triangle check using Pythagoras
 a = float(input("Side a: "))
 b = float(input("Side b: "))
-c = float(input("Side c (hypotenuse candidate): "))
-# sort to be safe: largest as c
+c = float(input("Side c: "))
 sides = sorted([a, b, c]) #returns a new list
 x, y, z = sides
 if x <= 0:
