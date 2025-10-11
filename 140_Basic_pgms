@@ -72,7 +72,86 @@ else:
   print('Negative Number') 
 ================
 #12.Write a Python Program to Check if a Number is Odd or Even.
-num=
+num=int(input('Enter the number to check odd/even:'))
+if num%2==0:
+  print('This number is Even')
+else:
+  print('This number is odd')
+=================
+#13.Write a Python Program to Check Leap Year.
+year=int(input('Enter the year:'))
+#century year:
+if year%400==0 and year%100==0:
+  print('{0} is leap year'.format(year))
+#not century year:
+elif year%4==0 and year%100!=0:
+  print('{0} is leap year'.format(year))
+else:
+  print('{0} is not a leap year'.format(year))
+================
+#14.Write a Python Program to Check Prime Number.
+number=int(input('Enter the number:'))
+if number==1:
+  print(f'{number} is not a prime number')
+elif number>1:
+  for i in range(2,number):
+    if number%i==0:
+      print(f'{number} is not a prime number')
+      break
+  else:
+    print(f'{number} is a prime number')
+=================
+#15.Write a Python Program to Print all Prime Numbers in an Interval of 1-10.
+lower_number=1
+upper_number=10
+print('Prime numbers between',lower_number,'and',upper_number,'are:')
+for i in range(lower_number,upper_number+1):
+  if i>1:
+    for j in range(2,i):
+      if i%j==0:
+        #print('Not a prime number')
+        break
+    else:
+      print(i)
+===================
+#16.Write a Python Program to Find the Factorial of a Number.
+number=int(input('Enter the number:'))
+factorial=1
+if number<0:
+  print('Factorial is not exist for negative numbers')
+elif number==0:
+  print('Factorial for 0 is 1')
+elif number>=1:
+  for i in range(1,number+1):
+    factorial=i*factorial
+  else:
+    print(f'factroial of {number} is:{factorial}')
+==================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
