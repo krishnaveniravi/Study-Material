@@ -127,13 +127,93 @@ elif number>=1:
   else:
     print(f'factroial of {number} is:{factorial}')
 ==================
+#17.Write a Python Program to Display the multiplication Table
+num=int(input('Display multiplication table of:'))
+for i in range(1,11):
+  print(f'{num}x{i}=',num*i)
+=================
+#18.Write a Python Program to Print the Fibonacci sequence.
+num=int(input('How many times'))
+f=-1
+s=1
+for i in range(1,num+1):
+    t=f+s
+    print(t)
+    f=s
+    s=t
+===================
+#19.Write a Python Program to Check Armstrong Number?
+#It is a number that is equal to the sum of its own digits, each raised to a power equal to thenumber of digits in the number.
+number=int(input('Enter the number:'))
+length=len(str(number))
+no=number
+total=0
+while no>0:
+  digit=no%10
+  total=total+(digit**length)
+  no=no//10
+else:
+  if total==number:
+    print(number,'is a armstrong number')
+  else:
+    print(number,'is not armstrong number')
+=====================
+#20.Write a Python Program to Find Armstrong Number in an Interval.
+start_number=int(input('Enter the number_start:'))
+end_number=int(input('Enter the number_end:'))
+for i in range(start_number,end_number+1):
+  length=len(str(i))
+  no=i
+  total=0
+  while no>0:
+    digit=no%10
+    total=total+(digit**length)
+    no=no//10
+  else:
+    if total==i:
+      print(i,'is a armstrong number')
+=================
+#21.Write a Python Program to Find the Sum of Natural Numbers.
+number=int(input('Enter the limit:'))
+sum_of_numbers=0
+for i in range(1,number+1):
+  sum_of_numbers+=i
+print('The sum of the natural numbers upto',number,'is',sum_of_numbers)
+===============
+#22.Write a Python Program to Find LCM.
+def compute_lcm(x,y):
+    big=x if x>y else y
+    while True:
+        if big%x==0 and big%y==0:
+            lcm=big
+            break
+        big+=1
+    return lcm
 
-
-
-
-
-
-
+num1=int(input('Enter number1:'))
+num2=int(input('Enter number2:'))
+print(f'The LCM of {num1} and {num2} is',compute_lcm(num1,num2))
+===============
+#23.Write a Python Program to Find HCF.GCD
+def compute_hcf(x,y):
+  small=x if x<y else y
+  for i in range(1,small+1):
+    if x%i==0 and y%i==0:
+      hcf=i
+    i+=1
+  return hcf
+num1=int(input('Enter number1:'))
+num2=int(input('Enter number2:'))
+print(f'The HCF of {num1} and {num2} is',compute_hcf(num1,num2))
+=================
+#24.Write a Python Program to Convert Decimal to Binary, Octal and Hexadecimal.
+dec_num=int(input('Enter the decimal number:'))
+print('The decimal value of',dec_num,'is:')
+print(bin(dec_num),'in binary')
+print(oct(dec_num),'in octal')
+print(hex(dec_num),'in hexadecimal')
+================
+#25.
 
 
 
