@@ -213,7 +213,11 @@ print(bin(dec_num),'in binary')
 print(oct(dec_num),'in octal')
 print(hex(dec_num),'in hexadecimal')
 ================
-#25.
+#25.Write a Python Program To Find ASCII value of a character.
+char=str(input('Enter the character:'))
+print("The ASCII value of '"+char+"' is:",ord(char))
+===============
+#
 
 
 
