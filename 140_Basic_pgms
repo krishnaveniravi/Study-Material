@@ -257,7 +257,215 @@ while True:
     else:
         print('invalid input')
 ===================
-#
+#27.Write a Python Program to Display Fibonacci Sequence Using Recursion.
+def fibonacci_rec(n):
+    if n<=1:
+        return n
+    else:
+        return (fibonacci_rec(n-1)+fibonacci_rec(n-2))
+
+nterms=int(input("Enter number of terms:"))
+if nterms<=0:
+    print('Please enter a positive integer')
+else:
+    for i in range(nterms):
+        print(fibonacci_rec(i))
+================
+#28.Write a Python Program to Find Factorial of Number Using Recursion.
+def factorial_rec(n):
+  if n==1:
+    return n
+  else:
+    return n*factorial_rec(n-1)
+
+number=int(input('Enter the number:'))
+if number<0:
+  print('Factorial is not exist for negative numbers')
+elif number==0:
+  print('Factorial for 0 is 1')
+else:
+  print(f'factroial of {number} is:',factorial_rec(number))
+===============
+#29.Write a Python Program to calculate your Body Mass Index.
+def bmi_calci(x,y):
+  return round((x/y**2),2)
+
+weight=float(input('Enter your weight(kg):'))
+height=float(input('Enter your height(meter):'))
+
+print('Welcome to the BMI calculator')
+BMI=bmi_calci(weight,height)
+print(f'Your BMI is: {BMI}')
+
+if BMI<=18.5:
+  print('You are under weight')
+elif 18.5<BMI<=24.9:
+  print('Your weight is normal')
+elif 25<=BMI<=29.9:
+  print('You are overweight')
+else:
+  print('obese')
+===================
+#31.Write a Python Program for cube sum of first n natural numbers?
+def cube_sum_of_natural_numbers(n):
+    if n<=0:
+        return 0
+    else:
+        total=0
+        for i in range(1,n+1):
+            total=total+(i**3)
+        return total
+
+n=int(input('Enter the value of n:'))
+sum=cube_sum_of_natural_numbers(n)
+print(f'The cube sum of first {n} natural numbers is {sum}')
+===============
+#32.Write a Python Program to find sum of array. 
+# Finding Sum of Array Using sum()
+array1=[3,4,6,2,4,5]
+sum_array1=sum(array1)
+print('Sum of the array is:', sum_array1)
+--------------
+## Function to find the sum of elements in an array
+def sum_array(array1):
+    total=0
+    for i in range(len(array1)):
+        total=total+array1[i]
+    return total
+
+array2=[3,4,6,2,4,5]
+print('Sum of the array is:', sum_array(array2))
+==============
+#33.Write a Python Program to find largest element in an array.
+def largest_element_array(array1):
+    if not array1:
+        return 'Array is empty'
+    else:
+        largest_element=array1[0]
+        for i in array1:
+            if i>largest_element:
+                largest_element=i
+        return largest_element
+
+array2=[1,5,6,7,9,3,11,32]
+print(f'The largest element of an array is:', largest_element_array(array2))
+==============
+#34.Write a Python Program for array rotation.
+def rotated_arr(arr,d):
+  n=len(arr)
+  if d<=0 or d>=n:
+    return 'Invalid rotation position'
+  rotated_array=[0]*n
+  for i in range(n):
+    rotated_array[i]=arr[(i+d)%n]
+  return rotated_array
+
+array1=[1,2,3,4,5,6]
+d=4
+print('The original array:',array1)
+print('The rotated array:',rotated_arr(array1,d))
+===============
+#35.Write a Python Program to Split the array and add the first part to the end?
+def split_add_array(arr,k):
+  n=len(arr)
+  if k<=0 or k>=n:
+    return arr
+  else:
+    first_part=arr[:k]
+    second_part=arr[k:]
+    return second_part+first_part
+
+arr1=[3,4,6,7,8,1,3]
+k=3
+print('The original array:',arr1)
+print('The split and add array:',split_add_array(arr1,k))
+===============
+#36.Write a Python Program to check if given array is Monotonic.
+#A monotonic array is one that is entirely non-increasing or non-decreasing.
+def is_monotonic(arr):
+  increasing=decreasing=True
+  for i in range(1,len(arr)):
+    if arr[i]>arr[i-1]:
+      decreasing=False
+    elif arr[i]<arr[i-1]:
+      increasing=False
+  return increasing or decreasing
+
+array1=[1,2,3,4]
+array2=[3,2,1]
+array3=[1,2,4,3,2]
+print('array1 is monotonic:',is_monotonic(array1))
+print('array2 is monotonic:',is_monotonic(array2))
+print('array3 is monotonic:',is_monotonic(array3))
+================
+#40.Write a Python Program to Sort Words in Alphabetic Order.
+my_str=input('Enter the string:') # the sky is blue color
+print(my_str.split())
+words=[word.capitalize() for word in my_str.split()]
+words.sort()
+print('The sorted words are:')
+for word in words:
+    print(word)
+================
+#41.Write a Python Program to Remove Punctuation From a String.
+punctuations= '''!()-[]{};:'"<>.\,/?@#$%^&*_~''' ===========================>syntax warning for \ escape character
+string=input('Enter any string:') #hi!! hello!! what happening?//\
+no_punct=''
+for char in string:
+  if char not in punctuations:
+    no_punct=no_punct+char
+print(no_punct)
+==================
+#49.Write a Python program to find sum of elements in list
+numbers=[10,11,12,13,14,15]
+sum_of_numbers=0
+for i in numbers:
+  sum_of_numbers+=i
+print('Sum of elements in list:',sum_of_numbers)
+===============
+#50.Write a Python program to Multiply all numbers in the list.
+numbers=[1,2,3,4,5]
+product_of_numbers=1
+for i in numbers:
+  product_of_numbers*=i
+print('Product of elements in the list:',product_of_numbers)
+==============
+#51.Write a Python program to find smallest number in a list.
+numbers=[14,6,8,5,23]
+smallest=numbers[0]
+for i in numbers:
+    if i<smallest:
+        smallest=i
+print('The smallest number in the list:',smallest)
+==============
+#52.Write a Python program to find largest number in a list.
+numbers=[23,45,34,67]
+largest=numbers[0]
+for i in numbers:
+    if i>largest:
+        largest=i
+print('The largest number in the list:',largest)
+==============
+#54.Write a Python program to find N largest elements from a list.
+def find_n_largest_number(lst,N):
+  sorted_lst=sorted(lst,reverse=True)
+  largest_elements=sorted_lst[:N]
+  return largest_elements
+
+list1=[34,56,23,43,67,12,27]
+n=int(input('Enter n=:'))
+largest_elements_of_list1=find_n_largest_number(list1,n)
+print(f'The {n} largest elements in the list are:',largest_elements_of_list1)
+=============
+
+
+
+  
+
+    
+
+
+
 
 
 
