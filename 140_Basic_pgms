@@ -457,6 +457,307 @@ n=int(input('Enter n=:'))
 largest_elements_of_list1=find_n_largest_number(list1,n)
 print(f'The {n} largest elements in the list are:',largest_elements_of_list1)
 =============
+#55.Write a Python program to print even numbers in a list.
+numbers=[23,56,78,24,57,89,16,14]
+even_numbers=[num for num in numbers if num%2==0]
+print('Even numbers in the list:',even_numbers)
+=============
+#56.Write a Python program to print odd numbers in a List.
+numbers=[1,3,2,4,5,6,7,8,9,10]
+odd_numbers=[num for num in numbers if not num%2==0]
+print('Odd numbers in the list:',odd_numbers)
+============
+#57.Write a Python program to Remove empty List from List.
+lists_of_list=[[1,2,3],[],[],[2,6,7],[],[9,6,7],[7,8],[]]
+final_list=[list for list in lists_of_list if list]
+print('Final list after removal of empty list:',final_list)
+=============
+#58.Write a Python program to Cloning or Copying a list.
+  # 1. Using Using the Slice Operator
+  list1=[2,3,5,6,1,7]
+  newlist=list1[:]
+  print(newlist)
+  # 2. Using the list() constructor
+  list1=[2,3,5,6,1,7]
+  newlist=list(list1)
+  print(newlist)
+  # 3. Using List Comprehension
+  list1=[2,3,5,6,1,7]
+  newlist=[li for li in list1]
+  print(newlist)
+=====================================================================================================================>45
+15/10/25
+
+#59.Write a Python program to Count occurrences of an element in a list.
+  def occurence_of_element(li,element):
+    occurrence=li.count(element)
+    return occurrence
+  
+  list=[2,3,4,2,3,5,6,7,8,4,3,5,9,3]
+  element_to_count=5
+  occurrence_element=occurence_of_element(list,element_to_count)
+  print(f'Occurrence of {element_to_count} appears {occurrence_element} times in the list')
+=============
+#60.Write a Python program to find words which are greater than given length k.
+  def words_length_greater(words,k):
+    result=[]
+    for i in words:
+      if len(i)>k:
+        result.append(i)
+    return result
+  
+  words=['apple','banana','orange','kiwi','grapes','mango','lemon']
+  length=5
+  greater_length_words=words_length_greater(words,length)
+  print(f'Words longer than {length} characters are:',greater_length_words)
+============
+#61.Write a Python program for removing i^th character from a string.
+Original String: Hello, wWorld!
+String after removing 7th character : Hello, World!
+  def character_removing(string, i):
+    if i < 0 or i >= len(string):
+        print(f'Invalid index {i},the string remains unchanged')
+        return string
+    output_string = string[:i] + string[i + 1:]
+    return output_string
+
+
+string = input('Enter the string:')
+index_num = int(input('Enter the index number to remove:'))
+string_after_removal = character_removing(string, index_num)
+print('The original string:', string)
+print(f'String after removing {index_num}th character:', string_after_removal)
+=============
+#62.Write a Python program to split and join a string.
+  input_str='Python program to split and join a string'
+  #split()
+  split_string=input_str.split()
+  #join()
+  separator=' '
+  join_string=separator.join(split_string)
+  print('The original string:',input_str)
+  print('The split string:',split_string)
+  print('The join string:',join_string)
+===============
+#63.Write a Python program to check if a given string is binary string or not.
+  def is_binary_string(string):
+      for i in string:
+          if i not in '01':
+              return False
+      return True
+  
+  input_str='011100'
+  if is_binary_string(input_str):#True
+      print(f'{input_str} is a binary string')
+  else:
+      print(f'{input_str} is not a binary string')
+===============
+#64.Write a Python program to find uncommon words from two Strings.
+def uncommon_words_strings(str1,str2):
+  set_str1=set(str1)
+  set_str1=set(str1)
+  uncommon_words=str1.symmetric_difference(str2)
+  return list(uncommon_words)
+
+string1=input('Enter the string1:')
+string2=input('Enter the string2:')
+uncommon_words_of_strings=uncommon_words_strings(string1,string2)
+print('The uncommon words from string1 and string2 are:',uncommon_words_of_strings)
+================
+#65.Write a Python program to find all duplicate characters in string.
+  def duplicate_char(string1):
+      count_char={}
+      duplicate_char=[]
+      for i in string1:
+          if i in count_char:
+              count_char[i]+=1
+          else:
+              count_char[i]=1
+      print(count_char)
+      for i,count in count_char.items():
+          if count>1:
+              duplicate_char.append(i)
+      return duplicate_char
+  
+  input_string='mathan'
+  duplicates=duplicate_char(input_string)
+  print('Duplicate characters in string are:',duplicates)
+=============
+#67.Write a Python program to Extract Unique dictionary values.
+
+  dict1={'a':30,'b':20,'c':20,'d':10,'e':30}
+  uniq_set=set()
+  for i in dict1.values():
+    uniq_set.add(i)
+  print('The unique dictionary values:',list(uniq_set))
+=============
+#68.Write a Python program to find the sum of all items in a dictionary.
+  dict1={'a':30,'b':20,'c':20,'d':10,'e':30}
+  total=0
+  for i in dict1.values():
+    total+=i
+  print('The sum of all items in a dictionary is:',total)
+=============
+#69.Write a Python program to Merging two Dictionaries.
+#update()
+  my_dic1={'a':10,'b':20}
+  my_dic2={'c':30,'d':40}
+  my_dic1.update(my_dic2)
+  print(f'Merging of two dictionaries:{my_dic1}')
+#dictionary unpacking
+  my_dic1={'a':10,'b':20}
+  my_dic2={'c':30,'d':40}
+  merged_dic={**my_dic1,**my_dic2}
+  print(f'Merging of two dictionaries(unpacking method):{merged_dic}')
+==============
+#70.Write a Python program to convert key-values list to flat dictionary.
+  key_value_list=[('a',23),('b',4),('c',12),('d',13)]
+  flat_dict={}
+  for key,value in key_value_list:
+      flat_dict[key]=value
+  print(flat_dict)
+==============
+#73.Write a Python program to sort Python Dictionaries by Key or Value.
+  my_dic={'cherry':4,'banana':3,'dates':5}
+  my_sorted_dic=sorted(my_dic.items()) #sort() is for list only
+  print(my_sorted_dic) #[('banana', 3), ('cherry', 4), ('dates', 5)]
+  
+  my_dic={'cherry':4,'banana':3,'dates':5}
+  my_sorted_dic=dict(sorted(my_dic.items()))
+  print(my_sorted_dic)
+  for k,v in my_sorted_dic.items():
+      print(f'{k}: {v}')
+===============
+#75.Write a program which takes 2 digits, X,Y as input and generates a 2-dimensionalarray. 
+The element value in the i-th row and j-th column of the array should be i*j.
+  x,y=map(int,input('Enter two digits(x,y):').split(','))
+  array=[[0 for j in range(y)] for i in range(x)]
+  print(array)
+  for i in range(x):
+      for j in range(y):
+          array[i][j] = i*j
+  print(array)
+  for row in array:
+      print(row)
+===============
+#76.Write a program that accepts a comma separated sequence of words as input and
+prints the words in a comma-separated sequence after sorting them alphabetically.
+  input_sequence=input('Enter a comma separated sequence of words:') #the,sky,is,blue,color
+  split_input=input_sequence.split(',') #list
+  sort_split_input=sorted(split_input) #alphabetic order
+  sorted_sequence=','.join(sort_split_input) #string
+  print('Sorted words:',sorted_sequence)
+================
+#77.Write a program that accepts a sequence of whitespace separated words as input
+and prints the words after removing all duplicate words and sorting themalphanumerically.
+
+  input_sequence=input('Enter a white space separated sequence of words:')
+  split_words=input_sequence.split() #split-->list 
+  sorted_words=set(sorted(split_words)) #sorted and duplicates remove
+  final_sorted_words=','.join(sorted_words)
+  Print('The sorted words:',final_sorted_words)
+===============
+#79.Write a program that accepts a sentence and calculate the number of letters and digits. Suppose the following input is supplied to the program:
+#hello world! 123
+#Then, the output should be:
+#LETTERS 10
+#DIGITS 3
+  sentence=input('Enter the sentence:')
+  letter_count=0
+  digit_count=0
+  for i in sentence:
+    if i.isalpha():
+      letter_count+=1
+    elif i.isdigit():
+      digit_count+=1
+  print('No.of letters:',letter_count)
+  print('No.of digits:',digit_count)
+===============
+#81.Write a program to compute the frequency of the words from the input. 
+#The outputshould output after sorting the key alphanumerically. Suppose the following input issupplied to the program:
+  sentence=input('Enter the sentence(alphanumeric):') # do you want size2 or size3? i want 4 numbers of size2 and 6 numbers of size3!!
+  split_words=sentence.split()
+  char_count={}
+  for i in split_words:
+      i=i.strip('.,?!')
+      i=i.lower()
+      if i in char_count:
+          char_count[i]+=1
+      else:
+          char_count[i]=1
+  print(char_count)
+  
+  sorted_words=sorted(char_count.items())
+  print(sorted_words)
+  for key,value in sorted_words:
+      print(f'{key}:{value}')
+=================
+#84.Please write a program to generate all sentences where subject is in ["I", "You"] and
+#verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
+
+  subject=['I','You']
+  verb=['play','love']
+  object=['football','Hockey']
+  
+  sentences=[]
+  for sub in subject:
+    for ver in verb:
+      for obj in object:
+        sentence=f'{sub} {ver} {obj}'
+        sentences.append(sentence)
+  
+  for sentence in sentences:
+    print(sentence)
+===============
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
