@@ -734,9 +734,43 @@ and prints the words after removing all duplicate words and sorting themalphanum
   except ValueError:
     print('Invalid input,please enter valid integer for n')
 ===============
+#90.Program 90
+#Assuming that we have some email addresses in the"
+#username@companyname.com (mailto:username@companyname.com)
+#" format,please write program to print the user name of a given email address. Both usernames and company names are composed of letters only.
+#Example:
+#If the following email address is given as input to the program:
+#john@google.com (mailto:john@google.com)
+#Then, the output of the program should be:
+#john
+  def extract_username(email):
+    email=email.split('@')
+    print(email)
+    if len(email)==2:
+      return email[0]
+  try:
+    email_id=input('Enter your email id:')
+    username=extract_username(email_id)
+    print(username)
+  except ValueError:
+    print('Invalid input.Please enter correct email id')
+=================
+#92.firsttwo letters are repeated twice with an ellipsis ... and space after each, and then theword is pronounced with a question mark ?.
+#Examples
+#stutter("incredible") ➞ "in... in... incredible?"
+#stutter("enthusiastic") ➞ "en... en... enthusiastic?"
+#stutter("outstanding") ➞ "ou... ou... outstanding?"
+#Hint :- Assume all input is in lower case and at least two characters long.
 
-
-
+  def stutter(word): #fantastic
+    if len(word)<2:
+      return 'Word must be at least two characters long'
+    stuttered_word=f'{word[:2]}...{word[:2]}...{word[:]}'
+    return stuttered_word
+  print(stutter('incredible'))
+  print(stutter('enthusiastic'))
+  print(stutter('outstanding'))
+================================================================>21
 
 
 
