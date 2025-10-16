@@ -78,3 +78,15 @@ octal_number=oct(9)
 print(octal_number) #0o11
 hexadecimal_number=hex(16)
 print(hexadecimal_number) #0x10
+16/10/25
+enumerate() Function:
+x = ('apple', 'banana', 'cherry')
+y = enumerate(x)
+
+print(list(y)) #[(0, 'apple'), (1, 'banana'), (2, 'cherry')]
+
+The enumerate() function takes a collection (e.g. a tuple) and returns it as an enumerate object.
+
+The enumerate() function adds a counter as the key of the enumerate object.
+
+
