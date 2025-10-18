@@ -964,10 +964,158 @@ aB
 aBc
 aBcD
 aBcDe
+
+ s='abcdefghijklmnopqrstuvwxyz'
+ n=5
+ string=''
+ for c in range(0,n):
+     if c%2!=0:
+         string=string+(s[c].upper())
+         print(string)
+     else:
+         string=string+(s[c].lower())
+         print(string)
+a
+aB
+aBc
+aBcD
+aBcDe
 ====================
 3. Sort string characters in descending order. Program:
 Input: str = “for”
 Output: “rof”
+
+string=input('Enter the string:')
+list_str=(list(string))
+sort_string=sorted(list_str,reverse=True)
+print(''.join(sort_string))
+-------------------------------------
+string1='for'
+largest1=string1[0]
+for s in string1:
+    if s>largest1:
+        largest1=s
+i=string1.index(largest1)
+string1=string1[0:i]+string1[i+1:]
+largest2=string1[0]
+for s in string1:
+    if s>largest2:
+        largest2=s
+j=string1.index(largest2)
+string1=string1[0:j]+string1[j+1:]
+largest3=string1[0]
+for s in string1:
+    if s>largest3:
+        largest3=s
+print(largest1+largest2+largest3)
+----------------------------------
+def largest_char(string1):
+    largest = string1[0]
+    for s in string1:
+        if s > largest:
+            largest = s
+    return largest
+
+string1=input('Enter the string:')  #largest
+l=len(string1)
+new_string=''
+for s in range(l):
+    largest=largest_char(string1)
+    new_string=new_string+largest
+    j = string1.index(largest)
+    string1=string1[0:j]+string1[j+1:]
+print(new_string)   ####################  tsrlgea
+=====================================
+4. Merge two strings
+Input:
+S1 = “Hello” S2 = “Bye”
+Output: HBeylelo
+
+S1='Hello'
+S2='Bye'
+result=S1[0]+S2[0]+S1[1]+S2[1]+S1[2]+S2[2]+S1[3]+S1[4]
+print(result) #HBeylelo
+
+------------
+s1='Hello'
+s2='Byehi'
+s3=''
+j=0
+k=0
+if len(s1)==len(s2):
+    for i in range(0,len(s1+s2)):
+        if i%2==0:
+            s3=s3+s1[j]
+            j+=1
+        else:
+            s3=s3+s2[k]
+            k+=1
+    print(s3)#####################  HBeylelhoi
+----------------------
+s1='Hello'
+s2='Bye'
+s3=''
+j,k=0,0
+l=len(s1)+len(s2)
+if len(s1)>len(s2):
+    d=len(s1)-len(s2)
+    for i in range(l-d):
+        if i%2==0:
+            s3=s3+s1[j]
+            j=j+1
+        else:
+            s3=s3+s2[k]
+            k=k+1
+    print(s3+s1[-d:])----------------------->HBeylelo
+else:
+    d=len(s2)-len(s1)
+    for i in range(l-d):
+        if i%2==0:
+            s3 =s3+s1[j]
+            j = j + 1
+        else:
+            s3 =s3+s2[k]
+            k = k + 1
+    print(s3+s2[-d:])
+-----------------------------------
+def mrg(s1,s2,d):
+    l = len(s1) + len(s2)
+    s3=''
+    j,k=0,0
+    for i in range(l-d):
+        if i%2==0:
+            s3=s3+s1[j]
+            j=j+1
+        else:
+            s3=s3+s2[k]
+            k=k+1
+    return s3
+
+s1='Bye'
+s2='Hello'
+if len(s1)>len(s2):
+    d=len(s1)-len(s2)
+    print(mrg(s1,s2,d)+s1[-d:])
+elif len(s2)>len(s1):
+    d=len(s2)-len(s1)
+    print(mrg(s1,s2,d)+s2[-d:])
+else:
+    d=len(s1)-len(s2)
+    print(mrg(s1,s2,d))
+
+===========================
+5. Extract maximum and minimum number
+Example 1:
+Input:
+S = 100klh564abc365bg
+Output:
+Maximum: 564
+Minimum: 100
+
+S = 100klh564abc365bg
+
+
+   
 
 
 
