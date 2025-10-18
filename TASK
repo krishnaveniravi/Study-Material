@@ -936,6 +936,38 @@ elif x%3==0 and y%4==0 and z%5==0 :
     print("Right-angled triangle")
 else:
     print("Not a right-angled triangle")
+===============================================
+18/10/25
+Interview questions:
+1. ABCDE ... String rotation Program
+EABCD
+DEABC
+CDEAB
+BCDEA
+ABCDE
+ string1='ABCDE'
+ l=len(string1)
+ i=l-1
+ while i>=0:
+     print(string1[i:]+string1[:i])
+     i-=1
+ --------------
+ string1='ABCDE'
+ l=len(string1)
+ for i in range(l-1,-1,-1):
+     print(string1[i:]+string1[:i])
+=====================
+2.Pattern Program:
+If supplied Input: 5 Needs to print Below like this
+a
+aB
+aBc
+aBcD
+aBcDe
+====================
+3. Sort string characters in descending order. Program:
+Input: str = “for”
+Output: “rof”
 
 
 
@@ -962,10 +994,7 @@ else:
 
 
 
-Krishnaveni - List 
-Sakthi - Tuple
-Karthikeyan - Set
-Pavitha - Dictionary
+
 
 
 
