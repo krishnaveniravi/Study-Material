@@ -897,9 +897,154 @@ Happy numbers between 1 and 100 are:
   print(binary(5))
   print(binary(6))
 ==============================>8
+# 97.Create a function that takes three arguments a, b, c 
+and returns the sum of the numbers that are evenly divided by c from the range a, b inclusive.
 
+def evenly_divisible(a,b,c):
+  total=0  
+  for num in range(a,b+1):
+      if num%c==0:
+        total+=num
+  return total
 
+print(evenly_divisible(1,20,3))
+print(evenly_divisible(1,10,20))
+print(evenly_divisible(1,10,2))
+=======================
+#99.Create a function that replaces all the vowels in a string with a specified character.
+   def vowels_replace(string, char):
+      vowels = 'AEIOUaeiou'
+      for vowel in vowels:
+          string = string.replace(vowel, char)
+      return string
+  
+  print(vowels_replace("the aardvark", '#'))
+  print(vowels_replace("minnie mouse", '?'))
+  print(vowels_replace("shakespheare", '&'))
+==================
+#100.Write a function that calculates the factorial of a number recursively.
+def factorial(n):
+  if n==0:
+    return 1
+  return n*factorial(n-1)
+print(factorial(10))
+print(factorial(5))
+print(factorial(8))
+print(factorial(0))
+print(factorial(1))
+================
+#101.Hamming distance is the number of characters that differ between two strings.
+To illustrate:
+String1: "abcbba"
+String2: "abcbda"
+Hamming Distance: 1 - "b" vs. "d" is the only difference.
 
+  def hamming_distance(str1,str2):
+    if len(str1)!=len(str2):
+      print('String must have the same length')
+    distance=0
+    for i in range(len(str1)):
+      if str1[i]!=str2[i]:
+        distance+=1
+    return distance
+  print(hamming_distance('hello','hella'))
+  print(hamming_distance("abcde","abcde"))
+  print(hamming_distance("strong","strung"))
+=====================
+#102.Create a function that takes a list of non-negative integers 
+#and strings and return anew list without the strings.
+#filter_list([1, 2, "a", "b"]) ➞ [1, 2]
+
+  def filter_list(list1):
+    list2=[]
+    for element in list1:
+      if isinstance(element,int) and element>=0:
+        list2.append(element)
+    return list2
+  
+  print(filter_list([1,2,'a','b']))
+  print(filter_list([1,'a','b',0,15]))
+==============
+#103.The "Reverser" takes a string as input and returns that string in reverse order, withthe opposite case.
+  def reverse(string):
+    string=string[::-1]
+    return string
+  
+  print(reverse('Hello World'))
+  print(reverse('ReVeRsE'))
+  print(reverse('Radar'))
+=================
+#104 You can assign variables from lists like this:unpack the list
+first ➞ 1
+middle ➞ [2, 3, 4, 5]
+last ➞ 6
+
+  writeyourcodehere=[1,2,3,4,5,6,7]
+  first,*middle,last=writeyourcodehere
+  print(first)
+  print(middle)
+  print(last)
+=============
+#105 factorial repeated
+==========
+#106.Write a function that moves all elements of one type to the end of the list.
+move_to_end([1, 3, 2, 4, 4, 1], 1) ➞ [3, 2, 4, 4, 1, 1]
+Move all the 1s to the end of the array.
+
+def move_to_end(list1,element):
+  count_element=list1.count(element)
+  list2=[]
+  for i in list1:
+    if i!=element:
+      list2.append(i)
+  list2.extend([element]*count_element)
+  return list2
+print(move_to_end([1,2,3,3,4,1,4,1],1))
+print(move_to_end(['a','b','c','d','a','e'],'a'))
+===============
+#107. Create a function that takes a string and returns a string in which each character isrepeated once
+double_char("String") ➞ "SSttrriinngg"
+double_char("Hello World!") ➞ "HHeelllloo WWoorrlldd!!"
+doublechar("1234! ") ➞ "11223344!!"
+
+  def double_char(string1):
+    string2=''
+    for char in string1:
+      string2=string2+(char*2)
+    return string2
+  
+  print(double_char('string'))
+  print(double_char('Hello world'))
+  print(double_char('1234!'))
+==============
+#108 Create a function that reverses a boolean value and returns the string "booleanexpected" if another variable type is given.
+Examples
+reverse(True) ➞ False
+reverse(False) ➞ True
+reverse(0) ➞ "boolean expected"
+reverse(None) ➞ "boolean expected"
+  def reverse(value):
+    if isinstance(value,bool):
+      return not value
+    else:
+      return 'Boolean expected'
+  print(reverse(True))
+  print(reverse(False))
+  print(reverse(0))
+  print(reverse(None))
+========
+#109.Create a function that returns the thickness (in meters) of a piece of paper afterfolding it n number of times.
+The paper starts off with a thickness of 0.5mm.
+  def paper_folding(n):
+    initial_thickness_mm=0.5
+    final_thickness=initial_thickness_mm*(2**n)
+    final_thickness_m=final_thickness/1000
+    return f'{final_thickness_m:.3f}m'
+  
+  print(paper_folding(7))
+  print(paper_folding(21))
+  print(paper_folding(4))
+=====================
 
 
 
