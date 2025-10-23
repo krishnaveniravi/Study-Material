@@ -1,0 +1,88 @@
+1.Add Two Numbers
+Table of Content:
+  #Using user input
+  #Using Function
+  #Using Lambda Function
+  #Using operator.add
+  #Using sum()
+
+  def add(x,y):
+    return x+y 
+  a=5
+  b=9
+print(add(a,b))
+#using lambda function
+  x=lambda a,b:a+b
+  print(x(5,9))
+#using sum()
+  print(sum[5,9])
+================
+2.maximum of two numbers
+  #max()
+  #ternary operator
+  #if-else statement
+  #sort()
+#using sort()
+  a=4
+  b=3
+  num=[a,b]
+  num.sort()
+  print(num[1])
+=================
+3.Factorial of a Number:
+ #using for loop
+ #using recursive function
+ #using math.factorial
+#for loop
+n=5
+fact=1
+for i in range(1,n+1):
+  fact*=i
+print(fact)
+#recursive
+def fact(n):
+  return 1 if (n==0 or n==1) else n*fact(n-1)
+print(fact(5))
+#math.factorial
+import math
+print(math.factorial(5))
+===============
+4.Find simple interest
+#Python Functions
+#Python Lambda Functions
+#List Comprehension in Python
+#function
+def si(x,y,z):
+  return (x*y*z)/100
+p=1000
+t=2
+r=5
+print(si(p,t,r))
+#lambda
+x=lambda p,t,r:(p*t*r)/100
+print(x(1000,2,5))
+#comprehension
+p=1000
+t=2
+r=5
+si=[(p*t*r)/100][0]
+print(si)
+=================
+5.Find compound interest
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
