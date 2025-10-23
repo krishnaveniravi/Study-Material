@@ -1,0 +1,107 @@
+Exception:
+  Error occures while the excecution of the program.
+
+syntax error can't handle in exception handling.
+
+index error===>out of range of index
+nameerror===>variable not defined
+type error===>when concatenate two different types of datatype
+indendation error==>occurs when not giving correct space
+
+intrepreter:will find these below error
+#syntax error
+#indentation error
+these above two errors are not handle by exception handling
+
+a=10
+b=0
+print(a/b) #zero division error
+
+a='program'
+b=10
+print(a+b) #type error
+
+l=[1,2]
+l.append(3)
+print(l) #no error
+
+output:
+  Traceback (most recent call last):
+    File "C:\Users\matha\PycharmProjects\Test\140_.py", line 218, in <module>
+      print(a/b) #zero division error
+            ~^~
+  ZeroDivisionError: division by zero
+
+#tightly coupled system:
+  #while the execution of program if error occurs at particular line it will stop and not execute the another line if its correct.
+
+#loosly coupled system: micro service
+  how to avoid exception:
+    By using try,except :
+  try:
+    a=10
+    b=0
+    print(a/b) #zero division error
+  except:
+    print('Exception in division part')
+  try:
+    a='program'
+    b=10
+    print(a+b) #type error
+  except:
+    print('exception in + operation')
+  try:
+    l=[1,2]
+    l.append(3)
+    print(l) #no error
+  except:
+    print('Exception in append opeartion')
+  
+  output:
+    Exception in division part
+    exception in + operation
+    [1, 2, 3]
+
+try and except is the pair .if try used then except is also used
+
+ try:
+    l=[1,2]
+    l.append(3)
+    print(l) #no error
+  except Exception as e:
+    print('Exception in append opeartion')
+    print(Exception) # class
+    print(e) #error definition
+    print(type(e)) #type of the error
+  else:#no exception -->it will works
+    print('No exception')
+  finally:#with exception or without exception it will work
+    print('try,execept finished')
+
+##how to handle specific exception:
+  try:
+    a='program'
+    b=10
+    print(a+b) #type error
+  except TypeError:
+    print('exception in + operation')
+  output:
+  exception in + operation
+
+#handling two errors at same time
+  try:
+      print(10/0) #zerodivision error
+      a='program'
+      b=10
+      print(a+b) #type error
+  except (TypeError,ZeroDivisionError): #only handle these two errors only
+      print('exception in + operation')
+
+  output:exception in + operation
+
+
+
+
+
+
+
