@@ -69,10 +69,122 @@ si=[(p*t*r)/100][0]
 print(si)
 =================
 5.Find compound interest
+#Using Exponentiation Operator
+#Using Built-in pow() Function
+#Taking Input from User
+#Using for Loop
+p=1200 
+r=5.4
+t=2
+##Using Exponentiation Operator
+---------------------------------
+a=p*(1+r/100)**t
+ci=a-p
+print(ci)
+#taking input fro the user
+------------------
+  principle=int(input('Enter the principle: '))
+  rate_of_interest=int(input('Enter the rate of interest: '))
+  time_in_years=int(input('Enter the time in years: '))
+  amount=principle*pow((1+rate_of_interest/100),time_in_years)
+  ci=amount-principle
+  print(ci)
+#Using for Loop
+-----------------
+p=1200 
+r=5.4
+t=2
+amt=p
+for i in range(t):
+  amt=amt*(1+r/100)
+ci=amt-p
+print(ci)
+==============
+#6.Check Armstrong Number
+153==>sum of its digits each raised to the power of number of the digits.
+#Mathematical Method (Most Optimal)
+#String Conversion Method:
+#Using map() and lambda (Functional Style)
+#Recursive Method (Educational, Not Practical)
+#String Conversion Method:
+----------------------
+  n=input('Enter the number: ')
+  l=len(n)
+  total=0
+  for i in n:
+    if int(i)>=0:
+      total=total+(int(i)**l)
+  if int(n)==total:
+    print(f'{n} is a armstrong number')
+  else:
+    print(f'{n} is not a armstrong number')
+#Mathematical Method (Most Optimal):
+------------------------------
+n=int(input('Enter the number:'))
+number=n
+l=len(str(n))
+total=0
+while n>0:
+  digit=n%10 #3
+  total=total+digit**l
+  n=n//10
+if total==number:
+   print(f'{number} is a armstrong number')
+else:
+   print(f'{number} is not a armstrong number')
+--------------
+#7.Find area of a circle
+area=pi*r*r
+#Using hardcoded pi value
+#Using math.pow()
+#Using math.pi
+#Using hardcoded pi value
+  pi=3.14159
+  radius=2
+  area=pi*radius*radius
+  print(area)
+##Using math.pow()
+  import math
+  pi=3.14159
+  radius=2
+  area=pi*math.pow(radius,2)
+  print(area)
+#Using math.pi
+import math
+pi=3.14159
+radius=2
+area=math.pi*radius*radius
+print(area)
+======================
+#8.Print all Prime numbers in an Interval
+eg.2 to 15
+first=2
+last=15
+for j in range(first,last+1):
+    for i in range(2,j):
+        if j%i==0:
+            break
+    else:
+        print(j,end=' ')
 
+======================
+#9.Check whether a number is Prime or not
+n=int(input('Enter the number: '))
+if n==0 and n==1:
+  print('Enter the number greater than 1')
+else:
+  for i in range(2,n):
+    if n%i==0:
+      break
+  else:
+    print('Number is prime number')
+    
   
 
-
+  
+    
+  
+  
 
 
 
