@@ -170,16 +170,100 @@ for j in range(first,last+1):
 ======================
 #9.Check whether a number is Prime or not
 n=int(input('Enter the number: '))
-if n==0 and n==1:
-  print('Enter the number greater than 1')
+div=2
+while div<n:
+    if n%div==0:
+        print(f'{n} is not a prime number')
+        break
+    div=div+1
 else:
-  for i in range(2,n):
-    if n%i==0:
-      break
+    print(f'{n} is a prime number')
+ ================
+10.Python Program for n-th Fibonacci number
+nth=10
+f=-1
+s=1
+r=1
+while r<=nth:
+  t=f+s
+  f,s=s,t
+  r+=1
+print(f'{nth}th fibonacci number is:',t)
+=============
+11.Check if a given number is Fibonacci number?
+Fibonacci Number Check Using a Mathematical Property
+A number n is a Fibonacci number if and only if one or both of (5*n² + 4) or (5*n² – 4) is a perfect square.
+
+import math
+def is_perfect_sqrt(n):
+  s=int(math.sqrt(n))
+  return s*s==n
+
+def is_fibonacci(x):
+  return is_perfect_sqrt(5*x*x+4) or is_perfect_sqrt(5*x*x-4)
+
+first=1
+last=7
+for i in range(first,last+1):
+  if is_fibonacci(i):
+    print(f'{i} is a fibonacci number')
   else:
-    print('Number is prime number')
-    
-  
+    print(f'{i} is not a fibonacci number')
+============
+12.Nth multiple of a number in Fibonacci Series:
+
+Need to find nth multiple of given number
+nth=4
+m=3
+f,s=0,1
+l=[]
+while True:
+  t=f+s
+  if t%m==0:
+    l.append(t)
+    if len(l)==nth:
+      print(l[-1])
+      break
+  f=s
+  s=t
+---------------------
+nth=4
+m=3
+f,s=0,1
+count=0
+while True:
+    f,s=s,f+s
+    if s%m==0:
+        count+=1
+        if count==nth:
+            print(s)
+            break
+===================
+13.Print ASCII Value of a character
+ord()
+chr()
+ASCII (American Standard Code for Information Interchange)
+ascii_a=ord('a') #characters must be given in string
+print(ascii_a)
+============
+14.Sum of squares of first n natural numbers
+n=10
+total=0
+if n>0:
+  for i in range(1,n+1):
+    total=total+(i**2) 
+  print(f'Sum of squares of first {n} natural numbers:',total)
+===========
+15.Cube sum of first n natural numbers
+n=10
+total=0
+if n>0:
+  for i in range(1,n+1):
+    total=total+(i**3) 
+  print(f'Sum of cube of first {n} natural numbers:',total)
+============
+Array / List Programs:
+
 
   
     
