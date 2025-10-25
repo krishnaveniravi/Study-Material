@@ -219,7 +219,7 @@ f,s=0,1
 l=[]
 while True:
   t=f+s
-  if t%m==0:
+  if t>0 and t%m==0:
     l.append(t)
     if len(l)==nth:
       print(l[-1])
