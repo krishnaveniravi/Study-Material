@@ -1,0 +1,144 @@
+#these are interivew queations 
+#Lambda function
+#Function without name: 
+#lambda
+#used to reduce no of lines in the program
+#A lambda function can take any number of arguments, but can only have one expression.
+
+#The expression is evaluated and the result is returned.
+
+eg:
+def cube_number(val):
+    output = val ** 3
+    return output
+
+print(cube_number(4))
+print(cube_number(8))
+
+#using
+#anonymous ==> unknown 
+lambda arguments : expression
+cube_number = lambda val: val ** 3
+print(cube_number(5))
+
+
+#Map function:
+  #With inbuilt function 
+  #With User defined function 
+  #With lambda function
+#map is an inbuilt function
+#map(operation, DS) --->2 arguments
+
+a = "3 4 5 6 7 0 1 10"
+print(a) #3 4 5 6 7 0 1 10
+val = a.split() 
+print(val) #['3', '4', '5', '6', '7', '0', '1', '10']
+
+li = []
+
+for i in val:
+    s = int(i)
+    li.append(s)
+print(li) #[3, 4, 5, 6, 7, 0, 1, 10]
+
+#Map with inbuilt function
+a = "3 4 5 6 7 0 1 10"
+li = list(map(int, a.split()))
+print(li) #[3, 4, 5, 6, 7, 0, 1, 10]
+
+#map (operation/function, DS)
+[3, 4, 5, 6, 7, 0, 1, 10]
+
+a = ['3', '4', '5', '6', '7', '0', '1', '10']
+
+print(list(map(int,a))) #[3, 4, 5, 6, 7, 0, 1, 10]
+-------------------------------------------
+#user def function:
+def cube(x):
+    return x ** 3
+
+Li = [3,4,5,1,2,7,10,0]
+cube_output = list(map(cube, Li))
+print(cube_output)
+-------------------------------
+#Lambda function
+
+Li = [3,4,5,1,2,7,10,0]
+cube_output = list(map(lambda x: x ** 3, Li))
+print(cube_output)
+
+Li = [3,4,5,1,2,7,10,0]
+print(list(map(lambda x: x ** 3, Li)))
+---------------------------
+#Filter function: works for true or false conditions not like map function
+
+With inbuilt function / User def function / Lambda function
+Li1 = [2,3,4,5,6,1,7,9,11]
+output = list(filter(lambda x: x%2==0, Li1))
+print(output) #[2, 4, 6]
+--------------------
+Li1 = [2,3,4,5,6,1,7,9,11]
+output = list(map(lambda x: x%2==0, Li1))
+print(output)  #[True, False, True, False, True, False, False, False, False]
+-------------------
+Li1 = [2,3,4,5,6,1,7,9,11]
+
+def check_even(val):
+    return val % 2 == 0
+
+output = list(filter(check_even, Li1))
+print(output) #[2, 4, 6]
+------------------------
+Reduce
+Li1 = [3,4,5,6,7,10]
+
+from functools import reduce
+output = reduce(lambda x,y: x+y, Li1)
+print(output) #35
+
+print(reduce(lambda x,y: x+y, Li1)) #35
+[3,4,5,6,7,10]
+[7,5,6,7,10]
+[12,6,7,10]
+[18,7,10]
+[25,10]
+[35]
+35
+========================
+Comprehension:
+No need to create an empty list to store the result value
+Li = [3,4,5,1,2,7,10,0]
+cube = []
+for i in Li:
+    val = i ** 3
+    cube.append(val)
+print(cube)  #[27, 64, 125, 1, 8, 343, 1000, 0]
+
+Li1 = [3,4,5,6,10,20]
+val = [i ** 3 for i in Li1]
+print(val)
+-------------------
+#Set comprehension
+
+Li1 = [3,4,5,6,10,20]
+
+val = {i ** 3 for i in Li1 if i %2 == 0}
+print(val)
+-----------------
+#Dictionary comprehension
+Li1 = [3,4,5,6,10,20]
+
+val = {i:i ** 3 for i in Li1 if i %2 == 0}
+print(val)
+--------------------
+#tuple comprehension   ====================> there is no direct tuple comprehension
+Li1 = [3,4,5,6,10,20]
+
+val = (i ** 3 for i in Li1 if i %2 == 0)
+print(val)
+print(tuple(val))        ===================>print like this
+---------------
+
+
+
+
