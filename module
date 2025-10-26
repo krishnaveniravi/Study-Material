@@ -241,8 +241,19 @@ why sys module:
    print(sys.version) 
 #prints version of python intrepreter currently in use.
 #Helps in identifying compatibility and environment details.
+2.sys.platform
+print(sys.platform) #win32
 -----------
-sys.stdin:
+3.sys.exit()
+import sys
+print("Hello World")
+sys.exit()
+print("Welcomes you")
+
+#output:
+Hello World
+-----------
+4.sys.stdin:
 import sys
 
 for line in sys.stdin:
@@ -251,11 +262,11 @@ for line in sys.stdin:
     print(f'Input : {line}')
 print("Exit")
 ------------- 
-sys.stdout: Writes output to the standard output stream and allows low-level control over printed output.
-import sys
-sys.stdout.write('hello') #hello
+5.sys.stdout: Writes output to the standard output stream and allows low-level control over printed output.
+   import sys
+   sys.stdout.write('hello') #hello
 ------------
-sys.stderr:
+6.sys.stderr:
 
 
 
