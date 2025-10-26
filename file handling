@@ -1,0 +1,105 @@
+file:
+general way of stroing input or output.
+
+Open a file
+How to read content
+How to write content
+How to overwrite
+how to delete a file
+How to create/delete a directory
+
+
+
+#Reading the file # 'r' ==> read mode
+f=open('gretings.txt')  #default readmode
+print(f.read())
+#output
+Hi students,
+Welcome to python class
+Today's topics:
+file handling
+modules
+functions
+-------------------
+f=open('gretings.txt')  #default readmode
+print(f.read(5))
+#output:
+Hi st
+--------------------
+f = open("greetings.txt","r") 
+print(f.readline())
+print(f.readline())
+#output:
+Hi students,
+
+Welcome to python class
+------------------
+f = open("greetings.txt","r") 
+for i in f:
+  print(i,end='')
+f.close()
+#output:
+Hi students,
+Welcome to python class
+Today's topics:
+file handling
+modules
+functions
+--------------------------
+with open('greetings.txt','r') as f:
+    print(f.read())
+#output:
+Hi students,
+Welcome to python class
+Today's topics:
+file handling
+modules
+functions
+---------------
+f=open('welcome.txt') #not existing file
+print(f.read())
+
+#output:
+Traceback (most recent call last):
+  File "D:\python\Python_Class\out.py", line 1, in <module>
+    f=open('welcome.txt')
+FileNotFoundError: [Errno 2] No such file or directory: 'welcome.txt'
+================
+#writing a file:
+'a'===>append====>writing, for unavailable file it will automatically create a file
+f=open('welcome.txt','a')
+f.write('welcome to the class')
+f.write('How many topics are pending?')
+f.write('file handling')
+f.close()
+print(f.read())
+-------------------
+#overwriting a file :
+'w'===>writing, for unavailable file it will automatically create a file
+f=open('welcome.txt','w')
+f.write('Hi Python')
+f.close()
+f=open('welcome.txt','r')
+print(f.read())
+#output:
+Hi Python
+======================
+#For creating file 
+'x'===>creating a new file
+f=open('checklist.txt','x')
+f.close()
+------------
+f=open('checklist.txt','a')
+f.write('Hello World')
+f.close()
+f=open('checklist.txt','r')
+print(f.read())
+#output:
+Hello World
+==================
+
+
+
+
+
+
