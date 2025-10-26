@@ -98,6 +98,8 @@ try and except is the pair .if try used then except is also used
       print('exception in + operation')
 
   output:exception in + operation
+=============================
+
 
 
 
