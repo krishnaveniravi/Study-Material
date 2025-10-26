@@ -1,0 +1,94 @@
+module:
+modules ==> libraries
+
+1.inbuilt modules
+2.user defined modules
+
+#inbuilt modules: important :math,statistics
+import math
+import statistics
+import os
+import sys
+
+using :
+help('module') ===>list of modules will display
+
+math, statistics
+collections, functools, re, json, os, sys
+threading, itertools, date time, 
+yaml json csv 
+
+eg:
+import statistics
+print(dir(statistics)) #-------->list of functions that we can use
+
+   ['Counter', 'Decimal', 'Fraction', 'NormalDist', 'StatisticsError', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', 
+  '__loader__', '__name__', '__package__', '__spec__', '_coerce', '_convert', '_exact_ratio', '_fail_neg', '_find_lteq', '_find_rteq', 
+  '_isfinite', '_normal_dist_inv_cdf', '_ss', '_sum', 'bisect_left', 'bisect_right', 'erf', 'exp', 'fabs', 'fmean', 'fsum', 'geometric_mean', 
+  'groupby', 'harmonic_mean', 'hypot', 'itemgetter', 'log', 'math', 'mean', 'median', 'median_grouped', 
+  'median_high', 'median_low', 'mode', 'multimode', 'numbers', 'pstdev', 'pvariance', 'quantiles', 'random', 'sqrt', 'stdev', 'tau', 'variance']
+
+print(statistics.__file__) #------->library path will display
+C:\Users\matha\AppData\Local\Programs\Python\Python313\Lib\statistics.py
+
+print(statistics.median([5,6,7,4,3,2,1]))
+print(statistics.median([5,6,7,4,3,2,1,8]))
+
+How to use inbuilt module:
+#Type1
+import math
+print(dir(math))
+print(math.factorial(5))
+print(math.gcd(10,20))
+print(math.pi)  
+
+#type2
+import math as m  #alias name
+print(m.factorial(5))
+
+#Type3
+from math import *  #--->calling all functions .eg:without use math.factorial
+print(factorial(10))
+print(gcd(10,20))
+
+#Type4
+from math import cos,factorial #----->calling specific functions
+print(cos(180))
+print(factorial(10))
+
+
+#statistiocs :
+from statistics import *
+import statistics
+print(dir(statistics))
+print(median([5,6,8,3,9,10]))
+
+USER DEFINED MODULE:
+creating a .py file with functions
+if we import UDM without adding user defined module in library it will raises an error.
+#we can put the user defined modules in library
+#then we can use it
+eg:
+import classexp
+print(classexp.func3(10))
+
+import classexp
+sys.path.insert(0, '/home/amninder/Desktop/Folder_2') #--->we can insert user defined module in this path
+import kamal
+
+#random module:
+import random
+print(random.choice(range(100000, 999999)))
+
+
+
+
+
+
+
+
+
+
+
+
+
