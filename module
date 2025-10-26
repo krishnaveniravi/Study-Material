@@ -79,6 +79,187 @@ import kamal
 #random module:
 import random
 print(random.choice(range(100000, 999999)))
+===========================
+#################################################os and sys modules:################################################
+https://www.geeksforgeeks.org/python/os-module-python-examples/
+
+os modules:
+#Provides functions tointracting with the operating systems.
+#OS comes under Python's standard utility modules.
+#OS module functions:
+   Handling the Current Working Directory
+   Creating a Directory
+   Listing out Files and Directories with Python
+   Deleting Directory or Files using Python
+   File Permissions and Metadata
+1.1 Getting the Current working directory:
+os.getcwd():
+import os
+cwd=os.getcwd()
+print('Current working directory:',cwd)
+#output:
+Current working directory: C:\Users\matha\PycharmProjects\Test
+-----------
+1.2 Changing the Current working directory:
+os.chdir(path)
+   import os
+   changedire=os.chdir("../")
+   print('Current working directory:',os.getcwd())
+
+#output:
+Current working directory: C:\Users\matha\PycharmProjects
+--------------------------
+2. Creating a Directory
+os.mkdir()
+os.makedirs()
+   2.1 Using os.mkdir():
+   #using os.mkdir()
+   import os
+   directory='module'
+   parent_dir = r"C:\Users\matha\PycharmProjects"
+   path=os.path.join(parent_dir,directory)
+   os.mkdir(path)
+   print("Directory '%s' created" % directory)
+   
+   directory='functions'
+   parent_dir = r"C:\Users\matha\PycharmProjects\Test"
+   path=os.path.join(parent_dir,directory)
+   node=0o666
+   os.mkdir(path,node)
+   print("Directory '%s' created" % directory)
+
+ouput:
+Directory 'module' created
+Directory 'functions' created
+----------------------------
+2.2 Using os.makedirs():
+os.makedirs() method is used to create a directory recursively. 
+That means while making leaf directory if any intermediate-level directory is missing, os.makedirs() method will create them all.
+#using os.makedirs()
+   import os
+   directory='5am club'
+   parent_dir = r"C:\Users\matha\PycharmProjects\books" #---------------->books not exist but using os.makrdirs can create parent directory
+   path=os.path.join(parent_dir,directory)
+   os.makedirs(path)
+   print("Directory '%s' created" % directory)
+
+   directory='Authors'
+   parent_dir = r"C:\Users\matha\PycharmProjects"
+   path=os.path.join(parent_dir,directory)
+   node=0o666
+   os.makedirs(path,node)
+   print("Directory '%s' created" % directory)
+   #output:
+   Directory '5am club' created
+   Directory 'Authors' created
+===============
+3. Listing out Files and Directories with Python
+os.listdir()
+# get the list of all files and directories in the specified directory.
+#if we don't give any directory,it will returns the files and directories of current working directory
+
+   import os
+   path=r"C:\Users\matha\PycharmProjects"
+   dir_list=os.listdir(path)
+   print("Files and directions in '",path,"':",dir_list)
+   #output:
+   Files and directions in ' C:\Users\matha\PycharmProjects ': ['Authors', 'books', 'module', 'osmodules', 'Test']
+--------------------
+4. Deleting Directory or Files using Python:
+Using os.remove() #---->remove or delete a file path.not remove/delete a directory.
+                        #If the specified path is a directory then OSError will be raised by the method.
+import os
+file='file1.txt'
+parent=r'C:\Users\matha\PycharmProjects\Authors'
+path=os.path.join(parent,file)
+os.remove(path)
+
+Using os.rmdir() #--------->To remove or delete an empty directory.If the directory is not empty OSError will be raised
+
+import os
+dire='folder1'
+parent=r'C:\Users\matha\PycharmProjects'
+path=os.path.join(parent,dire)
+os.rmdir(path)
+==========================
+5. File Permissions and Metadata:
+Python’s os module provides access to lower-level file system metadata and 
+permission handling- useful for scripting, administration and system-level tasks. 
+
+Three important methods in this category are:
+#os.chmod(): Change file or directory permissions =========>Permissions must be passed in octal format (e.g., 0o600).
+   import os
+   #0o600 set for owner to read and write the file
+   os.chmod('file2.txt',0o600)
+#os.chown(): Change file owner and group (Unix only) --------->It is used in Unix/Linux systems only.
+
+#os.stat(): Fetch metadata like file size, modification time, permissions, etc.
+   import os
+   
+   stats = os.stat("file2.txt")
+   
+   print("Size:", stats.st_size, "bytes") #size in bytes
+   print("Last modified:", stats.st_mtime) #last timestamp
+   print("Permissions:", oct(stats.st_mode)[-3:]) #permission last 3 digit
+===============
+#commonly used functions:
+#os.name
+import os
+print(os.name) #nt
+
+#os.error
+#os.popen()
+#os.close()
+import os
+fd = "file2.txt"
+file = open(fd, 'r')
+text = file.read()
+print(text)
+os.close(file)
+
+#os.path.exists()==========>True /False 
+import os
+file=os.path.exists('file2.txt')
+print(file) #      True
+
+#os.path.getsize()
+import os 
+file_size=os.path.getsize('file2.txt')
+print(file_size) #48
+=====================================================================================
+Sys module:
+Provides access to variables and functions that interact closely with Python interpreter and runtime environment.
+why sys module:
+   give access to system specific parameters and functions like command-line arguments.
+   Allows interaction with Python runtime environment (e.g., path, version, exit).
+   Useful for reading input and writing output using sys.stdin and sys.stdout.
+   Enables control over the interpreter with functions like sys.exit() and sys.getsizeof().
+   Helps in debugging and managing system-level behavior in Python scripts.
+
+1. sys.version
+   import sys
+   print(sys.version) 
+#prints version of python intrepreter currently in use.
+#Helps in identifying compatibility and environment details.
+-----------
+sys.stdin:
+import sys
+
+for line in sys.stdin:
+    if 'q' == line.rstrip():
+        break
+    print(f'Input : {line}')
+print("Exit")
+------------- 
+sys.stdout: Writes output to the standard output stream and allows low-level control over printed output.
+import sys
+sys.stdout.write('hello') #hello
+------------
+ sys.stderr:
+
+
+
+
 
 
 
