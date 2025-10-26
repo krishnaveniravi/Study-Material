@@ -255,7 +255,12 @@ sys.stdout: Writes output to the standard output stream and allows low-level con
 import sys
 sys.stdout.write('hello') #hello
 ------------
- sys.stderr:
+sys.stderr:
+
+
+
+
+
 
 
 
