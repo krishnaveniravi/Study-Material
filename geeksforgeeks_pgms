@@ -263,6 +263,175 @@ if n>0:
   print(f'Sum of cube of first {n} natural numbers:',total)
 ============
 Array / List Programs:
+1.Sum of array:
+  array1=[1,2,3,4,5]
+  sum=0
+  for num in array1:
+    sum+=num
+  print('Sum of array1 is:',sum)
+  ----------
+  using sum()
+  array1=[1,2,3,4,5]
+  total=sum(array1)
+  print(total)
+  ----------
+  using reduce
+  from functools import reduce
+  sum=reduce(lambda x,y:x+y,array1)
+  print('Sum of array1 is:',sum)
+=================
+3.Largest element in an array
+  arr = [10, 324, 45, 90, 9808]
+  largest=arr[0]
+  for i in arr:
+    if i>largest:
+      largest=i
+  print('Largest element in arr:',largest)
+  ---------
+  #using max()
+  print(max(arr))
+  ------
+  #using reduce
+  from functools import reduce
+  arr = [10, 324, 45, 90, 9808]
+  res = reduce(lambda x,y:x if x>y else y, arr)
+  print(res)
+  ---------
+  #using sort()
+============
+4.Array rotation:
+  #using list slicing
+  arr=[1, 2, 3, 4, 5, 6]
+  #rotation by (d)=3
+  o/p=arr=[4,5,6,1,2,3]
+  arr=[1, 2, 3, 4, 5, 6]
+  d=3
+  print('Original array:',arr)
+  rotated_arr=arr[d:]+arr[0:d]
+  print('Rotated array:',rotated_arr)
+================
+5.Reversal algorithm for array rotation
+  def reverse(arr,d):
+    rotated_arr=(arr[d:])+(arr[:d])
+    return rotated_arr
+  
+  arr=[1, 2, 3, 4, 5, 6]
+  d=2
+  print('Rotated array:',reverse(arr,d)) #Rotated array: [3, 4, 5, 6, 1, 2]
+----------
+#using collection.deque 
+
+==============
+6.Split the array and add the first part to the end
+arr = [12, 10, 5, 6, 52, 36]
+o/p arr=[ 5, 6, 52, 36, 12, 10]
+
+def split_add(arr,k):
+  b=arr[:k]
+  result=arr[k:]+b[:]
+  return result
+
+arr = [12, 10, 5, 6, 52, 36]
+k=3
+print('Split and add array:',split_add(arr,k))   #Split and add array: [6, 52, 36, 12, 10, 5]
+----------------------
+arr = [12, 10, 5, 6, 52, 36]
+k=2
+result=arr[2:]+arr[:2]
+print(result) #[5, 6, 52, 36, 12, 10]
+==================
+7.Find reminder of array multiplication divided by n
+  eg:
+  input: arr[] = {100, 10, 5, 25, 35, 14}, 
+              n = 11
+  Output: 9
+  Explanation: 100 x 10 x 5 x 25 x 35 x 14 = 61250000 % 11 = 9
+  arr=[100, 10, 5, 25, 35, 14]
+  n=11
+  multi=1
+  for num in arr:
+    multi*=num
+  reminder=multi%n
+  print('Reminder:',reminder) #Reminder: 9
+  ---------
+  #using reduce,lambda
+  from functools import reduce
+  def reminderaftermulti(arr,n):
+    result=reduce(lambda x,y:x*y,arr)
+    return result%n
+  
+  arr=[100, 10, 5, 25, 35, 14]
+  n=11
+  print('Reminder:',reminderaftermulti(arr,n)) #Reminder: 9
+===========
+8.Check if given array is Monotonic:
+#array is monotonic if it is either monotone increasing or monotone decreasing.
+  Input : 6 5 4 4
+  Output : true
+  
+  Input : 5 15 20 10
+  Output : false
+return type True/False
+
+A = {6, 5, 4, 4}
+#using all() 
+def ismonotonic(arr):
+  increasing=all(arr[i]<=arr[i+1] for i in range(len(arr)-1))
+  decreasing=all(arr[i]>=arr[i+1] for i in range(len(arr)-1))
+  return increasing or decreasing
+
+arr1=[6,7,8,8,9]
+arr2=[9,6,4,2,1]
+arr3=[1,2,3,6,5]
+print(ismonotonic(arr1))
+print(ismonotonic(arr2))
+print(ismonotonic(arr3))
+================
+8.Interchange first and last elements in a list
+  my_list = [1, 2, 3, 4, 5]
+  my_list[0],my_list[-1]=my_list[-1],my_list[0]
+  print('List after swapping first and last elements:',my_list)
+  #List after swapping first and last elements: [5, 2, 3, 4, 1]
+  ----------
+  list = [1, 2, 3, 4]
+  a, *b, c = list
+  print([c,*b,a]) #[4, 2, 3, 1]
+============
+9.Swap two elements in a list
+# Swapping elements at index 0 and 4
+# using multiple assignment
+a = [10, 20, 30, 40, 50]
+a[0],a[4]=a[4],a[0]
+print(a)  #[50, 20, 30, 40, 10]
+------
+#Using a Temporary Variable
+a = [10, 20, 30, 40, 50]
+temp=a[0]
+a[0]=a[4]
+a[4]=temp
+print(a)  #[50, 20, 30, 40, 10]
+==================
+10.Ways to find length of list
+#using()
+a = [10, 20, 30, 40, 50]
+print(len(a))
+------Using loop (Naive method)
+a = [10, 20, 30, 40, 50]
+count=0
+for i in a:
+  if i:
+    count+=1
+print(count)
+
+
+
+
+
+
+
+
+
+
 
 
   
