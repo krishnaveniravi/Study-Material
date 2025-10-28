@@ -422,6 +422,378 @@ for i in a:
   if i:
     count+=1
 print(count)
+==============
+11.Ways to check if element exists in list
+  a = [10, 20, 30, 40, 50]
+  if 10 in a:
+    print('Element exist in a')
+  else:
+    print('Element not exist in a')
+  -----------
+  #Using any()
+  a = [10, 20, 30, 40, 50]
+  #elements to find =30
+  flag=any(i==30 for i in a)
+  if flag:
+    print('Element exist in a')
+  else:
+    print('Element not exist in a')
+============
+12.Different ways to clear a list
+  a = [1, 2, 3, 4, 5]
+  a.clear()
+  print('List after clearing:',a)
+  --------
+  #Reassigning to an Empty List
+  a = [1, 2, 3, 4, 5]
+  a=[]
+  print('List after reassignment:',a)
+  -----------
+  #using del
+  a = [1, 2, 3, 4, 5]
+  del a[:]
+  print('List after del:',a)
+  -----
+  a = [1, 2, 3, 4, 5]
+  while a:
+    a.pop()
+  print(a)
+==================
+13.Reversing a List in Python
+  a = [1, 2, 3, 4, 5]
+  a.reverse()
+  print(a)
+  ------
+  a = [1, 2, 3, 4, 5]
+  print(a[::-1])
+  ---
+  a = [1, 2, 3, 4, 5]
+  rev=[a[i] for i in range(len(a)-1,-1,-1)]
+  print(rev)
+============
+14.Find sum of elements in List - Python
+  a = [10, 20, 30, 40, 50]
+  print(sum(a))
+  
+  a = [10, 20, 30, 40, 50]
+  total=0
+  for i in a:
+    total+=i
+  print(total)
+  
+  a = [10, 20, 30, 40, 50]
+  total=sum([i for i in a])
+  print(total)
+  
+  from functools import reduce
+  a = [10, 20, 30, 40, 50]
+  res=reduce(lambda x,y:x+y,a)
+  print(res)
+==========
+15.Multiply All Numbers in the List in Python
+  a = [2, 4, 8, 3]
+  res=1
+  for i in a:
+    res*=i
+  print(res)
+  
+  #Using math.prod()
+  import math
+  a = [2, 4, 8, 3]
+  res=math.prod(a)
+  print(res)
+  
+  from functools import reduce
+  a = [2, 4, 8, 3]
+  res=reduce(lambda x,y:x*y,a)
+  print(res)
+===========
+16.Find smallest number in a list
+  #using min()
+  a = [8, 3, 5, 1, 9, 12]
+  smallest=min(a)
+  print('smallest number is:',smallest)
+  
+  a = [8, 3, 5, 1, 9, 12]
+  smallest=a[0]
+  for num in a:
+    if num<smallest:
+      smallest=num
+  print('smallest number is:',smallest)
+  
+  #sorting
+  a = [8, 3, 5, 1, 9, 12]
+  b=sorted(a)
+  print('smallest number is:',b[0])
+========
+17.Find largest number in a list
+#using max()
+  a = [10, 24, 76, 23, 12]
+  largest=max(a)
+  print('Largest number in a:',largest)
+  -----
+  a = [10, 24, 76, 23, 12]
+  largest=a[0]
+  for num in a:
+    if num>largest:
+      largest=num
+  print('Largest number in a:',largest)
+  -------
+  #sort
+  a = [10, 24, 76, 23, 12]
+  a.sort()
+  print('Largest number in a:',a[-1])
+=========
+18.Find second largest number in a list
+  a = [10, 20, 4, 45, 99]
+  a.sort()
+  second_large=a[-2]
+  print('Second largest number:',second_large)
+---------
+#using heapq.nlargest()
+  import heapq
+  a = [10, 20, 4, 45, 99]
+  top_two=heapq.nlargest(2,a)
+  print('Second largest number:',top_two[1])
+==============
+19.Find N largest elements from a list
+  list1 = [2, 6, 41, 85, 0, 3, 7, 6, 10]
+  N=2
+  list1.sort()
+  N_largest=list1[-1:-(N+1):-1]
+  print(f'{N} largest elements in list1:',N_largest)
+=========
+20.Even numbers in a list
+  #using list comprehension
+  a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  even_num=[num for num in a if num%2==0]
+  print('Even numbers in list a:',even_num)
+  --
+  #using filter
+  a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  even_num=list(filter(lambda x:x%2==0,a))
+  print('Even numbers in list a:',even_num)
+-------
+21.Odd numbers in a List
+  a = [10, 15, 23, 42, 37, 51, 62, 5]
+  for i in a:
+    if i%2!=0:
+      print(i,end=' ')
+  --------
+  a = [10, 15, 23, 42, 37, 51, 62, 5]
+  odd_num=[num for num in a if num%2!=0]
+  print('odd numbers in list a:',odd_num)
+=======
+22.Print all even numbers in a range
+  start=5
+  end=25
+  for num in range(start,end+1):
+    if num%2==0:
+      print(num,end=' ')
+  -----
+  #list comprehension
+  s=5
+  l=25
+  even_num=[num for num in range(s,l+1) if num%2==0]
+  print(even_num)
+========
+Using range() with Step
+  s=1
+  l=10
+  even_num=[i for i in range(2,l+1,2)]
+  print(even_num)
+================
+23.Print all odd numbers in a range
+  start=5
+  end=25
+  for num in range(start,end+1):
+    if num%2!=0:
+      print(num,end=' ')
+==========
+24.Print positive numbers in a list
+  a = [-10, 15, 0, 20, -5, 30, -2]
+  for num in a:
+    if num>0:
+      print(num)
+  -----
+  #using filter
+  a = [-10, 15, 0, 20, -5, 30, -2]
+  pos_num=list(filter(lambda x:x>0,a))
+  print(pos_num)
+========
+25.Print negative numbers in a list
+  a = [5, -3, 7, -1, 2, -9, 4]
+  for num in a:
+    if num<0:
+      print(num)
+========
+26.Print all positive numbers in a range
+  start = -5
+  end = 3
+  for i in range(start,end+1):
+    if i>0:
+      print(i,end=' ')
+  print()
+  -------
+  #using filter
+  start = -5
+  end = 3
+  pos_num=filter(lambda x: x>0 ,range(start,end+1))
+  print(pos_num)
+=======
+27.Print all negative numbers in a range
+  start = -5
+  end = 3
+  for i in range(start,end+1):
+    if i<0:
+      print(i,end=' ')
+  print()
+  ---------
+  #using filter
+  start = -5
+  end = 3
+  neg_num=list(filter(lambda x: x<0 ,range(start,end+1)))
+  print(neg_num)
+==========
+28.Remove multiple elements from a list
+  #using list comprehension
+  a = [10, 20, 30, 40, 50, 60, 70]
+  #elements to remove
+  remove=[30,40,70]
+  res=[i for i in a if i not in remove]
+  print(res)
+  
+  #using filter
+  a = [10, 20, 30, 40, 50, 60, 70]
+  remove=[30,40,70]
+  res=list(filter(lambda x:x not in remove,a))
+  print(res)
+=======
+29.Remove empty List from List
+  a = [[1, 2], [], [3, 4], [], [5]]
+  res=[]
+  for i in a:
+    if i:
+      res.append(i)
+  print(res)
+  ----
+  #using filter
+  a = [[1, 2], [], [3, 4], [], [5]]
+  res=[filter(lambda x:x, a)]
+  print(res)
+=======
+30.Cloning or Copying a list
+  a = [1, 2, 3, 4, 5]
+  b=a.copy()
+  print(b)
+  ---
+  a = [1, 2, 3, 4, 5]
+  b=a[:]
+  print(b)
+  ---
+  a = [1, 2, 3, 4, 5]
+  b=list(a)
+  print(b)
+========
+31.Count occurrences of an element in a list
+  #Using count()
+  a = [1, 3, 2, 6, 3, 2, 8, 2, 9, 2, 7, 3]
+  res=a.count(3)
+  print(res)
+  ------
+  a = [1, 3, 2, 6, 3, 2, 8, 2, 9, 2, 7, 3]
+  count=0
+  for i in a:
+    if i==3:
+      count+=1
+  print(count)
+-------
+from collections import Counter
+
+a = [1, 3, 2, 6, 3, 2, 8, 2, 9, 2, 7, 3]
+# Create a counter objects
+res = Counter(a)
+# Get count of 3
+print(res) #Counter({2: 4, 3: 3, 1: 1, 6: 1, 8: 1, 9: 1, 7: 1})
+print(res[3]) #3
+===========
+32.Remove empty tuples from a list
+  a = [(1, 2), (), (3, 4), (), (5,)]
+  res=[]
+  for i in a:
+    if i:
+      res.append(i)
+  print(res)
+======
+33.Print duplicates from a list of integers
+  a = [1, 2, 3, 1, 2, 4, 5, 6, 5]
+  s=set()
+  dup=[]
+  for i in a:
+    if i not in s:
+      s.add(i)
+    else:
+      dup.append(i)
+  print(dup)
+=====
+34.Find Cumulative sum of a list
+  itertools.accumulate()
+  
+  import itertools
+  l = [1, 2, 3, 4]
+  cum_sum=itertools.accumulate(l)
+  print(cum_sum)
+  ----
+  #for loop
+  l = [1, 2, 3, 4]
+  total=0
+  cum=[]
+  for i in l:
+    total=total+i
+    cum.append(total)
+  print(cum)   #[1, 3, 6, 10]
+=============
+35.Sum of number digits in List
+  #using loop
+  a = [123, 456, 789]
+  res=[]
+  for num in a:
+    total=0
+    while num>0:
+      total=total+num%10
+      num=num//10
+    res.append(total)
+  print(res)
+=========
+36.Break a list into chunks of size N
+  a = [1, 2, 3, 4, 5, 6, 7, 8]
+  n=3
+  res=[a[i:i+n]for i in range(0,len(a),n)]
+  print(res)  #[[1, 2, 3], [4, 5, 6], [7, 8]]
+  ------
+  #using slicing
+===========
+37.Sort the values of first list using second list
+  a = ['a', 'b', 'c', 'd']
+  b = [3, 1, 4, 2]
+  # Sort a using b
+  x = [val for _, val in sorted(zip(b, a))]
+  print(x)
+  --
+  a = ['a', 'b', 'c', 'd']
+  b = [3, 1, 4, 2]
+  x=sorted(a,key=lambda x:b[a.index(x)])
+
+
+
+
+
+    
+
+
+
+
+
 
 
 
