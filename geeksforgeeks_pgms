@@ -783,6 +783,140 @@ print(res[3]) #3
   a = ['a', 'b', 'c', 'd']
   b = [3, 1, 4, 2]
   x=sorted(a,key=lambda x:b[a.index(x)])
+===========
+STRING Programs:
+---------------
+1.Check if a string is palindrome or not
+  #using slicing:
+  s = "malayalam"  
+  rev_s=s[::-1]
+  if s==rev_s:
+    print('Given string is palindrome')
+  else:
+    print('Given string is not a palindrome')
+  ----------
+  #using reversed() +join()
+  a='python'
+  res=''.join(reversed(a))
+  #print(res)
+  if res==a:
+  	print('Given string is palindrome')
+  else:
+  	print('Given string is not a palindrome')
+==========
+2.Check whether the string is Symmetrical or Palindrome
+#Using String Slicing:
+symmetrical=first half equals to second half of the string
+s = "abaaba"
+l=len(s)//2
+sym=s[:l]==s[l:] if len(s)%2==0 else s[:l]==s[l+1:]
+
+pal=s==s[::-1]
+
+print('Symmetrical' if sym else 'Non Symmetrical')
+print('Palindrome' if pal else 'Non Palindrome')
+=======
+3.Reverse words in a given String
+#using split and join
+s = "Python is fun"
+sp_word=s.split()
+sp_word=sp_word[::-1]
+print(' '.join(sp_word)) #fun is Python
+=========
+4.Ways to remove i’th character from string
+#Using replace()
+s = "hello world"
+s=s.replace('l','')
+print(s)
+--------
+#Using filter() function
+s = "hello world"
+res=''.join(filter(lambda x:x!='o',s))
+print(res)
+---
+#using regular expression
+import re
+s = "hello world"
+res=re.sub("[aeiou]",'',s)
+print(res)
+---------
+#using list comprehension
+s = "hello world"
+res=''.join([i for i in s if i!='l'])
+print(res)
+==========
+5.Check if String Contains Substring in Python
+#using if,else:
+MyString1 = "A geek in need is a geek indeed"
+sub_s='gee'
+if sub_s in MyString1:
+  print('Yes,substring present')
+else:
+  print('No!,substring not present') 
+#Yes,substring present
+---------
+#using find()
+def substring(string,sub):
+  if (string.find(sub))==-1:
+    return 'Substring not found'
+  else:
+    return 'Substring found'
+
+string = "geeks for geeks"
+sub_str = "geek"
+print(substring(string,sub_str))
+---
+#using index()
+def substring(string,sub):
+  try:
+    if (string.index(sub))>=0:
+      return 'Substring found'
+    else:
+      return 'Substring not found'
+  except:
+    return 'Enter valid input'
+
+string = "geeks for geeks"
+sub_str = "geek"
+print(substring(string,sub_str))
+----------
+#using lambda
+string = "geeks for geeks"
+sub_str = "geek"
+res=''.join(filter(lambda x:sub_str in string,string))
+print('Yes!found' if res else 'Not Found!')
+============
+def is_substring(string, substring):
+    for i in range(len(string) - len(substring) + 1):
+        if string[i:i+len(substring)] == substring:
+            return True
+    return False
+string = "A geeks in need is a geek indeed"
+substring = "geeks"
+print(is_substring(string,substring))
+-----------
+import re
+MyString1 = "A geek in need is a geek indeed"
+if re.search("need", MyString1):
+    print("Yes! it is present in the string")
+else:
+    print("No! it is not present")
+===========
+6.Words Frequency in String Shorthands
+Input: "hello world hello everyone"
+Output: {'hello': 2, 'world': 1, 'everyone': 1}
+#using collections.Counter
+from Collections import counter
+s = "hello world hello everyone"
+res=Counter(s.split())
+print(res) #Counter({'hello': 2, 'world': 1, 'everyone': 1})
+
+
+
+
+
+
+
 
 
 
