@@ -903,13 +903,95 @@ else:
     print("No! it is not present")
 ===========
 6.Words Frequency in String Shorthands
-Input: "hello world hello everyone"
-Output: {'hello': 2, 'world': 1, 'everyone': 1}
-#using collections.Counter
-from Collections import counter
-s = "hello world hello everyone"
-res=Counter(s.split())
-print(res) #Counter({'hello': 2, 'world': 1, 'everyone': 1})
+  Input: "hello world hello everyone"
+  Output: {'hello': 2, 'world': 1, 'everyone': 1}
+  #using collections.Counter
+  from Collections import counter
+  s = "hello world hello everyone"
+  res=Counter(s.split())
+  print(res) #Counter({'hello': 2, 'world': 1, 'everyone': 1})
+-------
+string="hello world hello everyone"
+words_count={}
+for word in string.split():
+  if word in words_count:
+    words_count[word]+=1
+  else:
+    words_count[word]=1
+print(words_count) #{'hello': 2, 'world': 1, 'everyone': 1}
+===============
+7.Convert Snake case to Pascal case
+#Using for loop
+s= 'geeksforgeeks_is_best'-------->snake case
+GeeksforgeeksIsBest---------------->pascal case
+s= 'geeksforgeeks_is_best'
+res=''
+capNext=True
+for char in s:
+  if char=='_':
+    capNext=True
+  elif capNext:
+    res=res+char.upper()
+    capNext=False
+  else:
+    res+=char
+print(res)
+------
+#using title()
+s = 'geeksforgeeks_is_best'
+res = s.replace("_", " ").title().replace(" ", "")
+print(res)
+==========
+8.Find Length of String in Python
+  #using len()
+  a = "geeks"
+  print(len(a))
+  ----------
+  #using for loop
+  a = "geeks"
+  count=0
+  for i in a:
+    if i:
+      count+=1
+  print(count)
+  ------
+  # str.count()
+  a = "geeks"
+  res=a.count('')-1
+  print(res)
+=================
+9.Print even length words in a string
+using list comprehension:
+s = "This is a python language"
+res=[word for word in s.split() if len(word)%2==0]
+print(' '.join(res))
+----
+#using filter
+===========
+10.Accept the strings which contains all vowels
+#using loop
+s = "education"
+v = 'aeiou' 
+res=set()
+for i in s:
+  if i in v:
+    res.add(i)
+    if len(res)==len(v):
+      print('True')
+      break
+else:
+  print('False')
+
+ 
+    
+ 
+    
+    
+
+
+
+
+
 
 
 
