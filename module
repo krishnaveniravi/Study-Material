@@ -267,23 +267,233 @@ print("Exit")
    sys.stdout.write('hello') #hello
 ------------
 6.sys.stderr:
+==========
+29/10/25
+Collections:
+The collections module in Python provides specialized containers 
+(different from general purpose built-in containers like dict, list, tuple and set).
+Why do we need Collections Module?
+   #Provides specialized container data types beyond built-in types like list, dict and tuple.
+   #Includes efficient alternatives such as deque, Counter, OrderedDict, defaultdict and namedtuple.
+   #Simplifies complex data structure handling with cleaner and faster implementations.
+   #Helps in frequency counting, queue operations and structured records with minimal code.
+   #Ideal for improving performance and code readability in data-heavy applications.
+Counter:
+Syntax:
+class collections.Counter([iterable-or-mapping])
 
+   from collections import Counter 
+   s=['B','B','A','B','C','A','B','B','A','C'] 
+   # Creating Counter from a list (sequence of items)  
+   print(Counter(s))
+     
+   # Creating Counter from a dictionary
+   print(Counter({'A':3, 'B':5, 'C':2, 'C':2 }))
+     
+   # Creating Counter using keyword arguments
+   print(Counter(A=3, B=5, C=2))
+   
+   #output:
+   Counter({'B': 5, 'A': 3, 'C': 2})
+   Counter({'B': 5, 'A': 3, 'C': 2})
+   Counter({'B': 5, 'A': 3, 'C': 2})
+======================
+OrderedDict:
 
+   Syntax:
+   class collections.OrderDict()
+   
+   from collections import OrderedDict 
+   print("This is a Dict:\n") 
+   d = {} 
+   d['a'] = 1
+   d['b'] = 2
+   d['c'] = 3
+   d['d'] = 4  
+   for key, value in d.items(): 
+       print(key, value) 
+     
+   print("\nThis is an Ordered Dict:\n") 
+   od = OrderedDict() 
+   od['a'] = 1
+   od['b'] = 2
+   od['c'] = 3
+   od['d'] = 4  
+   for key, value in od.items(): 
+       print(key, value)
+==============
+   Example (Deleting and reinserting a key):
+   from collections import OrderedDict 
+   od = OrderedDict() 
+   od['a'] = 1
+   od['b'] = 2
+   od['c'] = 3
+   od['d'] = 4
+     
+   print('Before Deleting')
+   for key, value in od.items(): 
+       print(key, value)     
+   # deleting element
+   od.pop('a')
+   # Re-inserting the same
+   od['a'] = 1​
+   print('\nAfter re-inserting')
+   for key, value in od.items(): 
+       print(key, value)
+   
+   #output:
+   Before Deleting
+   a 1
+   b 2
+   c 3
+   d 4
+   
+   After re-inserting
+   b 2
+   c 3
+   d 4
+   a 1
+=======================
+DefaultDict:
+   DefaultDict is a sub class of dictionary.
+   It is used to provide some default values for the key that does not exist and never raises a KeyError.  
+   
+   Syntax:
+   class collections.defaultdict(default_factory)
+   
+   DefaultDict objects can be initialized using DefaultDict() method 
+   by passing the data type as an argument.
+   
+   from collections import defaultdict
+   res=defaultdict(int)     ## Creating a defaultdict with default value of 0 (int)
+   L = [1, 2, 3, 4, 2, 4, 1, 2] 
+   # Counting occurrences of each element in the list
+   for i in l:
+      res[i]+=1 # No need to check key existence; default is 0
+   print(res)  #defaultdict(<class 'int'>, {1: 2, 2: 3, 3: 1, 4: 2})
+   -------------
+   Dictionary with values as list:
+   
+   from collections import defaultdict
+   res=defaultdict(list)
+   for i in range(5):
+      d[i].append(i)
+      #d[i]=[i]
+   print(res)
+===========
+ChainMap:
+   A ChainMap encapsulates many dictionaries into a single unit and returns a list of dictionaries.
+   
+   Syntax:
+   class collections.ChainMap(dict1, dict2)
+   
+   from collections import ChainMap
+   d1 = {'a': 1, 'b': 2}
+   d2 = {'c': 3, 'd': 4}
+   d3 = {'e': 5, 'f': 6}
+   c=ChainMap(d1,d2,d3)
+   print(c)
+   #ChainMap({'a': 1, 'b': 2}, {'c': 3, 'd': 4}, {'e': 5, 'f': 6})
+---------
+   Accessing Keys and Values from ChainMap:
+   from collections import ChainMap 
+   d1 = {'a': 1, 'b': 2}
+   d2 = {'c': 3, 'd': 4}
+   d3 = {'e': 5, 'f': 6}
+   # Defining the chainmap 
+   c = ChainMap(d1, d2, d3)   
+   # Accessing Values using key name
+   print(c['a'])
+   # Accessing values using values()
+   print(c.values())
+   # Accessing keys using keys()
+   print(c.keys())
+   #output
+   1
+   ValuesView(ChainMap({'a': 1, 'b': 2}, {'c': 3, 'd': 4}, {'e': 5, 'f': 6}))
+   KeysView(ChainMap({'a': 1, 'b': 2}, {'c': 3, 'd': 4}, {'e': 5, 'f': 6}))
+--------------
+Adding new dictionary:
+   new_child()
+   
+   d4={'g':8}
+   res=c.new_child(d4)
+   print(res)
+==================
+NamedTuple:
+   A NamedTuple is like a regular tuple but with named fields, making data more readable and accessible.
+   Instead of using indexes, you can access elements by name.
+   
+   Syntax:
+   class collections.namedtuple(typename, field_names)
 
+from collections import namedtuple
+#initializing the namedtuple
+student=namedtuple('student',['name','age','DOB'])
 
+#ASSIGN THE VALUE 
+s=student('mathan','20','19081997')
 
+#accessing the age by index
+print('student age:',s[1])
 
+#accessing the name by namedtuple
+print('student age:',s.name)
+----------
+1. _make(): This function is used to return a namedtuple() from the iterable passed as argument.
+2. _asdict(): This function returns the OrdereDict() as constructed from the mapped values of namedtuple().
 
+   from collections import namedtuple
+   from collections import namedtuple
+   #initializing the namedtuple
+   student=namedtuple('student',['name','age','DOB'])
+   
+   #ASSIGN THE VALUE 
+   s=student('mathan','20','19081997')
+   
+   #initializing the iterable
+   li=['krish','21','16071998']
+   
+   #initialize the dictionary
+   di = { 'name' : "Nikhil", 'age' : 19 , 'DOB' : '1391997' } 
+   
+   # using _make() to return namedtuple() 
+   print (Student._make(li)) 
+     
+   # using _asdict() to return an OrderedDict() 
+   print (S._asdict())
+   
+   #output
+   Student(name='Manjeet', age='19', DOB='411997')
+   {'name': 'Nandini', 'age': '19', 'DOB': '2541997'}
 
+==============
+Deque:
+Deque (Doubly Ended Queue) is the optimized list for quicker append and pop operations from both sides of the container. 
+Syntax:
+class collections.deque(list)
 
-
-
-
-
-
-
-
-
+from collections import deque
+  
+# Declaring deque
+   queue = deque(['name','age','DOB']) 
+   print(queue) #deque(['name', 'age', 'DOB'])
+   Inserting Elements:
+   queue =deque([1, 2, 3]) 
+   de.append(4) ## Append 4 to the right end of deque
+   de.appendleft(6) # Append 6 to the left end of deque
+   print(queue) #deque([6, 1, 2, 3, 4])
+#Removing Elements:
+de = deque([6, 1, 2, 3, 4])
+# Delete element from the right end (removes 4)
+de.pop()
+# Delete element from the left end (removes 6)
+de.popleft()
+print(de) #deque([1, 2, 3])
+===========
+UserDict
+UserList
+UserString
 
 
 
