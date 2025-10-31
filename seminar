@@ -73,6 +73,31 @@ print(li1)
 list1=[23,34,67,89,6.7,'j','l']
 for a in list1:
 	print(a,end=' ')
+==================
+PANDAS:
+https://www.programiz.com/python-programming/pandas/getting-started
+https://www.w3schools.com/python/pandas/default.asp
+
+Pandas:
+	Created by Wes McKinney in 2008.
+	Name pandas reference to both 'panel data' and 'python data analysis'
+	Its a python library used to working with data sets.
+	It has a fucntions for analyzing,cleaning,expolring and manipulating the data.
+-----------
+why use pandass:
+	It allows us to analyze the big data and make conclusions based on the statistical theories.
+	It can clean messy data and make them readable and relevant.
+	Relevant data is very important in datascience.
+-----------
+Command to install pandas:
+	pip install pandas
+Checking Pandas Version:
+import pandas as pd
+print(pd.__version__)
+
+
+
+
 
 
 
