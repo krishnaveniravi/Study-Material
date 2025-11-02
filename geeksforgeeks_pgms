@@ -981,12 +981,256 @@ for i in s:
       break
 else:
   print('False')
+============
+11.Count the Number of matching characters in a pair of string
+#Using Set
+s1 = "VISHAKSHI"
+s2 = "VANSHIKA"
+res=len((set(s1.lower())).intersection(set(s2.lower())))
+print(res)
+--------
+#using list comprehension
+res=[i for i in set(s1.lower()) if i in set(s2.lower())]
+print(len(res))
+----
+12.Remove all duplicates from a given string
+  #using orderedDict.fromkeys(), dict.fromkeys()
+  s = "geeksforgeeks"
+  res=''.join(dict.fromkeys(s))
+  print(res) #geksfor
+  ----
+  #using forloop
+  set1=set()
+  res=''
+  for i in s:
+    if i not in set1:
+      set1.add(i)
+      res+=i
+  print(res)
+===========
+13.Least Frequent Character in String
+  s = "GeeksforGeeks"
+  d={}
+  for char in s:
+    d[char]=d.get(char,0)+1
+  sorted_d=sorted(d.items(), key=lambda item:item[1])
+  res=sorted_d[0][0]
+  print(res)
+  ----
+  s = "GeeksforGeeks"
+  d = {}  # Initialize an empty dictionary
+  for char in s:  # Loop through each character in `s`
+      d[char] = d.get(char, 0) + 1 
+  res = min(d, key=d.get)
+  print(str(res))
+=========
+14.Maximum frequency character in String
+  #using collections.Counter()
+  from collections import Counter
+  s = "hello world"
+  count=Counter(s)  #dictionary o/p
+  res=max(count,key=count.get)
+  print(res)
+  -----
+  s = "hello world"
+  d={}
+  for char in s:
+    d[char]=d.get(char,0)+1
+  sorted_d=sorted(d.items(), key=lambda item:item[1],reverse=True)
+  res=sorted_d[0][0]
+  print(res)
+  ==========
+  #using string count
+  s = "hello world"
+  max_char=''
+  max_count=0
+  for char in s:
+    count=s.count(char)
+    if count>max_count:
+      max_count=count
+      max_char=char
+  print(max_char)
+============
+15.Check if a string contains any special character
 
- 
-    
- 
-    
-    
+Input: Geeks$For$Geeks
+Output: String is not accepted.
+Input: Geeks For Geeks
+Output: String is accepted
+
+n = "Geeks$For$Geeks"
+s='[@_!#$%^&*()<>?/\|}{~:]'
+count=0
+for i in n:
+  if i in s:
+    count+=1
+if count:
+  print('String not accepted')
+else:
+  print('c')
+----------
+#regex method
+import re
+def run(string):
+  pattern=re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+  if (pattern.search(string)==None):
+    return 'String accepted'
+  else:
+    return 'String not accepted'
+string1="Geeks$For$Geeks"
+print(run(string1))
+=====================
+16.Generating random strings until a given string is generated
+=================
+17.Find words which are greater than given length k
+
+Input : str = "hello geeks for geeks 
+          is computer science portal" 
+        k = 4
+Output : hello geeks geeks computer 
+         science portal
+Explanation : The output is list of all 
+words that are of length more than k.
+
+str = "hello geeks for geeks is computer science portal" 
+k=4
+l=[]
+for word in str.split():
+  if len(word)>k:
+    l.append(word)
+print(l)
+-------
+#using filter
+res=list(filter(lambda word:len(word)>k,str.split()))
+print(res)
+===========
+18.Removing i-th character from a string
+#string slicing
+s = "PythonProgramming"
+# Index of the character to remove
+i=6
+res=s[:i]+s[i+1:]
+print(res) #Pythonrogramming
+-------------
+#using for loop
+s = "PythonProgramming"
+# Index of the character to remove
+i=6
+res=''
+for char in range(len(s)):
+  if char!=i:
+    res=res+s[char]
+print(res)
+=============
+19.Split and join a string
+  a = "Hello, how are you?"
+  b=a.split()
+  c='-'.join(b)
+  print(b)
+  print(c)
+----------
+#using for loop
+=========
+20.Check if a given string is binary string or not
+#using regex
+import re
+s = "101010000111"
+if re.fullmatch(r'[01]+',s):
+  print('Binary String')
+else:
+  print('Not a Binary string')
+---------
+Using all()
+s = "101010000111"
+res=all(i in '01' for i in s)
+if res:
+  print('Yes')
+else:
+  print('False')
+=======
+s = "101010000111"
+# convert string into a set of characters
+if set(s).issubset({'0', '1'}):
+    print("Yes")
+else:
+    print("No")
+===========
+21.Find uncommon words from two Strings
+#using set-->symmetric difference (^)
+s1 = "Geeks for Geeks"
+s2 = "Learning from Geeks for Geeks"
+set1=set(s1.split())
+set2=set(s2.split())
+res=list(set1^set2)
+print(res)
+===============
+
+
+
+
+Python Regex Programs:
+
+  1.Check if String Contain Only Defined Characters using Regex
+  Input: ‘657’ let us say regular expression contains the following characters- (‘78653’)
+  Output: Valid
+  import re
+  def check (string,pattern):
+    if re.search(pattern,string):
+      return 'Valid'
+    else:
+      return 'Not valid'
+  
+  pattern=re.compile('^[78653]+$')
+  string1='659'
+  print(check(string1,pattern)) #Not valid
+---------------------------
+2.Count Uppercase, Lowercase, special character and numeric values using Regex
+
+  Input : "ThisIsGeeksforGeeks!, 123" 
+  Output :
+  No. of uppercase characters = 4
+  No. of lowercase characters = 15
+  No. of numerical characters = 3
+  No. of special characters = 2
+  
+  import re
+  string="ThisIsGeeksforGeeks!, 123"
+  upper_case_letter=re.findall(r'[A-Z]',string)
+  lower_case_letter=re.findall(r'[a-z]',string)
+  Numerical_characters=re.findall(r'[0-9]',string)
+  Special_characters=re.findall(r'[?,.!%]',string)
+  
+  print('No. of uppercase characters:',len(upper_case_letter))
+  print('No. of lowercase characters:',len(lower_case_letter))
+  print('No. of numerical characters:',len(Numerical_characters))
+  print('No. of special characters:',len(Special_characters))
+  
+  #output:
+  No. of uppercase characters: 4
+  No. of lowercase characters: 15
+  No. of numerical characters: 3
+  No. of special characters: 2
+==============
+3.Find the most occurring number in a string using Regex
+  import re
+  from collections import Counter
+  s = 'geek55of55gee4ksabc3dr2x'
+  a=re.findall(r'\d+',s) #list return
+  dic=Counter(a)  #dictionary (key with count)
+  most_occur=max(dic, key=dic.get)
+  print(most_occur)
+  -------------
+  import re
+  from collections import Counter
+  s = '3geek55of55geeksabc3dr2x'
+  a=re.findall(r'\d+',s) #list return
+  dic=Counter(a)  #dictionary (key with count)
+  print(dic)
+  res=sorted(dic.items(),key=lambda item:item[1])
+  print(res)
+  print(res[-1][0]) #55
+====================
+
 
 
 
