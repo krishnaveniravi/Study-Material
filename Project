@@ -155,6 +155,23 @@ In this way, all letters of the word are to be guessed before all the chances ar
 For example, word to be guessed is mango, then user gets 5 + 2 = 7 chances, as mango is a five-letter word.
 
 
+=====================================================
+4.How To Create a Countdown Timer?
+https://www.programiz.com/python-programming/time
+
+
+import time
+#t=int(input('Enter time:'))
+t=65
+
+for i in range(t,-1,-1):
+    secs=int(t%60)
+    mins=int(t//60)
+    print(f'{mins:02}:{secs:02}')
+    time.sleep(1)
+    t-=1
+print('Times Up')
+=================
 
 
 
