@@ -1,0 +1,170 @@
+1.Python Program for word Guessing Game:
+This program is a simple word-guessing game where the user has to guess the characters in a randomly selected word within a limited number of attempts. 
+The program provides feedback after each guess, helping the user to either complete the word or lose the game based on their guesses.
+1. Importing the Random Module
+2. Getting the User's Name, and Greeting the User
+3. List of Words and Choosing a Random Word
+4. Prompting the User to Guess
+5. Initializing Guesses and Turns
+6. The Main Game Loop
+6.1. Checking Each Character in the Word
+6.2. Checking if the User Has Won
+6.4. Handling Incorrect Guesses
+6.5. Checking if the User Has Lost
+7. Ending the Game
+
+import random
+
+words=['banana','grapes','kiwi','orange','melon','plum','grapes','cherry','mango','fig','pear','guava','papaya']
+word=random.choice(words)
+
+print('Welcome to the Word Guessing Game!')
+name=input('Enter Your Name:')
+print('Good Luck!',name)
+
+guesses=''
+turns=10
+char_match=[]
+
+print('Guess the word(Hint:fruits name)!')
+
+
+while turns>0:
+    guess=input('Enter the character:').lower() #m
+    guesses+=guess
+    if guess not in word:
+        turns -= 1
+        print('Guess not in word!')
+        print('You have',turns,'turns left.')
+
+    for char in word:
+        if char in guesses:
+            print(char)
+            char_match.append(char)
+        else:
+            print('_')
+
+    #if guesses==word:
+    if set(char_match) == set(word):
+        print('You Win!')
+        print('The word is',word)
+        break
+
+if turns==0:
+    print('You Lose!')
+    print('Better Luck Next Time!')
+=======================================================
+#2.Rock Paper Scissor game:
+In this game, the user gets the first chance to pick the option between Rock, paper, and scissors. 
+After the computer select from the remaining two choices(randomly), the winner is decided as per the rules.
+Winning Rules as follows:
+Rock vs paper-> paper wins
+Rock vs scissor-> Rock wins
+paper vs scissor-> scissor wins.
+
+Code Explanation:
+1.The code starts by printing a message that states the rules of the game.
+2.The first line in the code prints "Rock vs paper->paper wins."
+3.This is because if you have a rock, and you play against someone who has a piece of paper, the rock will beat the paper.
+4.The next line in the code prints "Rock vs scissor->Rock wins."
+5.This is because if you have a rock, and you play against someone who has a scissors, the rock will beat the scissors.
+6.The last line in the code prints "paper vs scissor->scissor wins."
+7.This is because if you have a piece of paper, and you play against someone who has a scissors, then the piece of paper will beat the scissors.
+8.The code will print the following output: Winning Rules of the Rock paper scissor game as follows: Rock vs paper->paper wins Rock vs scissor->Rock wins paper vs scissor->scissor wins
+9.The code starts by asking the user for a choice.
+10.The code then checks to see if the input is 1, 2, or 3.
+11.If it is not one of those values, the code sets the choice_name variable to 'Rock' if choice == 1, 'paper' if choice == 2, and 'scissor' if choice == 3.
+12.The next part of the code asks the user for their computer turn.
+13.The code uses a random number generator to choose between 1, 2, and 3.
+14.This value is stored in comp_choice_name.
+15.Next, the code loops until comp_choice equals choice.
+16.In each loop iteration, comp_choice will be randomly chosen from 1-3 and stored in comp_choice_name.
+17.Once comp_choice equals choice, this means that the computer has chosen rock as its turn!
+18.Finally, it prints out both choices so that everyone can see what happened (user choice is: Rock V/s paper; Computer choice is: Rock V/s scissor).
+19.The code will ask the user for a choice between rock, paper and scissors.
+20.Once the user enters their choice, the code will randomly choose one of those options as the computer's turn.
+21.The code then prints out the chosen option and the user's choice.
+22.Finally, it loops back to ask for another choice from the user.
+
+import random
+print('Welcome to the Rock paper scissor Game')
+print('Winning Rules of the Rock paper scissor game as follows:')
+print('Rock vs paper->paper wins')
+print('Rock vs scissor->Rock wins')
+print('paper vs scissor->scissor wins')
+
+while True:
+    print('Choices:\n 1.Rock\n 2.paper\n 3.scissor')
+    choice=int(input('Enter Your Choice: '))
+    while choice not in [1,2,3]:
+        choice=int(input('Enter the Valid Choice: '))
+
+    if choice==1:
+        choice_Name='Rock'
+    elif choice==2:
+        choice_Name='paper'
+    elif choice==3:
+        choice_Name='scissor'
+
+    print('User Choice is:',choice_Name)
+    print("Now Computer's Turn")
+
+    computer_choice=random.randint(1,3)
+
+    if computer_choice == 1:
+        comp_choice_name = 'Rock'
+    elif computer_choice == 2:
+        comp_choice_name = 'paper'
+    elif computer_choice == 3:
+        comp_choice_name = 'scissor'
+
+    print('Computer Choice is:',comp_choice_name)
+    print(choice_Name,'Vs',comp_choice_name)
+
+    if choice_Name == comp_choice_name:
+        result='Game Draw'
+    elif (computer_choice == 1 and choice==2) or (choice==1 and computer_choice==2):
+        result='paper'
+    elif (computer_choice == 1 and choice==3) or (choice==3 and computer_choice==1):
+        result='Rock'
+    elif (computer_choice == 2 and choice==3) or (choice==2 and computer_choice==3):
+        result='scissor'
+
+    if result=='Game Draw':
+        print("It's a tie!")
+    elif result == choice_Name:
+        print('User Wins!')
+    else:
+        print('Computer Wins!')
+    print('Do you want to play again(yes/no)?:')
+    if input() == 'no':
+        break
+print('Thank You!')
+===============================================
+3.Implementation:
+
+This is a simple Hangman game using Python programming language. 
+Beginners can use this as a small project to boost their programming skills and understanding logic.  
+
+1.The Hangman program randomly selects a secret word from a list of secret words. 
+2.The random module will provide this ability, so line 1 in program imports it.
+3.The Game: Here, a random word (a fruit name) is picked up from our collection and the player gets limited chances to win the game.
+4.When a letter in that word is guessed correctly, that letter position in the word is made visible. 
+In this way, all letters of the word are to be guessed before all the chances are over. 
+5.For convenience, we have given length of word + 2 chances. 
+For example, word to be guessed is mango, then user gets 5 + 2 = 7 chances, as mango is a five-letter word.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
