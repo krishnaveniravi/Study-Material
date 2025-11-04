@@ -494,6 +494,109 @@ print(de) #deque([1, 2, 3])
 UserDict
 UserList
 UserString
+===============================================================================================================================================================
+4/11/25
+time module:
+
+The time module in Python provides functions for handling time-related tasks.
+
+The time-related tasks includes,
+  1. reading the current time
+  2. formatting time
+  3. sleeping for a specified number of seconds and so on.
+
+Python time.time() Function:
+   In Python, the time() function returns the number of seconds passed since epoch (the point where time begins).
+   For the Unix system, January 1, 1970, 00:00:00 at UTC is epoch.
+  
+
+# import the time module
+import time
+# get the current time in seconds since the epoch
+seconds = time.time()
+print("Seconds since epoch =", seconds)	
+=================
+Python time.ctime() Function:
+   The time.ctime() function in Python takes seconds passed since epoch as an argument 
+   and returns a string representing local time.
+   
+   import time
+   seconds = 1772215379.5045543
+   local_time = time.ctime(seconds)
+   print("Local time:", local_time)
+====================
+Python time.sleep() Function:
+The sleep() function suspends (delays) execution of the current thread for the given number of seconds.
+
+import time
+
+print("Printed immediately.")
+time.sleep(2.4)
+print("Printed after 2.4 seconds.")
+==================
+Python time.localtime() Function:
+
+The localtime() function takes the number of seconds passed since epoch as an argument 
+and returns struct_time (a tuple containing 9 elements corresponding to struct_time) in local time.
+import time
+result = time.localtime(1672214933)
+print("result:", result)
+print("\nyear:", result.tm_year)
+print("tm_hour:", result.tm_hour)
+
+result: time.struct_time(tm_year=2022, tm_mon=12, tm_mday=28, tm_hour=8, tm_min=8, tm_sec=53, tm_wday=2, tm_yday=362, tm_isdst=0)
+
+year: 2022
+tm_hour: 8
+=====================
+Python time.gmtime() Function
+struct_time in UTC
+=============
+Python time.mktime() Function:
+The mktime() function takes struct_time (a tuple containing 9 elements corresponding to struct_time) 
+as an argument and returns the seconds passed since epoch in local time.
+
+The struct_time has the following structure:
+(year, month, day, hour, minute, second, weekday, day of the year, daylight saving)
+=========
+Python time.asctime() Function:
+
+similar to time.mktime()
+time.asctime() converts the time tuple to a human-readable string.
+
+import time
+
+t = (2022, 12, 28, 8, 44, 4, 4, 362, 0)
+
+result = time.asctime(t)
+print("Result:", result)
+
+# Output: Result: Fri Dec 28 08:44:04 2022
+======================
+Python time.strftime() Function:
+
+import time
+
+named_tuple = time.localtime() # get struct_time
+time_string = time.strftime("%m/%d/%Y, %H:%M:%S", named_tuple)
+
+print(time_string)
+==============
+Python time.strptime() Function:
+
+import time
+
+time_string = "14 July, 2023"
+result = time.strptime(time_string, "%d %B, %Y")
+
+print(result)
+
+
+
+
+
+
+
 
 
 
