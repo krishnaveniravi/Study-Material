@@ -26,7 +26,7 @@ guesses=''
 turns=10
 char_match=[]
 
-print('Guess the word(Hint:fruits name)!')
+print('Guess the word!')
 
 
 while turns>0:
@@ -172,8 +172,63 @@ for i in range(t,-1,-1):
     t-=1
 print('Times Up')
 =================
+5.Python - Cows and Bulls game:
 
+Cows and Bulls is a pen and paper code-breaking game usually played between 2 players. 
+In this, a player tries to guess a secret code number chosen by the second player. The rules are as follows:
 
+#A player will create a secret code, usually a 4-digit number.  This number should have no repeated digits.
+#Another player makes a guess (4 digit number) to crack the secret number. Upon making a guess, 2 hints will be provided- Cows and Bulls.
+#Bulls indicate the number of correct digits in the correct position and cows indicates the number of correct digits in the wrong position. 
+For example, if the secret code is 1234 and the guessed number is 1246 then we have 2 BULLS 
+(for the exact matches of digits 1 and 2) and 1 COW (for the match of digit 4 in the wrong position)
+#The player keeps on guessing until the secret code is cracked. The player who guesses in the minimum number of tries wins.
+
+#Constraint: The secret code and the guessed code should be of 4-digits (between 1000 and 9999) and have no repeated numbers.
+
+import random
+
+#secret number without repeatation
+def notduplicate(sec_num):
+    list_num=[int(i) for i in str(sec_num)]
+    if len(list_num)==len(set(list_num)):
+        return True
+    else:
+        return False
+def secret_num():
+    sec_num=random.randint(1000,9999)
+    if notduplicate(sec_num):
+        return sec_num
+
+sec_num=secret_num()
+turns=int(input('Enter the number of turns:')) #5
+
+while turns>0:
+    guess=int(input('Enter the number(1000-9999):'))
+    turns-=1
+    if (guess<1000 or guess>9999) or (not notduplicate(guess)):
+        print('Please enter the valid number without repeatation')
+        continue
+    bulls_cows=[0,0]
+    sec_num_li=[int(i) for i in str(sec_num)]
+    guess_li=[int(j) for j in str(guess)]
+    for k,l in zip(sec_num_li,guess_li):
+        if l in sec_num_li:
+            if l==k:
+                bulls_cows[0]+=1
+            else:
+                bulls_cows[1]+=1
+    print(f'{bulls_cows[0]} bulls,{bulls_cows[1]} cows')
+
+    if bulls_cows[0]==4:
+        print('Your guess correct!')
+        break
+else:
+    print(f'You ran out of turns!.Correct num is:{sec_num}')
+########################################################################
+
+    
+        
 
 
 
