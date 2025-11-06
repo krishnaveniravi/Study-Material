@@ -220,7 +220,7 @@ print(f'You have {chances} chances left')
 while chances>0:
     chances-=1
     try:
-        guess=str(input('Enter the character to guess the word: '))
+        guess=str(input('Enter the character to guess the word: ')).lower()
     except:
         print('Enter only a letter')
         continue
