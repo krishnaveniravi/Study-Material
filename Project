@@ -323,9 +323,33 @@ while turns>0:
 else:
     print(f'You ran out of turns!.Correct num is:{sec_num}')
 ########################################################################
+7/11/25
+QUIZ App:
+1.Simple quiz app using python with questions and MCQ ... It should show results at the end.
 
-    
+queslist=[["1.Australian all-rounder Glenn Maxwell recently announced his retirement from which cricket format?","[A].Test Cricket [B].T20 Internationals [C].One-Day Internationals (ODIs) [D].Indian Premier League (IPL)",'C'],["2.Which is the longest river in India?","[A].Yamuna river" "[B].Godavari river" "[C].Ganga river" "[D].Brahmaputra river",'C'],["3.How many states are there in India?","[A].28 [B].29 [C].27 [D].26","A"],["4.Who was the first woman astronaut of India?","[A].Shawna Pandya [B].Kalpana chawla [C].Sunita Williams [D].Prem Mathur","B"]]
+
+score=0
+
+for question in range(len(queslist)):
+    print(queslist[question][0])
+    print(queslist[question][1])
+    #try:
+    answer=input('Enter your answer(A/B/C/D):').upper()
+    #except:
+        #print('Enter the option correctly')
+        #continue
         
+    #if answer not in ['A','B','C','D']:
+        #print('Enter the option correctly')
+        #continue
+
+    if answer ==queslist[question][2]:
+        score+=1
+        print('Correct Answer!')
+    else:
+        print('Incorrct Answer')
+print(f"Your Total Score is:{score}/{len(queslist)}")
 
 
 
