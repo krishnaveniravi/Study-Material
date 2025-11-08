@@ -350,6 +350,117 @@ for question in range(len(queslist)):
     else:
         print('Incorrct Answer')
 print(f"Your Total Score is:{score}/{len(queslist)}")
+####################################################################
+import json
+import random
+import pywhatkit
+
+with open("jsonf.json") as f:
+    data=json.load(f)
+random.shuffle(data)
+
+score=0
+correct_question,correct_option,correct_answer,correct_exp= [],[],[],[]
+wrong_question,wrong_option,wrong_answer,wrong_exp = [],[],[],[]
+all_question,all_option,all_answer,all_exp = [],[],[],[]
+Question_num=1
+
+print('Welcome to the Python Quiz Game!')
+user_name=input('Enter Your Name:')
+#user_mailID=input('Enter your e-mail ID:')
+phone_number = input('Enter Your mobile number(eg:+91 9876543210):')
+
+No_of_questions=int(input('Enter the number of questions:'))
+print('Good Luck!',user_name)
+
+for Question in data:
+    print(f'Question{Question_num}: {Question["question"]}')
+    for option in Question["options"]:
+        print(f'  {option}')
+    user_answer=input('Enter Your Answer(A/B/C/D):').upper()
+    if user_answer==Question["answer"]:
+        score+=1
+        correct_exp.append(Question["Explanation"])
+        correct_question.append((Question_num,Question["question"]))
+        correct_option.append(Question['options'])
+        correct_answer.append(user_answer)
+    if user_answer!=Question["answer"]:
+        wrong_exp.append(Question["Explanation"])
+        wrong_question.append((Question_num,Question["question"]))
+        wrong_option.append(Question['options'])
+        wrong_answer.append(user_answer)
+    all_question.append((Question_num,Question["question"]))
+    all_option.append(Question["options"])
+    all_answer.append(Question["answer"])
+    all_exp.append(Question["Explanation"])
+
+    if Question_num==No_of_questions:
+        break
+    Question_num+=1
+
+Total_Score=f'Your Score: {score}/{No_of_questions}'
+
+def explain(question,option,answer,exp):
+    a=zip(question,option,answer,exp)
+    x=tuple(a)
+    for q,o,a,e in x:
+        return f'{q}:\n{o}\n{a}\n{e}'
+
+explainations=input('Do you want explanation?(Y/N):').upper()
+if explainations=='Y':
+    explanation=input('Which explanation would you like to see?(correct/wrong/all):').lower()
+    if explanation=='correct':
+        result=explain(correct_question,correct_option,correct_answer, correct_exp)
+        print(result)
+    elif explanation=='wrong':
+        result=explain(wrong_question,wrong_option,wrong_answer, wrong_exp)
+        print(result)
+    else:
+        result=explain(all_question,all_option,all_answer, all_exp)
+        print(result)
+
+print('*************************************')
+print('Thank you for playing!')
+
+
+
+message = f'{Total_Score}\n{result}'
+hour = 23  # 10 PM
+minute = 28
+pywhatkit.sendwhatmsg(phone_number, message, hour, minute)
+print('Message sent')
+
+
+
+
+
+'''
+import smtplib
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login("krishnavenir187@gmail.com", "")
+#message = f'Your Score: {score}/{len(data)}'
+#message='Hello'
+server.sendmail("krishnavenir187@gmail.com", "krishnavenir187@gmail.com", "hi")
+print('mail sent')
+'''
+
+
+#################################################################
+2.Simple resume parser application using regular expression
+
+import re
+
+resume="""
+Name:JOSHEP P
+Mobile.No:+91 9876543210
+e-mail:josp1234@gmail.com
+Education:Bachelor of Engineering
+University:ABC Engineering College
+"""
+Name_regex=r'^[A-Z]+\s[A-Z]$'
+Mobile_regex=r'^[+][0-9]{2}\s[0-9]{10}$'
+
 
 
 
