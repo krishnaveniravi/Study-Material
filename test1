@@ -1,0 +1,113 @@
+1.Write a Python function that takes an integer as input and returns the sum of its digits.
+2. Write a Python function that counts the number of vowels (a, e, i, o, u) in a given string (case-sensitive).
+3. Write a Python function that finds the second largest number in a list without using built-in sorting functions like sorted() or .sort().
+4. Write a function that checks whether two given strings are anagrams of each other (ignoring spaces and case).
+5. Write a Python function that removes duplicates from a list while preserving the original order of elements.
+6. Write a Python function that returns the longest word in a given sentence.
+If multiple words have the same length, return the first one.
+Example:
+Input: "Python is an amazing programming language"
+Output: "programming"
+
+#######################################
+#1.Write a Python function that takes an integer as input and returns the sum of its digits.
+
+def sum_of_digits(n):
+    sum=0
+    while n>0:
+        digit=n%10
+        sum=sum+digit
+        n=n//10
+    return sum
+
+result=sum_of_digits(134)
+print(f'Sum of digits : {result}')
+
+#########################################
+
+#2.Write a Python function that counts the number of vowels (a, e, i, o, u) in a given string (case-sensitive).
+
+s=input('Enter the string:')
+d={}
+for x in s:
+    if x in ('a','e','i','o','u'):
+        if x in d:
+            d[x]=d[x]+1
+        else:
+            d[x]=1
+res=sum(d.values())
+print(res)
+
+#########################################
+
+#3. Write a Python function that finds the second largest number in a list without using built-in sorting functions like sorted() or .sort().
+
+def second_largest(li):
+    for x in range(len(li)):
+        for y in range(x+1, len(li)):
+            if li[x] > li[y]:
+                li[x], li[y] = li[y], li[x]
+    return li
+
+sort_list=second_largest([9,7,4,5,6,2,13])
+print(f'Second largest number of list :', sort_list[-2])
+
+########################################
+#4. Write a function that checks whether two given strings are anagrams of each other (ignoring spaces and case).
+
+def is_anagram(s1,s2):
+    s1=''.join(s1.split())
+    s2=''.join(s2.split())
+    sort1=sorted(s1)
+    sort2=sorted(s2)
+    if sort1 == sort2:
+        return 'Given Strings are an ANAGRAMS'
+    else:
+        return 'Given Strings are NOT an ANAGRAMS'
+
+s1=input('Enter the string1:').lower() #pot
+s2=input('Enter the string2:').lower() #top
+print(is_anagram(s1,s2))
+
+#######################################
+#5. Write a Python function that removes duplicates from a list while preserving the original order of elements.
+
+def duplicate_remove(l):
+    d = {}
+    li1 = []
+    for x in l:
+        if x in d:
+            d[x] = d[x] + 1
+        else:
+            d[x] = 1
+    for k, v in d.items():
+        if v == 1:
+            li1.append(k)
+    return li1
+
+list1=[2,3,3,4,5,6,6,8]
+result=duplicate_remove(list1)
+print(f'Duplicates removed list : {result}')
+
+########################################
+
+#6.Write a Python function that returns the longest word in a given sentence.
+#If multiple words have the same length, return the first one.
+#Example:
+#Input: "Python is an amazing programming language"
+#Output: "programming"
+
+def logest_word(s):
+    d = {}
+    for x in s.split():
+        d[x] = len(x)
+    sorted_d = sorted(d.items(), key=lambda x: x[1], reverse=True)
+    return sorted_d
+
+input=input('Enter the string:')
+result=logest_word(input)
+print(f'Longest word in a string is:', result[0][0])
+
+##############################################
+  
+  
