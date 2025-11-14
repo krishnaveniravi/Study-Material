@@ -444,6 +444,87 @@ server.login("krishnavenir187@gmail.com", "")
 server.sendmail("krishnavenir187@gmail.com", "krishnavenir187@gmail.com", "hi")
 print('mail sent')
 '''
+#################################################################
+import json
+import random
+import pywhatkit
+from datetime import datetime
+
+with open('jsonf.json', 'r', encoding='utf-8') as f:
+    data=json.load(f)
+random.shuffle(data)
+
+score=0
+final_result=[]
+Question_num=1
+
+print('Welcome to the Python Quiz Game!')
+user_name=input('Enter Your Name:')
+#user_mailID=input('Enter your e-mail ID:')
+phone_number = input('Enter Your mobile number(eg:+91 9876543210):')
+
+No_of_questions=int(input('Enter the number of questions:'))
+print('Good Luck!',user_name)
+
+for q in data:
+    print(f'Q{Question_num}: {q["question"]}')
+    for opt in q['options']:
+        print(f'  {opt}')
+    user_answer = input('Enter Your Answer(A/B/C/D):').upper()
+    correct_result=user_answer==q['answer']
+
+    if correct_result :
+        score+=1
+
+    final_result.append({
+        "question": q["question"],
+        "options": q["options"],
+        "user_answer":user_answer,
+        "correct_answer": q["answer"],
+        "is_correct": correct_result,
+        "explanations": q["Explanation"]
+    })
+
+    if No_of_questions == Question_num:
+        break
+    Question_num += 1
+
+choice = input("\nWhich explanations do you want? (correct / wrong / all): ").strip().lower()
+
+message = f"Hi,{user_name}\nYour Quiz Result:\nScore: {score}/{No_of_questions}\n"
+for res in final_result:
+    if (choice == "correct") and res['is_correct']:
+        message += f"Question: {res['question']}\n"
+        for opt in res['options']:
+            message += f"  {opt}\n"
+        #message += f"Options: {res['options']}\n\n"
+        message += f"Your answer: {res['user_answer']}\n"
+        message += f"Correct answer: {res['correct_answer']}\n\n"
+        message += f"Explanation: {res['explanations']}\n\n"
+
+    elif (choice == "wrong") and not res['is_correct']:
+        message += f"Question: {res['question']}\n"
+        for opt in res['options']:
+            message += f"  {opt}\n"
+        #message += f"Options: {res['options']}\n\n"
+        message += f"Your answer: {res['user_answer']}\n"
+        message += f"Correct answer: {res['correct_answer']}\n\n"
+        message += f"Explanation: {res['explanations']}\n\n"
+    else:
+        message += f"Question: {res['question']}\n"
+        for opt in res['options']:
+            message += f"  {opt}\n"
+        #message += f"Options: {res['options']}\n\n"
+        message += f"Your answer: {res['user_answer']}\n"
+        message += f"Correct answer: {res['correct_answer']}\n\n"
+        message += f"Explanation: {res['explanations']}\n\n"
+
+t = datetime.now()
+hour, minute = t.hour, t.minute + 2
+
+print("\nSending quiz results to WhatsApp...")
+pywhatkit.sendwhatmsg(phone_number, message, hour, minute)
+print("Message sent!")
 
 
 #################################################################
