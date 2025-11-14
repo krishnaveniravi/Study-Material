@@ -1117,6 +1117,116 @@ s1=''
 for c in s:
  if isinstance(c,int):
   print(c)
+#######################
+12/11/25
+1.Write a python program to reverse a string without slicing concept.
+
+s='string'
+rev_string=''
+l=len(s)
+for i in range(l-1,-1,-1):
+    rev_string+=s[i]
+print(f'Reverse of a given {s} is: {rev_string}')
+###########################
+#2.Detect duplicate letters in a string
+
+s='communication'
+d={}
+l=[]
+
+for i in s:
+    if i in d:
+        d[i]+=1
+        l.append(i)
+        k=s.index(i)
+        print(f'Duplicate detected at index:{k}')
+    else:
+        d[i]=1
+        #print('No duplicate detected')
+#if l:
+    #print('Duplicate detected!')
+
+#else:
+    #print('No duplicate detected!')
+
+############################3
+#3.Merge two sorted arrays into a single sorted array.
+
+def sort_arr(arr):
+    for i in range(0,len(arr)):
+        for j in range(i+1,len(arr)):
+            if arr[i]>arr[j]:
+                arr[i],arr[j]=arr[j],arr[i]
+    return arr
+
+l1=[3,2,8,6,0]
+l2=[7,9,5,1,4]
+
+l1=sort_arr(l1) #[0,2,3,6,8]
+l2=sort_arr(l2) #[1,4,5,7,9]
+
+res=l1+l2
+
+for i in range(0,len(res)):
+    for j in range(i+1,len(res)):
+        if res[i]>res[j]:
+            res[j],res[i]=res[i],res[j]
+print(res)
+############################################3
+14/11/25
+1.Write a Python program to swap two numbers without using a temporary variable.
+
+a=5
+b=4
+print('Before swapping:')
+print('a:',a)
+print('b:',b)
+a,b=b,a
+print('After swapping:')
+print('a:',a)
+print('b:',b)
+######################3
+
+2.2.Write a function to flatten a nested list.
+eg:
+Input : l = [1, 2, [3, 4, [5, 6] ], 7, 8, [9, [10] ] ]
+Output : l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+l = [1, 2, [3, 4, [5, 6] ], 7, 8, [9, [10] ] ]
+#lis = [[11, 22, 33, 44], [55, 66, 77], [88, 99, 100]]
+res=[]
+for element in l:
+    if type(element) is list:
+        for i in element:
+            res.append(i)
+    else:
+        res.append(element)
+list1=[]
+for i in res:
+    if type(i) is list:
+        for j in i:
+            list1.append(j)
+    else:
+        list1.append(i)
+print('Flatten list:',list1)
+
+########################
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
    
