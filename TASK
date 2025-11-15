@@ -1212,8 +1212,34 @@ print('Flatten list:',list1)
 
 ########################
 
+1. Convert a string representing a date (e.g., "Feb 25 2020 4:20PM") into a datetime object.
+2. Find union of two sets
+3. Inverted right triangle pattern
+4. Calculate the date 4 months from the current date.
 
- 
+1. Convert a string representing a date (e.g., "Feb 25 2020 4:20PM") into a datetime object.
+
+from datetime import datetime
+date_string="Feb 25 2020 4:20PM"
+#strptime()
+date_object = datetime.strptime(date_string, '%b %d %Y %I:%M%p')
+
+print("date_object =", date_object)
+##################################
+2.Find union of two sets
+
+set1 = {1,2,3,4}
+set2 = {3,4,5,7}
+print(set1|set2)
+
+##################
+3.Inverted right triangle pattern
+#inverted rightangle triangle
+
+for i in range(5,0,-1):
+    print('* '*i)
+######################
+4. Calculate the date 4 months from the current date.
 
 
 
