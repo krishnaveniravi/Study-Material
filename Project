@@ -573,7 +573,14 @@ for index,item in birthday.iterrows():
     if day==item['Day'] and month==item['Month']:
         sendemail(email=item[str('email')],name=item['name'])
 print('Mail Sent Successfully!')
+###############################################
+#Automate WhatsApp Messages With Python using Pywhatkit module
 
+import pywhatkit
+phone_number='+91 9994274057'
+message="Hi Mathan\nI need below items:\n1.Panner\n2.Tomato-1/2 kg.\n3.Carrot-1/4 kg"
+pywhatkit.sendwhatmsg(phone_number,message,18,52)
+print('Message Sent Successfully!')
 
 
 
