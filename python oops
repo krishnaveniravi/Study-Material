@@ -1,0 +1,242 @@
+1.Explain Decorator and program
+2.Inheritance and all five types program
+3.Static method vs class method
+4.explain constructor and program
+5.explain self and program
+
+
+
+#2. Inheritance and its types:
+Inheritance:
+In heritance in python allows a class (called childclass/sub class) can inherit the attributes and methods of another class (called parent class/super class)
+without need to rewrite them again.
+
+Five types:
+  1.Single inheritance
+  2.Multiple inheritance
+  3.Hierarchical inheritance
+  4.Multilevel inheritance
+  5.Hybrid Inheritance
+
+1.Single Inheritance:
+
+  Single inheritance enables the derived class to inherit the attributes and methods of single parent class.
+
+example program:
+  #Single inheritance
+  class father: #parent class
+      def bike(self):
+          print("Father owns a bike")
+  class daughter(father): #child class or derived class
+      def car(self):
+          print("Daughter owns a car")
+  tour=daughter() #object created
+  tour.car() #access daughter class method
+  tour.bike() #accessing father class method
+#################################3
+2.Multiple Inheritance:
+  A class can derived from more than one base class is called multiple inhritance.
+
+example program:
+  class father: #parent class1
+      def bike(self):
+          print("Father owns a bike")
+  
+  class mother: #parent class2
+      def scooter(self):
+          print("Mother owns a scooter")
+  
+  class daughter(father,mother): #child class or derived class from ore than one base class
+      def car(self):
+          print("Daughter owns a car")
+  tour=daughter() #object created
+  tour.car() #access daughter class method
+  tour.bike() #accessing father class method
+  tour.scooter() #accessing mother class method
+##################################
+
+3.Hierarchical inheritance
+  When more than one child class derived from the one base class is called Hierarchical inheritance.
+
+example program:
+  #Hierarchical inheritance:
+  class father: #parent class1
+      fathername="Ravi"
+      def bike(self):
+          print("Father owns a bike")
+  
+  class son(father): #child class 1
+      def scooter(self):
+          print("Son owns a scooter")
+          print(f"Father Name: {self.fathername}")
+  
+  class daughter(father): #child class 2
+      def car(self):
+          print("Daughter owns a car")
+          print(f"Father Name: {self.fathername}")
+  tour=daughter()
+  shopping=son()
+  tour.car()
+  tour.bike()
+  shopping.scooter()
+  shopping.bike()
+#########################################
+
+4.Multilevel Inheritance:
+  In multilevel inheritance ,the features of base class and derived class is further inherited into new derived class.
+garnd parent==>parent==>child
+
+example program:
+  class grandfather:
+    def grand(self):
+        print("Grandfather name is Tata")
+  class father(grandfather):
+      def parent(self):
+          print("Father name is Naval Tata")
+  class child(father):
+      def son(self):
+          print("Child name is Ratan Tata")
+  
+  grandchild=child()
+  grandchild.son()
+  grandchild.parent()
+  grandchild.grand()
+###############################################3
+
+5.Hybrid Inheritance:
+
+  Hybrid inheritance is a combination of more than one type of inheritance. 
+  It uses a mix like single, multiple, or multilevel inheritance within the same program. 
+
+example program:
+class school:
+    schoolname="ABC Higher Secondary School"
+    def method1(self):
+        print(self.schoolname)
+class student1(school):
+    studentname1="Abi"
+    def method2(self):
+        print(self.schoolname)
+class student2(school):
+    studentname2="Selvi"
+    def method3(self):
+        print(self.schoolname)
+class student3(student1,student2,school):
+    def method4(self):
+        print(f"Friend Name1: {self.studentname1}")
+        print("Friend school name:", self.schoolname)
+        print(f"Friend Name2: {self.studentname2}")
+        print("Friend school name:", self.schoolname)
+object1=school()
+object1.method1()
+
+object2=student3()
+object2.method4()
+#####################################
+
+3.Static method vs class method
+staticmethod:
+This is defined using @staticmethod decorator and do not take a reference to the class as the first parameter.With out using self.
+Usefull for tasks that do not depend on instance-specific or class-specific data.
+So we can't access the method and attributes of class and object.
+
+example program:
+  class arithmetic:
+      @staticmethod
+      def add(a,b):
+          return a+b
+      @staticmethod
+      def sub(a,b):
+          return a-b
+  calci=arithmetic()
+  print(calci.add(1,5))
+  print(calci.sub(5,2))
+=================
+classmethod:
+Class methods are associated with the class rather than instances. 
+They are defined using the @classmethod decorator and take the class itself as the first parameter.
+We can only access the attributes and methods of class.
+
+example program:
+class mathoperation:
+    a=10
+    b=12
+    def __init__(self,operation):
+        self.operation=operation
+        print(self.operation)
+    
+    @classmethod
+    def add(cls):
+        return cls.a+cls.b
+
+cal=mathoperation("addition")
+print(f"{cal.a}+{cal.b}=",cal.add())
+####################################
+
+4.explain constructor and program
+
+Constructor:
+  Constructor is the method which is called automatically after the object created.
+__init__ used as a constructor to initialize the object.
+types:
+1.Default Constructor
+  A default constructor does not take any parameters other than self. It initializes the object with default attribute values.
+example program:
+  class Vehicles:
+      def __init__(self):
+          self.vehicle="Car"
+          self.make="TATA"
+          self.model="PUNCH"
+          self.price="8.5l"
+  car=Vehicles()
+  print("Vehicle:",car.vehicle)
+  print("Make:", car.make)
+  print("Model:", car.model)
+  print("Price:" ,car.price)
+###############
+2.Parameterized Constructor
+  A parameterized constructor accepts arguments to initialize the object's attributes with specific values.
+
+example program:
+class Vehicles:
+    def __init__(self,vehicle,make,model,price):
+        self.vehicle=vehicle
+        self.make=make
+        self.model=model
+        self.price=price
+car=Vehicles("car","TATA","PUNCH","8.5L")
+print("Vehicle:",car.vehicle)
+print("Make:", car.make)
+print("Model:", car.model)
+print("Price:" ,car.price)
+######################################
+5.explain self and program
+self:
+  self is used to represent the instance/object of the class.
+  With this we can access the methods and attributes of the class in python.
+  self is the first parameter of the method in the class.
+  It is not a keyword,we can used any name in the place of self.
+
+example program:
+class subject:
+    def __init__(self,sub1,sub2):
+        self.sub1=sub1
+        self.sub2=sub2
+Teacher=subject("Math","Science")
+print("Subject1:",Teacher.sub1)
+print("Subject2:",Teacher.sub2)
+########################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
