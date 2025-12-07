@@ -265,6 +265,8 @@ else:
     print("Fail")
 #############################
 #3.Encapsulation:
+Encapsulation means hiding interrnal details of class and exposing what is necessory.
+It helps to protect the important data from being changed directly and keeps the code secure and organized.
 
 
 
