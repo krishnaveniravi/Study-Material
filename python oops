@@ -371,8 +371,28 @@ obj=Animal() #raise an error
 Method overriding is an ability of any object-oriented programming language that allows a subclass or child class to provide a 
 specific implementation of a method that is already provided by one of its super-classes or parent classes.
 
+Method overriding happens when a child class provides a new implementation for a method that already exists in the parent class.
+The method name must be same in both classes.
 
+example program:
 
+  class Animal:
+      def sound(self):
+          print("Animals have different sounds")
+  class dog(Animal):
+      def sound(self):
+          print("Dog barks bow bow")
+  class cat(Animal):
+      def sound(self):
+          print("Cat says meow meow")
+  
+  obj1=Animal()
+  obj2=dog()
+  obj3=cat()
+  obj1.sound()
+  obj2.sound()
+  obj3.sound()
+######################################################
 
 
 
