@@ -251,9 +251,45 @@ for i in range(l):
 # ssog
 
 def anagram(s1,s2):
-  s1=s1.split()
-  s2=s2.split()
-  
+    s1="".join(s1.split())
+    s2="".join(s2.split())
+    s1=sorted(s1)
+    s2=sorted(s2)
+    return s1==s2
+
+string1=input("Enter the string1:")
+string2=input("Enter the string2:")
+if anagram(string1,string2):
+    print("Pass")
+else:
+    print("Fail")
+#############################
+#3.Encapsulation:
+
+
+
+
+
+
+
+
+##############################
+4.polymorphism
+Polymorphism means "many forms". 
+It refers to the ability of an entity (like a function or object) to perform different actions based on the context.
+In Python, polymorphism allows same method, function or operator to behave differently depending on object it is working with. 
+This makes code more flexible and reusable.
+eg: built in function and opeartor:
+#1.len()
+s="abcde"
+print(len(s))
+
+a=[1,2,3,4,5]
+print(len(a))
+==============
+2.max()
+3.+ opeartor
+#############################
 
 
 
