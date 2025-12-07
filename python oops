@@ -267,15 +267,58 @@ else:
 #3.Encapsulation:
 Encapsulation means hiding interrnal details of class and exposing what is necessory.
 It helps to protect the important data from being changed directly and keeps the code secure and organized.
+class employee:
+   def __init__ (self,name,salary):
+       self.name = name
+       self.__salary = salary #private variable
+employee1=employee("Hari",10000)
+print(employee1.name)
+print(employee1.__salary)  #raise an error not access directly
+=============================
+1.public members:
+Public members are variables or methods that can be accessed from anywhere inside the class, outside the class or from other modules. By default, all members in Python are public.
 
+class employee:
+   def __init__(self,name):
+       self.name = name   #public variable
+   def dis_name(self):    #public method
+       print(self.name)
+emp1=employee("Hari")
+print(emp1.name)
+emp1.dis_name()
+===========================
+2.private members
+Private members are variables or methods that cannot be accessed directly from outside the class. They are used to restrict access and protect internal data.
+Double underscore
+class employee:
+   def __init__ (self,name,salary):
+       self.name = name
+       self.__salary = salary #private variable
+  
+   def dis_salary(self):
+       print(self.__salary)
+employee1=employee("Hari",10000)
+print(employee1.name)
+employee1.dis_salary() #Accessing private variable correctly
+# print(emp.__salary)    # Error: Not accessible directly
+==============================
 
+3.protected members
+Protected members are variables or methods that can be accessed inside the class and subclass. They are not strictly private but should be treated as internal.
+In python protected members are defined using single underscore prefix(self._variablename)
+class employee:
+   def __init__(self,name,salary):
+       self.name = name
+       self._salary=salary  #protected variable
+class sub_emp(employee):
+   def dis_salary(self):
+       print(self._salary)
 
-
-
-
-
-
+emp1=sub_emp("hari",10000)
+print(emp1.name)
+emp1.dis_salary()
 ##############################
+
 4.polymorphism
 Polymorphism means "many forms". 
 It refers to the ability of an entity (like a function or object) to perform different actions based on the context.
@@ -292,7 +335,41 @@ print(len(a))
 2.max()
 3.+ opeartor
 #############################
+5.Abstract method abstract class
+In Python, an abstract class is a class that cannot be instantiated on its own and is designed to be a blueprint for other classes.
+#abstract class
+#Abstract classes allow us to define methods that must be implemented by subclasses,
+#Define a common interface for all subclasses (e.g., all animals must have a sound.
+#abstarct class
+  from abc import ABC,abstractmethod
+  class Animal(ABC):
+      @abstractmethod
+      def sound(self):
+          pass
+      
+  class Dog(Animal):
+      def sound(self):
+          return "Bark"
+  
+  obj = Dog()
+  print(obj.sound()) 
+============================
+#Abstract Methods
+#Abstract methods are methods that are defined in an abstract class but do not have an implementation.
+# They serve as a blueprint for the subclasses, ensuring that they provide their own implementation.
+from abc import ABC,abstractmethod
+  class Animal(ABC):
+      @abstractmethod
+      def sound(self):
+          pass
 
+obj=Animal() #raise an error
+
+############################
+6.Overridding
+
+Method overriding is an ability of any object-oriented programming language that allows a subclass or child class to provide a 
+specific implementation of a method that is already provided by one of its super-classes or parent classes.
 
 
 
