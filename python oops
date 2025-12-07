@@ -226,10 +226,34 @@ Teacher=subject("Math","Science")
 print("Subject1:",Teacher.sub1)
 print("Subject2:",Teacher.sub2)
 ########################################
+7.12.25
+#1.
+"""
+input: string
+input: ABCDE
+output:
+ABCDE
+BCDEA
+CDEAB
+DEABC
+EABCD
+"""
+s=input("Enter the string:")
+l=len(s)
+for i in range(l):
+    print(s[i:]+s[:i])
+#################################
+#2.#input:
+# string1: pots
+# string2: spot
 
+# ggos
+# ssog
 
-
-
+def anagram(s1,s2):
+  s1=s1.split()
+  s2=s2.split()
+  
 
 
 
