@@ -1,0 +1,114 @@
+Edureka:
+14.What is break  and continue?
+break:
+It breaks the loop prematurely if the condition is met.
+Continue:
+It is used to skip the current iteration and move to next iteration.
+########################
+15.Can we pass function as a argument in python?
+Yes, we can pass function as a argument to other function ,bcoz function is a first class object.
+def caps(text):
+  return text.capitalize()
+def greet(func,name):
+  mgs=func(name)
+  return mgs
+print(greet(caps,"hari"))
+#########################
+16.what does # symbol do in python?
+It is used to comment the line in python 
+for signle line comment
+#function definition
+#########################
+17.What is type conversion in python?
+Converts one data type to another datatype:
+1.int()-->converts into integer
+2.float()-->converts into float
+3.str()-->converts into string
+4.list()-->converts into list
+5.set()
+6.dict()
+7.bin(),oct(),hex()
+##########################
+18.What is docstring in python :
+docstring or document string is a multiline string used to document the specific code segment.
+It is comes with in triple qoutes.
+sometimes acts as comment because it is not assign to any variable.
+############################
+19.What is slicing in python ?
+Slicing in python is used to extract the specific part of teh string or list .
+By specifying start,end,step
+start---included
+end----not included
+sted----interval between the elements
+##########################
+20.What is pickling and unpickling?
+Pickling:
+Pickle module accept the python object and converts into a string or byte stream representation
+and dumps into a file using dump function.
+
+unpickling:
+Retrives the original object of the python from the string representation.
+load into the file using load function.
+##########################
+INTERMEDIATE LEVEL:
+==================
+21.Explain inheritance in python?
+Inheritance in python allows a class(child class) to inherit the methods and attributes of the another base class(paren classs or super class) 
+without no need to rewrite them.
+Easier to manage and maintain the complex software system.
+1.Single inheritance===>single parent single child
+2.multiple inheritance===>multiple parents single child
+3.hierarchy inheritance==>single parent multiple child
+4.multilevel inheritance==>grand parent--parent--child
+5.hybrid inheritance===>any two of the above inheritance
+#########################
+22.Does python makes use of access specifiers? private,public,protected
+In python we can control how attributes and methods of objects are accessed.
+"_"--->protected ==can be accessed within class or subclass.
+"_ _"-->private ==
+
+##########################
+#########################
+########################
+#########################
+############################
+############################
+############################
+############################
+###########################
+##########################
+##########################
+#########################
+##########################
+#########################
+########################
+#########################
+############################
+############################
+############################
+############################
+###########################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
