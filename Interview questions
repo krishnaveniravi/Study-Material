@@ -219,16 +219,70 @@ choice depends on your requirements.
 41.What is the use of sessions in the django framework?
 The primary use of session in django framework is provide a way to store and retrieve 
 user specific data across multiple,otherwise independent,HTTP request.
-This is because 
+This is because the HTTP protocal inherently stateless,meaning the server doesn't remember a user from one page to the next. 
 ##########################
+42.Write a one liner that will count the number of capital letters in a file.Your code should work even if the file is too big to fit in memory?
+count=0
+with open ("file.txt","r") as f:
+for line in f:
+  for char in line:
+    if char.isupper():
+      count+=1
+print("The total no.of char in file:",count)
+another method:one liner
+res=sum([1 for line in open("file.text") for char in line if char.isupper()])
+print(res)
 ##########################
+43.Django Architecture?
+Django is a high level webframework built in python that allows rapid development of maintainable and secure website.
+View,model,template
+
+The user request is received by the Django URL dispatcher,which maps the URL to specific view.
+This view process the request and intracts with the relevant model to fetch and manipulate the data from the database.
+Then this view renders the template and passing the prepared data to it.
+Template combine its dynamic data with static content and generates the HTML response.
+This HTML response sent back to the user.
 ##########################
+44.List out the inheritance style in Django ?
+1.Abstract base classes:
+They don't create their own tables in database.instead they are like blueprints that other models can use. 
+2.Multitable inheritance:
+It is when create a new model based on the existing one, and each new models gets its own table in database.
+3.Proxy models:
+They have the same field and methods, but their working can be changed without affecting the database.
+They don't have own table.
 ##########################
+45..Create a program that adds two number>0 without using urinary operator +?
+Bitwise operator
+
 ##########################
+46.
 ##########################
+47.
 ##########################
+48. How to send an email in python?
+import smtplib
+myemail=''
+password=''
+with smtplib.SMTP('smtp.gmail.com') as connection:
+        connection.starttls()
+        connection.login(user=myemail,password=password)
+        connection.sendmail(from_addr=myemail,to_addrs=email,msg="Hi')
+
 ##########################
+49.convert string to datetime object.
+from datetime import datetime
+date_obj=datetime.strptime("2025-08-12","%Y-%m-%d")
+formatted_date_obj=date_obj.strftime("%d-%m-%Y")
+print(formatted_date_obj)
+========
+from datetime import datetime
+date_obj=datetime.strptime("Aug 12,2024","%b %d,%Y")
+formatted_date_obj=date_obj.strftime("%m-%d-%Y")
+print(formatted_date_obj)
+output==08-12-2024
 ##########################
+50.
 ##########################
 ##########################
 ##########################
