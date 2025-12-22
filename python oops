@@ -170,7 +170,7 @@ class mathoperation:
         return cls.a+cls.b
 
 cal=mathoperation("addition")
-print(f"{cal.a}+{cal.b}=",cal.add())
+print(mathoperation.add())
 ####################################
 
 4.explain constructor and program
