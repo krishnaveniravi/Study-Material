@@ -1025,6 +1025,20 @@ for s in range(l):
     j = string1.index(largest)
     string1=string1[0:j]+string1[j+1:]
 print(new_string)   ####################  tsrlgea
+
+#############################
+s1=input("Enter the string:")
+l=[]
+for c in s1:
+  l.append(c)
+#print(l)
+for i in range(len(l)):
+  for j in range(i+1,len(l)):
+    if l[i]<l[j]:
+      l[i],l[j]=l[j],l[i]
+print("".join(l))
+o/p:
+rof
 =====================================
 4. Merge two strings
 Input:
