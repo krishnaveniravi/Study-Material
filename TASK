@@ -1131,6 +1131,21 @@ s1=''
 for c in s:
  if isinstance(c,int):
   print(c)
+========================
+import re
+s="100klh564abc365bg"
+pattern=r"[0-9]+"
+l=re.findall(pattern,s)
+print(l)
+l.sort()
+print("Minimum_Number:",l[0])
+print("Maximum_Number:",l[-1])
+
+output:
+['100', '564', '365']
+Minimum_Number: 100
+Maximum_Number: 564
+
 #######################
 12/11/25
 1.Write a python program to reverse a string without slicing concept.
