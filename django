@@ -1,0 +1,83 @@
+prerequisite:
+Python syntax
+function,arguments/parameters
+modules==>group of functions,classes,variables
+
+website.py
+
+def connect():
+  print("connecting")
+def disconnect():
+  print("disconnecting")
+def welcome():
+  print("Hi")
+
+
+import website
+website.disconnect()
+
+from website import connect
+connect()
+
+from website import *
+disconnect()
+welcome()
+
+import website as w
+w.welcome()
+#############################
+group==>group of modules
+it is like a folder but have __init__.py--->script file    
+#############################
+
+django----->Web framework  ==>for large applications
+
+free
+opensource
+
+webapplication-->page of website
+Design pattern:
+MVC
+Model  View  Controller
+
+django follows MVT pattern
+Model  View  Templates
+
+platformio-ide-terminal
+
+django atom
+
+###########
+project-->applications +configurations file
+
+application:
+book
+audio
+video
+
+django-admin
+go to terminal and go to djangoproject folder
+
+django-admin startproject firstproject(project name) --> enter
+
+>>>mkdir djangoprojects
+>>>cd djangoprojects
+>>>django-admin startproject first_project 
+  
+this folder has 2 directories and 6files
+
+__init__.py:
+Blank python script.
+Django will consider the particular folder as python package.
+
+setting.py:
+Project settings,Configurations,installed applications,database configurations,middleware configurations.
+
+urls.py:
+url -patterns will be stored in this file
+
+
+
+
+
+    
