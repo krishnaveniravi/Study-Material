@@ -69,12 +69,112 @@ this folder has 2 directories and 6files
 __init__.py:
 Blank python script.
 Django will consider the particular folder as python package.
-
+====================
 setting.py:
 Project settings,Configurations,installed applications,database configurations,middleware configurations.
+====================
+03/01/26
 
-urls.py:
+urls.py: Uniform Resource Locator
 url -patterns will be stored in this file
+website-->webpages
+for eg:news
+/madurai
+/chennai
+===================
+wsgi.py:Web Server Gateway Interface
+This file is used when we deploy the application in production server.
+=
+DEV Environment-->developer environment
+UAT-User Acceptance Test  Environment
+then move to last level PROD Environment
+==================
+asgi.py:Asynchronous  
+eg:cricket score display for more than one match at the same time
+=================
+manage.py:
+running our server,running tests,creating migrations
+
+>>>python manage.py runserver
+
+webserver:
+http://127.0.0.1:8000/
+
+127.0.0.1-->IP address of laptop -localhost
+8000--->django webserver's port number
+
+eg:
+power supply:
+switch board
+
+after this it will create the db.sqlite3 
+
+webserver:
+providing environment to run the webapplication.
+server-->provide the service ===>HTTP request---" webcomponents"-->HTTP response
+
+we have to create weebcomponents for our project
+
+webserver ready
+djangoproject--firstproject
+
+webapplication creation:
+go to firstproject location in commandline
+>>> python manage.py startapp firstApp
+firstApp folder created
+
+firstApp folder created===>with in this ,first application specific files
+__init__.py:
+admin.py:
+admin interface-django models
+apps.py:
+models.py:
+application data models
+tests.py:
+testing functions
+
+views.py:
+it gives the specific view for the request we given
+--->URL
+1.Function based views
+2.Class based views
+
+
+migrations.py:
+db specific information
+
+project-->many application
+
+step1::
+goto-->firstproject folder-->settings.py--->installed apps-->add our app name "firstApp"
+step2::
+goto-->views.py-->add the view(function)
+from django.http import HttpResponse
+step3::
+Add the view to the url pattern in urls.py
+
+successfully completed!
+checking for the different types of errors
+
+first application creation in short:::
+====================================
+1.creation of djangoproject:
+django-admin startproject projectname
+2.creation of django application:
+python manage.py startapp appname
+3.running the server 
+python manage.py runserver
+-->ip address will display
+4.adding application to my project:
+settings.py-->Installed_apps-->add app name
+5.add the views in views.py(business app):
+def wish():
+6.add the views in url pattern:
+urls.py-->url pattern-->add views("welcome/",views.wish)
+7.server
+python manage.py runserver 8080(we can change port number)
+
+
 
 
 
