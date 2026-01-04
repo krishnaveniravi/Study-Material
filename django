@@ -174,9 +174,78 @@ urls.py-->url pattern-->add views("welcome/",views.wish)
 7.server
 python manage.py runserver 8080(we can change port number)
 
+many application :
+urls-->copy to app folder and then add
+from django.conf.urls import url,inlcude
+path('testapp/',include('testapp.urls'))
+#####################################
+04/01/26
+DJango - static folder(css, image) in Template:
+
+model
+view-->business logic
+template-->presentation layer(user ku present panradhu)
+how to add image in this presentation?
+presentation should be in style.
+style--->CSS casecading Style Sheet
+
+shall we include images/videos/audio in presentation?
+yes we can,these are called static files.
+
+django template:
+views.py -html
+-code readability
+-no proper seperation
+-code reusability
+
+2.26-2.51 time from playlist of 9hrs::
+don't write sperarte view file for each app
+write the code in different place.
+html file--template-->do rendering
+======================
+print(__file__) #print the filename
+
+import os
+print(os.path.abspath(__file__)) #returns the fullpath(absolute path) c:\Users\matha\vscode\one.py
+
+print(os.path.dirname(os.path.abspath(__file__)))  #returns the directory location c:\Users\matha\vscode
 
 
+1:::creation of templates:
+goto djangoprojects
+create new templateproject(templatedemo)
+create new app(demoapp)
+goto templateproject folder 
+add new folder for templates
+goto templates folder create new folder for demoapp
 
+2::application oda html file demoapp la dhan iruku nu project ku theriyanum.
+so go to settings file -->templates-->template direction 
+import os
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR2=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR=os.path.join(BASE_DIR2,'tamplates')
+add this TEMPLATE_DIR in TEMPLATES
+
+3::Write HTML code and add it into demoapp in templates folder
+<html>
+<head>
+<title> It is my first template </title>
+</head>
+<body>
+<h1> Seprate HTML File is template </h1>
+</body>
+</html>
+
+4::Go to views file in app folder(demoapp):
+we need to tell the html file to render
+
+def display(request):
+  return render(request,'demoapp/abc.html')
+
+5::urls 
+add the views
 
 
 
