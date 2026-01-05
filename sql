@@ -23,3 +23,26 @@ Oracle
 PostegraceSQL
 
 oracleapex.login for free
+
+open sql workbench:
+show databases; #to confirm whether it is working
+
+show databases;
+create database pandian_stores; #create database
+use pandian_stores;
+drop database pandian_stores; #drop database
+alter database read only = 1  #we can't alter the database
+alter database read only = 0  #we can alter the database
+
+create table and datatypes:
+create table employees (
+		emp_id int,
+    emp_name varchar(50),
+    salary decimal(7,2),
+    join_date date
+);
+
+
+
+
+
