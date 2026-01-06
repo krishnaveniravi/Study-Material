@@ -42,8 +42,75 @@ create table employees (
     join_date date
 );
 
+6/1/26
+
+select query and where:
+======================	
+select * from employees;         #select all the column
+
+select emp_name,salary from employees;  #only select emp_name,salary
+
+select emp_name as name, salary as coolie from employees; #we can give alias name as well
+
+select salary,emp_id from employees;    #can change the order of column
+
+select * from employees where emp_id=2;  #we can give the condition, display column which met the condition
 
 
+update and delete query:
+======================
+set sql_safe_updates = 0;
+
+update employees
+set join_date =  "2025-07-12"
+where emp_id = 4;
+
+update employees
+set join_date = "2025-09-07",
+	phone_number = "9835627101"
+where emp_id = 5;
+
+update employees
+set phone_number = null
+where emp_name = "Jhon";
+
+delete from employees;       ##it will delete the all the things
+
+
+roll back:
+=========
+to off the auto commit:
+set autocommit = 0;
+
+update employees
+set salary = 50000;
+
+rollback;	
+	
+commit;  ####once we run the commit then we can;t rollback
+
+delete from employees;
+
+select * from employees;
+
+
+constraints:
+===========
+
+unique
+not null
+check
+default
+
+
+
+
+
+
+
+
+
+	
 
 
 
