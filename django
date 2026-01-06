@@ -246,7 +246,167 @@ def display(request):
 
 5::urls 
 add the views
+======================
+05/01/26
+
+static folder creation:
+
+static folder-->images-->one image
+tell the directory of static folder to the settings.py
+update the staticfile in setting
+
+Template tags:
+Template tags should be given in dictionary format to html file
+
+create css in static folder
+write the code and update in html file
+=======================================
+DB----MODEL:::
+=======modeldemo folder======
+model.py
+database related content -->model
+  Each model is a python class which is subclass of django.db.models.Model
+  Each model maps to a single database table.(table contains fields(name,id,salary,etc column)
+  Each attribute of the model represent a database field(column).
 
 
+how to connect DB with django:
+model -----------view-----------template
+db------------views.py---------template
+create new folder modeldemo:
+create app (dbApp)
+update models.py 
+>>>python manage.py makemigrations   ####sql query creation (ready for creating db table for the model)####
+if we have many apps then give name of the app
+>>>python manage.py makemigrations dbApp
+>>>python manage.py migrate ####sql query excecution (table created)##it initialize the all including admin,authentication,and our app
+>>>python manage.py sqlmigrate appname with number(dbApp 0001)
 
+We need to tell the created table to admin(story of building contractor as admin )
+goto admin file
+>>>from dbApp.models import employee
+>>>admin.site.register(employee)
+
+create superuser for login to website
+>>> python manage.py createsuperuser
+>>> python manage.py runserver
+
+6/1/26
+create templates and static folder
+inform them(directory) to settings.
+
+
+update in views-->import model and class  and render the request
+>>>Employee.objects.all()
+send the views dictionary data to html
+
+create html code in template---dbApp
+<html>
+{% load static %}
+<head>
+<title> DB model learning </title>
+
+</head>
+<body>
+    {% if emp_list %}   ##this is jinja refer website
+    <table>
+    {% for employee in emp_list %}
+    <tr>
+
+    <td>{{employee.empNo}}</td>
+    <td>{{employee.empName}}</td>
+    <td>{{employee.empSalary}}</td>
+    <td>{{employee.empAddress}}</td>
+        </tr>
+
+    {% endfor %}
+    {% endif %}
+    </table>
     
+</body>
+</html>
+
+add that views in url
+======================================================
+
+forms--->log in page 
+django gives the security.
+This is done using forms
+
+create project (formsdemo)
+create app (formApp)
+create static,templates folder
+update the settings.py
+
+goto app-->create new forms.py file
+
+form --html code
+<html>
+    {% load static %}
+    <head>
+        <title></title>
+    </head>
+<body>
+<div>
+    <form method = 'post'>
+        {{form.as_p}} 
+        {% csrf_token %}                 #####csrf if  this line given then there is no forbidden message
+    <input type='submit'    value='Accept/Submit'>
+    </form>
+    </div>
+
+</body>
+</html>
+===================================
+developers.mozilla.org
+django
+
+session management:
+
+          browsing
+client -------------------server
+
+http       ------stateless protocol
+
+cookies
+session
+
+asusal create the project,app,templates,static 
+go to views,
+add method for cookies,
+here cookies are stored in our system(client system).
+we want two things,
+1.cookies
+2.count of cookies
+access these cookeis count as key value pair in dictionary
+
+1.cookies--no security
+2.cookie-- less information,only string value
+3.cookies--count of cookies
+
+            request
+client   ----------------------->server
+         <---response +cookies---
+
+sessionid::
+to overcomethese above problems django provides the session ID
+It stores the data on server side.
+
+            request
+client   ----------------------->server
+         <---response +sessionid---
+
+update the views.py::::
+
+def cookies_count_view(request):
+    count = request.session.get('count',0)
+    total_count=int(count)+1
+    request.session['count']=total_count
+    return render(request,'cookiesApp/cookiescount.html',{'count':total_count})
+
+makemigrations
+migrate
+
+
+
+
