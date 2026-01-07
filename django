@@ -503,17 +503,56 @@ python manage.py startapp crudApp
 
 5)settings.py --update
 
-6)model for db
+6)model for db connect
 update in models.py (inheritance)
 
-7)rigesiter this model in admin.py
+class Student(models.Model):
+  sno=models.Interger
+  ....
+
+>>>python manage.py makemigrations
+>>>python manage.py migrate
+
+7)register this model in admin.py
+from crudApp.models import Student
+
+class StudentAdmin(admin,ModelAdmin):
+  list=['sno',..]
+
+admin.site.register(Student,StudentAdmin)
+
 create superuser
 runserver
+
+generateid.py
+pip install faker
+
+to update the details by default.
 
 8)to display the data that we have created goto views and update
 import student details from models --create function--render
 
-9)go to html file and render it
+from crudApp.models import Student
+
+def retrieve_view(request):
+  student = Student.objects.all()
+  return render(request,"crudApp/index.html",{"student":student}
+
+9)go to templates--app--create two html file and render it
+base.html:
+<html>
+<head></head>
+<body>
+{%block content %}
+{% endblock %}
+</body>
+</html>
+
+index.html:
+<html>
+{% extends crudApp/base.html %}
+{%block content %}
+
 
 10)update the url with views
 
@@ -521,6 +560,12 @@ import student details from models --create function--render
 import the student details from models
 
 12 update the forms with class and class Meta
+from django import forms
+from crudAPP.models import Student
+class StudentForm(forms.ModelForm):
+  class Meta:   #Meta =data about data
+    model = Student
+    field = "__all__
 
 13)goto templates app ---new html file for forms
 update the form and add submit button ,csrf included
@@ -530,6 +575,53 @@ and add POST for updating the info in DB
 
 15)goto url update the views
 
+####
+update and delete button added to create HTML page
+
+add views fun for delete with specific id
+
+add views fun for update (combo of delete and create fun)
+note: for post form need to tell the instance=student name  important
+
+create separate HTML file with form method =POST
+<html>
+    {% extends 'crudApp/base.html' %}
+    {% block content %}
+        <h1> Update Student Details </h1>
+        <form method ='POST'>
+        Student Roll No. <input type="text" name ="sno" value ="{{student.sno}}">
+        Student Name <input type="text" name ="sname" value ="{{student.sname}}">
+        Student Class <input type="text" name ="sclass" value ="{{student.sclass}}">
+        Student Address <input type="text" name ="saddress" value ="{{student.saddress}}">
+
+            {% csrf_token %}
+   
+            <input type="submit" value = "Update Student">
+
+        </form>
+   
+        {% endblock %}
+</html>
+
+then update the url and run the server
+==============================
+class based views:
+same procedure for project creation ,app creation
+
+goto views.py:
+
+from django.shortcuts import render
+from django.views.generic import View
+from django.http import HttpResponse
+
+class FirstView(View):
+  def get(self,request):
+    return HttpResponse('<h1> Hi Hello Everyone! </h1>')
+
+goto urls.py:
+from appname import views
+urlpatterns=[.....
+            path("check/" , views.FirstView.as_view()) #####views.classname.as_view() this can take the class as function.
 
 
 
