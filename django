@@ -623,7 +623,25 @@ from appname import views
 urlpatterns=[.....
             path("check/" , views.FirstView.as_view()) #####views.classname.as_view() this can take the class as function.
 
+=========
+templateview
 
+from django.shortcuts import render
+from django.views.generic import View, TemplateView
+from django.http import HttpResponse
+
+class FirstView(View):
+  def get(self,request):
+    return HttpResponse('<h1> Hi Hello Everyone! </h1>')
+
+class SecondView(TemplateView):
+    template_name = 'appname/sample.html'
+
+goto urls.py:
+from appname import views
+urlpatterns=[.....
+            path("check/" , views.FirstView.as_view()) #####views.classname.as_view() this can take the class as function.
+            path("check2/" , views.SecondView.as_view())
 
 
 
