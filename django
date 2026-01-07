@@ -406,6 +406,131 @@ def cookies_count_view(request):
 
 makemigrations
 migrate
+======================
+7/1/26
+CRUD operations:
+Create   ----------data insert
+Retrieve  ---------select * from tablename
+Update ------------update the data
+Delete-------------delete data
+
+this CRUD done on following ,
+function based views
+class based views
+
+models.Model
+makemigrations
+
+form
+
+fields---variable
+behaviours---method/function
+
+in this we can do the two things:
+model
+modelform
+
+update settings.py
+update models.py with parent class(models.Model)
+update admin.py and register the childclass
+create superuser
+runserver
+
+facker module;;;; create copy of manage.py and rename it and add this below code init,
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crudDemo.settings')
+
+import django
+django.setup()
+
+from crudApp.models import *
+from faker import Faker
+from random import *
+faker = Faker()
+
+def generate(n):
+    for i in range(n):
+        fsno = randint(1,10001)
+        fsname = faker.name()
+        fsclass = randint(1,10)
+        fsaddress = faker.city()
+        stud_record = Student.objects.get_or_create(sno=fsno, sname=fsname, sclass=fsclass, saddress=fsaddress)
+generate(10)
+-----------------------
+How to display the data that we have created?
+views.py   ##function based view
+--data from model
+html
+url
+
+create 2 html file in templates crudApp
+1.base.html
+2.index.html
+
+after this we can add button for add new student.
+
+goto app  and create forms.py
+
+data--information
+meta data--data about data
+#eg. mail---sender/ip/time/network provider/browser
+
+update the forms app
+use the childclass classname(forms.Modelform)
+        class Meta:
+            model = Student
+            field = "__all__"
+
+goto templates app ---new html file for forms
+update the form and add submit button
+
+goto views and update the forms info
+and add POST for updating the info in DB
+
+goto url update the views
+
+=================
+CRUD Operation:
+1) Creating project
+django-admin startproject crudDemo
+
+2) cd crudDemo
+
+3) application creation:
+python manage.py startapp crudApp
+
+4) project level-create templates folder-sub folder-curdApp-base.html,index.html
+
+5)settings.py --update
+
+6)model for db
+update in models.py (inheritance)
+
+7)rigesiter this model in admin.py
+create superuser
+runserver
+
+8)to display the data that we have created goto views and update
+import student details from models --create function--render
+
+9)go to html file and render it
+
+10)update the url with views
+
+11)to add and save the student --create forms
+import the student details from models
+
+12 update the forms with class and class Meta
+
+13)goto templates app ---new html file for forms
+update the form and add submit button ,csrf included
+
+14)goto views and update the forms info
+and add POST for updating the info in DB
+
+15)goto url update the views
+
+
 
 
 
