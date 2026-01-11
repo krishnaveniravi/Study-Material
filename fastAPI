@@ -1,1 +1,257 @@
+FastAPI is a modern and high-performance Python web framework.
+Used to build APIs quickly and efficiently.
+
+create folder for fastapi
+create new file(main.py)
+
+from fastapi import FastAPI  
+
+app = FastAPI()  #creating object for FastAPI class
+
+@app.get("/display")  #decorator and use get method (url)
+def view():
+    return "Hello World!"
+
+
+to run the above code we need to install some requirememts,
+
+1.create virtual environments
+>>>python -m venv vnv(environment name)
+2.activateing the environment
+>>>vnv\Scripts\Activate
+if incase not activated
+goto windows powershell --run as administrator
+>>>Get-ExecutionPolicy
+>>>Set-ExecutionPolicy Unrestricted
+
+>>>pip install fastapi
+>>>pip install uvicorn   --->server, Uvicorn is a lightweight server used to run FastAPI apps
+>>>uvicorn main:app --reload
+
+http://127.0.0.1:8000/display
+
+http://127.0.0.1:8000/docs ---->fastapi swaggerUI
+methods are display here
+
+path parameter:
+==============
+url-->path
+url parameter--->path parameter
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+emp=[
+    {"ID":101,"Name":"Jeeva","City":"Chennai"},
+    {"ID":102,"Name":"Vijay","City":"Bangalore"},
+]
+
+@app.get("/display/{id}")      #we must include the {id} while searching in url or it will raise the error
+def view(id:int):
+    for e in emp:
+        if e["ID"] == id:
+            return e
+
+to check---http://127.0.0.1:8000/display/102
+
+query parameter:
+===============
+query parameter==>get the data from DB
+
+enter the query as parameter
+
+we can use the url without parameter.It will not raise an error.
+
+@app.get("/display")
+def view(id:int):
+    for e in emp:
+        if e["ID"] == id:
+            return e
+
+http://127.0.0.1:8000/display?id=102
+
+request body:
+=============
+data will send to server/DB/backend in structured manner.
+
+#pydantic model:
+pydantic is a Python library to perform data validation.
+  1.validation
+  2.serialization
+  3.documentation
+
+#request body
+from fastapi import FastAPI
+from pydantic import BaseModel,Field
+from typing import Optional
+
+app = FastAPI()
+
+class items(BaseModel):
+    name : str = Field(min_length=3,max_length=50,pattern="^[a-zA-Z]")
+    price : float = Field(gt=0,lt=10000)
+    availability : Optional[bool] = None
+
+@app.post("/display/")
+def view(data : items):
+    return {"Message":"Item received", "data":data}
+
+If we give no name in the field of name it will store empty in the DB --->it is the error ,for this we have to include the validation for it
+
+nested model: class with in class
+============
+#nested models
+class manf(BaseModel):
+    company:str
+    Country:str
+
+#request body
+class items(BaseModel):
+    name : str = Field(min_length=3,max_length=50,pattern="^[a-zA-Z]")
+    price : float = Field(gt=0,lt=10000)
+    availability : Optional[bool] = None 
+    manufacturer : manf
+
+
+@app.post("/display/")
+def view(data : items):
+    return {"Message":"Item received", "data":data}
+
+query parameter validation:
+==========================
+@app.get("/display")
+def view(id:int = Query(ge=100,le=200)):     #integer
+    for e in emp:
+        if e["ID"] == id:
+            return e  
+        
+   
+@app.get("/display")                        
+def view(name:str = Query(min_length=3,max_length=50,regex="^[A-Za-z]")):  #string
+    for e in emp:
+        if e["Name"].lower() == name.lower():
+            return e  
+
+
+#giving two values 
+@app.get("/display")
+def view(id :int =Query(ge=100,le=200),
+         name:str = Query(min_length=3,max_length=50,regex="^[A-Za-z]")):
+    for e in emp:
+        if e["ID"]==id and e["Name"].lower() == name.lower():
+            return e  
+
+path parameter validation:
+=========================
+from fastapi import FastAPI,Query,Path
+
+@app.get("/display/{id}")
+def view(id:int = Path(ge=100,le=200)):      #integer
+    for e in emp:
+        if e["ID"]== id:
+            return e 
+
+@app.get("/display/{id}/{name}")
+def view(id:int =Path(ge=100,le=200,multiple_of=2),       #both integer and string
+         name:str =Path(min_length=3,max_length=50,regex="^[a-zA-Z]")):
+    for e in emp:
+        if e["ID"] == id and e["Name"].lower() == name.lower():
+            return e
+
+Handling Form data:
+==================
+Whenever we click the button submit and the given data moves/stores to server/application--->form
+
+Form accepts below : it doen't know the json format
+content type:
+content:name = code & email = code@gmail.com
+
+for this we need to import the Form from fastapi
+
+
+from fastapi import FastAPI,Form
+
+@app.post("/feedback/")
+def feedback(name : str =Form(),
+             email : str = Form(),
+             rating : int = Form()):
+    return{
+        "Status":"Feedback received",
+        "Name":name,
+        "rating":rating
+    }
+
+File Upload(single file):
+========================
+#text file
+  single file upload
+  read the file data
+  size of the content
+  name of the file
+
+from fastapi import FastAPI,UploadFile,File
+app=FastAPI()
+@app.post("/file_upload/")
+async def file_upload(file : UploadFile = File()):
+    content = await file.read()
+
+    try:
+        text_preview = content.decode("utf-8")[:200]
+    except e:
+        text_preview = "Cann't preview as text"
+    return {
+        "File_name" :file.filename,
+        "Content_type":file.content_type,
+        "size_of_content":len(content),
+        "Text":text_preview
+    }
+
+multiple file upload: .txt,.log are inbuilt in python we can view..but excel,pdf we need to import library
+====================
+from fastapi import FastAPI,UploadFile,File
+
+from typing import Optional,List
+
+app = FastAPI()
+
+@app.post("/files_upload/")
+async def files_upload(files : List[UploadFile] = File()):
+    result=[]
+    for file in files:
+        content = await file.read()
+
+        try:
+            text_preview = content.decode("utf-8")[:200]
+        except UnicodeDecodeError:
+            text_preview = "Cann't preview as text"
+        result.append({
+        "File_name" :file.filename,
+        "Content_type":file.content_type,
+        "size_of_content":len(content),
+        "Text":text_preview
+        })
+    return result
+
+Multi file upload:: (excel,pdf)
+===================
+from fastapi import FastAPI
+import pandas as pd
+import io
+from PyPDF2 import PdfReader
+
+app=FastAPI()
+
+@app.post("/read_file/")
+async def read_files(file : UploadFile =File()):
+  content = await file.read()
+  name = file.filename().lower()
+
+  if name.endswith((".xls",".xlsx))
+
+
+
+
+
 
