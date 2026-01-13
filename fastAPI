@@ -1,3 +1,5 @@
+https://youtu.be/H6G3i2Ocg3Y?si=2Kkfit8ZYxiwUlxw
+
 FastAPI is a modern and high-performance Python web framework.
 Used to build APIs quickly and efficiently.
 
@@ -241,17 +243,347 @@ import pandas as pd
 import io
 from PyPDF2 import PdfReader
 
+pip install pandas
+pip install PyPDF2
+pip instal openpyxl
+pip install xlrd
+
+
 app=FastAPI()
 
 @app.post("/read_file/")
-async def read_files(file : UploadFile =File()):
+async def read_files(file : UploadFile =File(...)):
   content = await file.read()
   name = file.filename().lower()
 
-  if name.endswith((".xls",".xlsx))
+  if name.endswith((".xls",".xlsx")):
+    df=pd.read_excel(io.BytesIO(content))
+    return {"Type":"Excel","Preview":df.head(3).to_dict()}
+  
+  elif name.endswith(".pdf"):
+    reader =PdfReader(io.BytesIO(content))
+    text = "".join([p.extract_text() or "" for p in reader.pages[:2]])
+    return {"Type":"PDF","Preview":text.strip()[:500]}
+
+  return {"Error":"Unsupported file format"}
+
+session handling:
+================
+session -->particular time period
+example:mobile banking login, if we leave for sometime it will logout
+
+user +password -->server(db) -->success(id)-->home(username+id)-->bal acc+id
+                   check            
+
+session id --> cookies (small piece of information)
+
+c_uname="admin"
+c_pass="1234"
+
+sessions={}
+
+@app.post("/login")
+def login(u_name : str,pass : str, res=Response): #with id request also send -->response
+    if c_uname == u_name and c_pass == pass:
+        sid=str(uuid.uuid4())
+        sessions[sid] = {"username":u_name}
+        res.set_cookie(key="sid",value=sid,httponly=True)  #in each time of request session id will go into cookies 
+        return {"Message":"Login successful"}
+    else:
+        raise HTTPException(status_code=401,detail="Invalid credential")
+
+
+@app.get("/home")
+def home(sid:Optional[str] =Cookie(None)):
+    if sid is None or sid not in sessions:
+        raise HTTPException(status_code=401,detail="Not authenticated")
+    return {"user":sessiond[sid]}
+
+session handling with expiry:
+============================
+c_uname="admin"
+c_pass="1234"
+
+sessions={}
+time = 10
+
+@app.post("/login")
+def login(u_name : str,passw : str, res=Response):
+    if c_uname == u_name and c_pass == passw:
+        sid=str(uuid.uuid4())
+        current_time = datetime.now()
+        expiry_time = current_time+timedelta(seconds=time)
+        sessions[sid] = {"username":u_name,"expiry_time" : expiry_time }
+        res.set_cookie(key="sid",value=sid,httponly=True,max_age=time)
+        return {"Message":"Login successful"}
+    else:
+        raise HTTPException(status_code=401,detail="Invalid credential")
+
+
+@app.get("/home")
+def home(sid:Optional[str] =Cookie(None)):
+    if sid is None or sid not in sessions:
+        raise HTTPException(status_code=401,detail="Not authenticated")
+    
+    session_data=sessions[sid]
+    if session_data["expiry_time"]<datetime.now():
+        sessions.pop(sid)
+    return {"data":sessions}
+
+rate limiting:
+==============
+Set the limit for users request....
+
+from fastapi import FastAPI,HTTPException,Request
+
+app=FastAPI()
+
+request_counter={}
+max_req=5
+
+@app.get("/data")
+def get_data(request:Request):
+    client_ip=request.client.host
+    request_counter[client_ip] = request_counter.get(client_ip,0)+1
+
+    if request_counter[client_ip]>max_req:
+        raise HTTPException(status_code=429,detail="Too many Request.Your limit is reached!")
+    else:
+        return {"message":f"Request {request_counter[client_ip]} is successful!"}
+
+
+Dependency injection:
+====================
+Adding external function/features in the current program without hardcoding them.  used in sessions,authentication,db,normal class
+
+types:
+    functional level
+    class level
+    sub dependency (eg.multilevel inheritance)
+    global level
+    yeild/generator level 
+
+#function level:
+===============
+from fastapi import FastAPI,Depends
+
+app = FastAPI()
+
+def db():
+    return {"db":"Connected"}
+
+@app.get("/display")
+async def display(a:dict = Depends(db)):
+    return {"message":"this is from display end point","db_connect":a}
+
+#class level:
+============
+
+class User:
+    def __init__(self):
+        self.name = "admin"
+        self.age = "25"
+
+def get_user():
+    return User()
+
+@app.get("/user_data")
+async def user_info(a:User = Depends(get_user)):    #a=variable,User=class depends of method name
+    return {"name":a.name, "age":a.age}
+
+#global level:
+==============
+
+def ver_tok(tok :str="123"):
+    if tok != "123":
+        raise Exception("Invalid Token")
+    return True
+
+app = FastAPI(dependencies=[Depends(ver_tok)])
+
+@app.get("/display")
+async def dis():
+    return {"message":"Hello"}
+
+#subdependency:
+=============
+def grand_parent():
+    return {"message":"from grand parent"}
+
+def parent(a=Depends(grand_parent)):
+    return {"message":f"from parent {a}"}
+
+@app.get("/display")
+def child (b:str =Depends(parent)):
+    return {"message":b}
+
+#yield level:
+============
+def book():
+    print("Book taken from shelf", datetime.now())
+    book = "FastAPI Book"
+    yield book
+    print("Book returned to shelf",datetime.now())
+
+@app.get("/display")
+def readbook(a:str =Depends(book)):
+    return {f"message{datetime.now()}":f"reading {a}"}
+
+
+#DB CRUD:
+========
+import sqlite3
+
+conn = sqlite3.connect("test.db",check_same_thread=False)
+cursor = conn.cursor()
+cursor.execute('''
+    create table if not exists items(
+           item_id integer primary key autoincrement,
+           name text not null,
+           description text
+    )
+    ''')
+
+conn.commit()
+
+###create::::
+============
+app=FastAPI()
+
+class item(BaseModel):
+    name :str
+    description :str
+
+
+@app.post("/items/create")
+def create_item(i:item):
+    try:
+        cursor.execute("Insert into items(name,description) values(?,?)",(i.name,i.description))
+        conn.commit()
+        return {"message":"Items stored succesfully"}
+    except Exception as e:
+        raise HTTPException(status_code=400,detail=f"unable to store{e}")
+
+####read:::
+==========
+@app.get("/items/read")
+def read():
+    try:
+        cursor.execute("select * from items")
+        rows = cursor.fetchall()
+        return [{"id":r[0],"name":r[1],"description":r[2]} for r in rows]
+    except Exception as e:
+        raise HTTPException(status_code=400,detail=f"unable to read{e}")
+
+##read one::
+===========
+@app.get("/items/read_one/{name}")
+def read_one(name:str):
+    try:
+        cursor.execute("select * from items where name =?",(name,))
+        r=cursor.fetchone()
+        if r is None:
+            raise HTTPException(status_code=400,detail=f"unable to read{e}")
+        return {"id":r[0],"name":r[1],"description":r[2]}
+    except Exception as e:
+        raise HTTPException(status_code=400,detail=f"unable to read{e}")
+    
+
+###update::
+===========
+@app.put("/read/update/{item_id}")
+def update(item_id:int,i:item):
+    try:
+        cursor.execute("update items set name=?,description=? where id=?",(i.name,i.description,item_id))
+        conn.commit()
+        return {"message":"Items update succesfully"}
+    except Exception as e:
+        raise HTTPException(status_code=400,detail=f"unable to update{e}")
+
+#delete::
+==========
+@app.delete("/items/delete/{name}")
+def delete(name:str):
+    try:
+        cursor.execute("delete from items where name=?",(name,))
+        conn.commit()
+        return {"message":"Items deleted successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=400,detail=f"unable to delete{e}")
+
+
+JWT ---json web token:
+=======================
+JWT-Json Web Token
+Used for authentication.
+
+Authentication:	
+Verifies who the user is	
+Performed before authorization	
+
+Authorization:
+Determines what the user can access
+Happens after authentication
+
+JWT is a string and follows the structured format.
+
+str = header.payload.signature
+header = type:JWT, algorithm:HS256/RSA
+payload = user_data
+signature=encode information
+
+
+things to do:(endpoints)
+login 
+secret data
+jwt
+verify
+
+>>>pip install python-jose
+
+#login 
+#secret_data
+#jwt
+#verify
+
+
+from fastapi import FastAPI,HTTPException
+from jose import jwt,JWTError
+from datetime import datetime,timedelta
+
+app = FastAPI()
+
+
+ALGORITHM="HS256"
+ACCESS_TOKEN_EXPIRY_TIME=10
+SECRET_KEY="mysecretkey_1234"
+
+
+def create_token(user_name:str):
+   expiry=datetime.utcnow()+timedelta(minutes=ACCESS_TOKEN_EXPIRY_TIME) 
+   payload = {"username":user_name,"Token_Expiry":expiry.timestamp()}
+   return jwt.encode(payload,SECRET_KEY,ALGORITHM)
+
+
+def verify_token(token):
+    try:
+        payload = jwt.decode(token,SECRET_KEY,algorithms={ALGORITHM})
+        return payload["username"]
+    except JWTError:
+        raise HTTPException(status_code=400,detail="Invalid Token")
 
 
 
+@app.post("/login")
+def login(user_name:str,password:str):
+    if user_name == "admin" and password =="1234":
+        token = create_token(user_name)
+        return {"access_token":token}
+    return HTTPException(status_code=400,detail="Invalid username or password")
 
 
+@app.get("/secret_data")
+def secret_data(token:str):
+    user_name=verify_token(token)
+    return {"message":f"Hello {user_name},This is secure data"}
 
