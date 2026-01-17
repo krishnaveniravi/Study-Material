@@ -1,0 +1,264 @@
+what is prompt engineering:
+It combines artificial intelligence and human language understanding.
+
+Professionals or reserchers work to create prompts or instructions that effectively guide AI systemsto produce expected outcome.
+
+Prompt engineering is the method used in natural language processing(NLP) and machine language.
+
+LLM-->Large Langauge Model
+GPT-3,BERT-->They responses based on the prompts they receive.
+
+Prompt engineering as giving direction to these models by crafting specific and concise prompts,we guide them to produce response we want.
+
+17/01/2026
+
+prompt engineering is an art as it is a science.
+
+prompt:A set of detailed guidelines given to LLM to do a task.
+engineering:developing a task specific prompt iteratively.
+
+prompt engineering --iterative process
+
+idea--prompt(design)--result (give that it to your model)---test or feedfack--idea--and so on
+
+BASICS OF PROMPT ENGINEERING:
+=============================
+prompts contains two parts:
+1.parameters
+2.structure
+
+1.parameters:
+1.Temperature:(0 to 1) for creative answer -->0.7 to 0.8,for normal set it to 0
+Lower for creativity and deterministic results: Higher for diversity and factual Q/A
+
+2.TOP P: Top probability
+Control model determinisim;Low for factual,high for diverse.
+
+3.Max length:
+Manage response length.
+
+Components of a good prompt:
+===========================
+Good prompt -->chatGPT or generative model gives you a good result/outcomes .and you have less feedback.
+
+Instruction:
+==========
+A specific task or instruction you want the model to perform.
+
+Context:
+=======
+Additional context that can steer the model to better perfomance.
+
+Input Data:
+==========
+The input or question for that we need answer.
+
+Output Indicater:
+================
+The type or format of the output.
+
+Examples of components of the good prompt:
+=========================================
+1.Context:
+"Act as a analyst" working for an OTT platform.You will have to perform sentiment analysis based on the feedback provided 
+by the consumers on the movies and series put on the OTT platform.
+
+2.Classify the feedback as neutral ,negative,pr positive ,where positive is promotor, negative means demoter,
+and neutral means neither will promote nor will demote the contentt.
+
+Example:
+feedback1:I think the series was okay.
+sentiment:Neutral
+feedback2:The acting of each character in the series was awesome.
+sentiment:Positive.
+
+3.Input /output data:
+Feedback:the storyline for the series was repetitive and abysmal(very bad).
+sentiment.negative
+
+
+How to write a good prompt:
+==========================
+#Define the goal: 
+Tell chatGPT what you exactly want it to do.
+#Detail out it format:
+Specify the format in which you want your output.Eg.tables/paragraph,lists,with or without heading,listed in priorty order if any,etc.
+#Create a Role:
+Assign chatGPT a role to let it process your request from that specific point of view.Eg.Act as a anylists..etc.
+
+#Clarify whol the audience is:(begginer,advanced,intermediate level,etc)
+Specify the demographics for chatGPT to help it tailor its response appropriately.
+
+#Give context:
+Provide every possible information to chatGPT to help it understand the purpose of your request.,
+
+#Give examples:
+Share examples to let chatGPT learn form it and produce more accurate results.
+
+#specify the style:
+outline the tone,the communication style ,the brand identity and other details in your prompt for a suitable response.
+
+#define the scope:
+outlining a scope with further specifications besides giving a context and examples.will help charGPT operate within those parameters.(temperatures,top p)
+
+#Apply restrictions:
+Constraints or restrictions applied in your prompt will create the right boundaries for chatGPT to produce more relevant responses.
+(output length,token length)
+
+
+Different Prompt Patterns:
+=========================
+1.Persona pattern:
+Act as X.DO the task Y.(Eg: As a Yoga teacher ,create a beginner -friendly routine for joint mobility.)
+
+2.Audience Persona Pattern:
+Explain X to me.Assume I'm Y.(Eg. Explain the importance of eating greens.Assume I'm a skeptical child.)
+
+3.Visualization Generator Pattern:
+Generate X that can be provided to tool Y for visualization.(Eg. generate a CSV that i can use in tableau to create a visualization.)
+
+4.Recipe pattern:
+Inorder to do X, i need to perform steps a,b,c. provide a complete sequence of steps for me while filling in any missing steps and removing redundant steps.
+
+5.Template pattern:
+I will provide a template ,with placeholders for content. fit the output with one or more placeholders that i list.
+Eg.Generate a day -wise travel itinerary for visiting paris.
+My place holders are
+<day> for the day of the travel plan
+<location> for the place to visit
+<acitivity> for what to do in that place
+<time> for the best part of the day to visit
+Template:For <Day> visit <location> at <time> for <activity>
+   
+
+Common prompting errors:
+=======================
+1.Vague or Ambiguous prompts
+2.Biased prompts
+3.Lack of contextual information
+4.Insufficient example or training data
+5.Complext or confuding prompts
+6.Not testing prompts thoroughly
+
+Applications of prompt engineering:
+==================================
+Content Generation:
+-Copywriting and advertising
+-creative writing
+-Educational content
+
+Customer support and Engagement:
+-Chatbots and virtual assitants
+-Instructional Guides
+
+Data Analysis and Science:
+-Data cleaning and preparation
+-Statistical analysis and visualization
+
+Code generation and software Development:
+-Automating code writing
+-Debugging assistance
+-Documentation generation
+
+Research and Information retrieval:
+-Text summarization
+-Question Answering
+
+Machine Translation:
+-Information sharing
+-Internal communication
+
+Sentiment Analysis:
+-Consumer feedback analysis
+-Brand management
+-marketing
+
+other domains:
+-Healthcare
+-Manufacturing
+-Security
+-Retail and shopping
+
+Hands on basics of prompt engineering:
+
+Defining a good  prompt engineering:
+===================================
+1.Text summarization
+2.code generation
+
+
+Advanced prompt starttegies:
+============================
+#Zero-shot,:
+Directly  instructing the model to perform a task without any additional examples.
+#Few-Shot,:
+Teaching with examples in the prompt.
+#Chain of thought process:
+Designed for logical thoughts.(blood relation etc....)
+Asking to show its work or though process.
+eg:
+adding
+2+2=4
+15+4=19
+
+input->3150+10500
+what will be the answer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
