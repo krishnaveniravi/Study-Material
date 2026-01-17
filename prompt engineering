@@ -205,16 +205,76 @@ input->3150+10500
 what will be the answer
 
 
+======================================================
+Gen AI -Generative AI:
+====================
+                    Artificial Intelligence
+                              |
+                       Machine learning
+                              |
+                        deep learning
+                              |
+                           Gen AI
+
+Generative AI or Gen AI ,functions by employing a neural network to analyze data patterns 
+and generate new content based on those pattern.
+
+Neural Networks, inspired by the human brain ,process data patterns in a way similar to neurans.
 
 
+Discriminative AI:
+Classifies the data in a way similar to a judge.
+Genrative AI:
+Create ,transforms or generates its own content like an artist.
+
+How does GenAI work?
+Input------------>Generative AI------------->Tasks
+                        |
+                        |
+                        |
+      Pre training <-----------> fine tuning
 
 
+Types of Gen AI:
+===============
+1.Generative Adversarial Networks(GANs):
+It is a type of AI where two models ,one-generating the content
+another-judging it -->working together to produce realistic new data.
+
+2.Variational autoencoders:'
+This AI learns to recreate and generate new similar data.
+
+3.Transformers:
+This AI learns to produce sequences using contexts.
+
+4.Diffusion models:
+It generates data by refining noisy starting until it looks realistic.
+
+Applications:
+1.Content creation
+2.customer support and engagement
+3.Data analysis and data science.
+4.code generation and software development
+5.sentiment analysis
+6.Research and Information retrieval:
+-Text summarization
+-Question Answering
+7.Machine Translation:
+-Information sharing
+-Internal communication
+
+8.otherdomains:
+-Healthcare
+-Manufacturing
+-Security
+-Retail and shopping
 
 
-
-
-
-
+Gen AI tools:
+chatGPT
+claude
+Gemini
+Github copilot
 
 
 
