@@ -25,7 +25,7 @@ if incase not activated
 goto windows powershell --run as administrator
 >>>Get-ExecutionPolicy
 >>>Set-ExecutionPolicy Unrestricted
-
+pip install -r requirements.txt
 >>>pip install fastapi
 >>>pip install uvicorn   --->server, Uvicorn is a lightweight server used to run FastAPI apps
 >>>uvicorn main:app --reload
